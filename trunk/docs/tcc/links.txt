@@ -1,0 +1,17 @@
+Java Speech API Markup Language (JSML)
+http://java.sun.com/products/java-media/speech/forDevelopers/JSML/
+
+SSML
+http://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language
+http://www.w3.org/TR/speech-synthesis/
+
+VOICE XML
+http://jvoicexml.sourceforge.net/
+http://en.wikipedia.org/wiki/VoiceXML
+
+MBROLA
+http://tcts.fpms.ac.be/synthesis/mbrola.html
+http://www.cstr.ed.ac.uk/projects/festival/mbrola.html
+
+outros
+http://today.java.net/pub/a/today/2006/04/13/vocal-java.html

@@ -1,0 +1,106 @@
+identificador:{id}+
+ : {ws}+
+numero: [\+\-]?[0-9]+[\.0-9]*
+modelo = identificador: "modelo"
+metodo = identificador: "metodo"
+mundo = identificador: "mundo"
+CRIA = identificador: "CRIA"
+VIVA = identificador: "VIVA"
+APAGA = identificador: "APAGA"
+TERMINA = identificador: "TERMINA"
+gira = identificador: "gira"
+cor = identificador: "cor"
+espelha = identificador: "espelha"
+repita = identificador: "repita"
+em = identificador: "em"
+paralelo = identificador: "paralelo"
+faca = identificador: "faça"
+depois = identificador: "depois"
+de = identificador: "de"
+no = identificador: "no"
+ponto = identificador: "ponto"
+inicio = identificador : "inicio"
+fim = identificador: "fim"
+cria = identificador: "cria"
+como = identificador: "como"
+move = identificador: "move"
+piscar = identificador: "pisca"
+vezes = identificador: "vezes"
+Peca1 = identificador: "p1"
+Peca2 = identificador: "p2"
+Peca3 = identificador: "p3"
+Peca4 = identificador: "p4"
+Peca5 = identificador: "p5"
+Peca6 = identificador: "p6"
+Peca7 = identificador: "p7"
+amarelo = identificador: "amarelo"
+azul = identificador: "azul"
+azulMarinho = identificador : "azulMarinho"
+azulPiscina = identificador: "azulPiscina"
+branco = identificador: "branco"
+cinza = identificador: "cinza"
+marrom = identificador: "marrom"
+oliva = identificador: "oliva"
+prata = identificador: "prata"
+preto = identificador: "preto"
+rosa = identificador: "rosa"
+verde = identificador: "verde"
+verdePiscina = identificador: "verdePiscina"
+verdeLima = identificador: "verdeLima"
+vermelho = identificador: "vermelho"
+violeta = identificador: "violeta"
+";" : ;
+"(" : \(
+")" : \)
+"," : ,
+"." : .
+:{comentario}
+:{multilinha} 
+
+
+
+
+
+
+<codigo> ::= <modelo> | <mundo> | <metodo_cria> #2 ;
+<modelo> ::= modelo  #0 <figura> <Lista_de_metodos> fim "." #27 ;
+<Lista_de_metodos> ::= <metodo_cria> <metodos_outros> ;
+<metodos_outros> ::= <metodo> <metodos_outros> | î ;
+<metodo_cria> ::= metodo CRIA #4 #12 <bloco> fim ";" #26 #36 ;
+<metodo> ::= metodo <nome_Metodo> #12 <bloco> fim ";" #26 ;
+<bloco> ::= <comando> <bloco_2> ;
+<bloco_2> ::= <bloco> | î ;
+<comando> ::= <comando_cria> | <comandos_em_ids> |  <comando_piscar> #22 #14 | <comando_repete> | <comando_faca> ;
+<comandos_em_ids> ::= <id> "." <comando_de_id> ;
+<comando_de_id> ::= <comando_move> #14 | <comando_gira> #14 | <comando_cor> #14 | <comando_espelha> #14 ;
+<comando_cria> ::= cria <peca> "(" <X> "," <Y> "," <Z>  ")" #13 #14 <cria_extra> ;
+<cria_extra> ::= <extra> | î ;
+<extra> ::= <comando_cor> #14 <cria_extra> | <comando_gira> #14 <cria_extra> | <comando_espelha> #14 <cria_extra> ;
+<id> ::= <figura> #15 | <peca> #16 ;
+<comando_move> ::= move  "(" <X>  "," <Y>  "," <Z>  ")" #17 ;
+<comando_gira> ::= gira "(" <X> ")" <gira_extra> #18 ;
+<gira_extra> ::= no ponto "(" <Y> ")" | î ;
+<comando_cor> ::= cor "(" <cor> ")" #20 ;
+<comando_espelha> ::= espelha #21 ;
+<comando_piscar> ::= piscar "(" <X> ")" ;
+<comando_repete> ::= repita <X> vezes #23 inicio <bloco> fim #24 ;
+<comando_faca> ::= faca identificador #25 #14 ;
+<figura> ::= identificador #3 ;
+<nome_Metodo> ::= identificador #4 ;
+<modelo_id> ::= identificador #5 ;
+<nome_do_mundo> ::= identificador #6 ;
+<peca> ::= Peca1 #7 |Peca2 #7 |Peca3 #7 |Peca4 #7 |Peca5 #7 |Peca6 #7 |Peca7 #7 ;
+<cor> ::= amarelo #8 | azul #8 | azulMarinho #8 | azulPiscina #8 | branco #8  | cinza #8  | marrom #8  | oliva #8 | prata #8 | preto #8 | rosa #8 | verde #8 | verdePiscina #8 | verdeLima #8 |vermelho #8 | violeta #8 ;
+<X> ::= numero #9 ;
+<Y> ::= numero #10 ;
+<Z> ::= numero #11 ;
+<mundo> ::= mundo  #1 <nome_do_mundo> <bloco_do_mundo> fim"." ;
+<bloco_do_mundo> ::= <comando_mundo> <bloco_do_mundo_2> ;
+<bloco_do_mundo_2> ::= <bloco_do_mundo> | î ;
+<comando_mundo> ::= <comando_cria_como> | <comando_repete_mundo> | #33 <comando_faca_mundo> #14 | <comando_piscar> #22 #14 ;
+<comando_cria_como> ::= cria <modelo_id> como <figura> #28 #14 "(" <X>  "," <Y>  "," <Z>  ")" #29 #14 ;
+<comando_repete_mundo> ::=  repita <X> vezes #23 inicio <bloco_do_mundo> fim #24 ;
+<comando_faca_mundo> ::=  faca <modelo_id> "." <metodo_do_id> ;
+<metodo_do_id> ::= <comando_viva> #30 | TERMINA #31 | APAGA #32 | <nome_Metodo> <em_paralelo> #34 ;
+<comando_viva> ::= VIVA "(" <nome_Metodo> ")" ;
+<em_paralelo> ::= em paralelo #35;
