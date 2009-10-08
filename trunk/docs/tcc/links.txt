@@ -13,5 +13,8 @@ MBROLA
 http://tcts.fpms.ac.be/synthesis/mbrola.html
 http://www.cstr.ed.ac.uk/projects/festival/mbrola.html
 
+PSOLA
+http://www.acoustics.hut.fi/publications/files/theses/lemmetty_mst/chap5.html
+
 outros
 http://today.java.net/pub/a/today/2006/04/13/vocal-java.html
