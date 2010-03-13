@@ -1,0 +1,113 @@
+<jsml> 
+  <!--?xml version="1.0" encoding="iso-8859-1" ? 
+  --> 
+  <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd 
+  --> 
+    <html> 
+      <head> 
+        <title/> 
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/> 
+        <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/mn.html)"/> 
+        <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/mn.html)"/> 
+  <!-- xhtml,jsml 
+  --> 
+        <meta name="src" content="file.tex"/> 
+        <meta name="date" content="2006-05-30 13:16:00"/> 
+        <link rel="stylesheet" type="text/css" href="file.css"/> 
+      </head> 
+      <body> 
+  <!--l. 5 
+  --> 
+        <PARA> 
+          <p class="noindent">A quadratic equation <span class="inline-math"><span class="begin-math" title="speech-extra"><BREAK SIZE="small"/></span><mi><SAYAS SUB="aih">a</SAYAS></mi><msup><mrow class="mrow-base"><mi>x</mi></mrow><mrow class="mrow-super"><mo class="mo-op"> squared </mo></mrow></msup><mo class="MathClass-bin"><BREAK SIZE="small"/>+<BREAK SIZE="small"/></mo><mi>b</mi><mi>x</mi><mo class="MathClass-bin"><BREAK SIZE="small"/>+<BREAK SIZE="small"/></mo><mi>c</mi><mo class="MathClass-rel"><BREAK SIZE="small"/>=<BREAK SIZE="small"/></mo><mn>0</mn><span class="end-math" title="speech-extra"><BREAK SIZE="small"/></span></span> 
+  with <span class="inline-math"><span class="begin-math" title="speech-extra"><BREAK SIZE="small"/></span><mi><SAYAS SUB="aih">a</SAYAS></mi><mo class="MathClass-rel"><BREAK SIZE="small"/><span class="char" title="ch-verbose"><span class="ch 2260" title="ch-verbose">not equal</span></span><BREAK SIZE="small"/></mo><mn>0</mn><span class="end-math" title="speech-extra"><BREAK SIZE="small"/></span></span> 
+  has the following solution. 
+  </p> 
+        </PARA> 
+  <!--l. 7 
+  --> 
+        <div class="display-math"> 
+          <span class="begin-math" title="speech-extra"> 
+            <BREAK SIZE="small"/> 
+          </span> 
+          <mi>x</mi> 
+          <mo class="MathClass-rel"><BREAK SIZE="small"/>=<BREAK SIZE="small"/></mo> 
+          <mfrac> 
+            <span class="begin-end" title="speech-extra"> 
+              <level continued="begin continued fraction" prefix="begin">begin fraction</level> 
+              <BREAK SIZE="small"/> 
+            </span> 
+            <mrow class="mrow-numerator"> 
+              <mo class="mo-unary"> 
+                <span class="char" title="ch-verbose"> 
+                  <span class="ch 2212" title="ch-verbose">negative</span> 
+                </span> 
+                <BREAK SIZE="small"/> 
+              </mo> 
+              <mi>b</mi> 
+              <mo class="MathClass-bin"> 
+                <BREAK SIZE="small"/> 
+                <span class="char" title="ch-verbose"> 
+                  <span class="ch 00B1" title="ch-verbose">plus minus</span> 
+                </span> 
+                <BREAK SIZE="small"/> 
+              </mo> 
+              <msqrt> 
+                <span class="begin-root" title="speech-extra"> 
+                  <level prefix="begin">begin root</level> 
+                  <BREAK SIZE="small"/> 
+                </span> 
+                <mrow class="root-base"> 
+                  <msup> 
+                    <mrow class="mrow-base"> 
+                      <mi>b</mi> 
+                    </mrow> 
+                    <mrow class="mrow-super"> 
+                      <mo class="mo-op"> squared </mo> 
+                    </mrow> 
+                  </msup> 
+                  <mo class="MathClass-bin"> 
+                    <BREAK SIZE="small"/> 
+                    <span class="char" title="ch-verbose"> 
+                      <span class="ch 2212" title="ch-verbose">minus</span> 
+                    </span> 
+                    <BREAK SIZE="small"/> 
+                  </mo> 
+                  <mn>4</mn> 
+                  <mi> 
+                    <SAYAS SUB="aih">a</SAYAS> 
+                  </mi> 
+                  <mi>c</mi> 
+                </mrow> 
+                <span class="end-root" title="speech-extra"> 
+                  <BREAK SIZE="small"/> 
+                  <level prefix="end">end root</level> 
+                  <BREAK SIZE="small"/> 
+                </span> 
+              </msqrt> 
+            </mrow> 
+            <span class="begin-end" title="speech-extra"> 
+              <level prefix="over">over</level> 
+              <BREAK SIZE="small"/> 
+            </span> 
+            <mrow class="mrow-enumerator"> 
+              <mn>2</mn> 
+              <mi> 
+                <SAYAS SUB="aih">a</SAYAS> 
+              </mi> 
+            </mrow> 
+            <span class="begin-end" title="speech-extra"> 
+              <BREAK SIZE="small"/> 
+              <level continued="end continued fraction" prefix="end">end fraction</level> 
+              <BREAK SIZE="small"/> 
+            </span> 
+          </mfrac> 
+          <span class="end-math" title="speech-extra"> 
+   
+  </span> 
+        </div> 
+  <!--l. 7 
+  --> 
+      </body> 
+    </html> 
+  </jsml>
