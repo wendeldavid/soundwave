@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml lang="pt-br" mark="mark_jsml">
+
+	<div type="paragraph" mark="mark_div">Este texto é um parágrafo.</div>
+
+	<voice gender="female" age="adult" variant="6" name="voice_name"
+		mark="mark_voice"></voice>
+
+	<sayas class="literal" mark="mark_sayas_literal">Diário de bordo dia</sayas>
+	<sayas class="number" mark="mark_sayas_number">365.</sayas>
+	<sayas class="literal">Data estelar</sayas>
+	<sayas class="date" mark="mark_sayas_date">11/05/2010</sayas>
+	<sayas class="literal">às</sayas>
+	<sayas class="time" mark="mark_sayas_time">01:26.</sayas>
+	<sayas class="measure" mark="mark_sayas_measure">753KM</sayas>
+	<sayas class="literal">quilômetros percorridos.</sayas>
+
+	<phoneme mark="mark_phoneme"><![CDATA[&boat;]]></phoneme>
+
+	<emphasis level="strong" mark="mark_emphasis">Ênfase na frase.</emphasis>
+
+	<break size="large" time="3s" mark="mark=break">pausa dramática</break>
+
+	<prosody rate="medium" volume="loud" pitch="default" range="default"
+		mark="mark_prosody">o roque vai para o inferno!</prosody>
+
+	<engine name="SKYNET synth" data="SKYNET" mark="mark_engine">outro
+		sintetizador</engine>
+
+</jsml>
