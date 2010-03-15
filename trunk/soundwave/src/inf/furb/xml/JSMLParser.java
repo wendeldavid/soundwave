@@ -1,5 +1,28 @@
 package inf.furb.xml;
 
+<<<<<<< .mine
+import inf.furb.synthesis.jsml.Break;
+import inf.furb.synthesis.jsml.Div;
+import inf.furb.synthesis.jsml.ElementBuilder;
+import inf.furb.synthesis.jsml.Emphasis;
+import inf.furb.synthesis.jsml.Engine;
+import inf.furb.synthesis.jsml.ISynthElement;
+import inf.furb.synthesis.jsml.JSML;
+import inf.furb.synthesis.jsml.Marker;
+import inf.furb.synthesis.jsml.Phoneme;
+import inf.furb.synthesis.jsml.Prosody;
+import inf.furb.synthesis.jsml.SayAs;
+import inf.furb.synthesis.jsml.Voice;
+
+import java.io.File;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+=======
 import inf.furb.synthesis.Break;
 import inf.furb.synthesis.Div;
 import inf.furb.synthesis.ElementFactory;
@@ -21,6 +44,7 @@ import java.util.List;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
+>>>>>>> .r34
 import org.dom4j.io.SAXReader;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
@@ -30,6 +54,22 @@ import org.xml.sax.InputSource;
  * 
  * @author wendel
  */
+<<<<<<< .mine
+public final class JSMLParser {
+
+	private SAXReader reader;
+	private File jsmlFile = null;
+	private List<ISynthElement> synthElements;
+
+	public JSMLParser(File jsmlFile) {
+		if (jsmlFile == null) {
+			throw new RuntimeException("The JSML file cannot be null");
+		}
+		if (!jsmlFile.exists() && !jsmlFile.isFile()) {
+			throw new RuntimeException("The " + jsmlFile.getAbsolutePath()
+					+ " is not valid");
+		}
+=======
 public final class JSMLParser {
 
 	private SAXReader reader;
@@ -93,7 +133,20 @@ public final class JSMLParser {
 	private ISynthElement readElement(Element element) {
 		Class<?> clazz = null;
 		final String nodeName = element.getName();
+>>>>>>> .r34
 		
+<<<<<<< .mine
+		this.jsmlFile = jsmlFile;
+		reader = new SAXReader(true);
+		reader.setIgnoreComments(false);
+		reader.setValidation(false);
+//		reader.setIncludeExternalDTDDeclarations(true);
+//		reader.setIncludeInternalDTDDeclarations(true);
+//		reader.setEntityResolver(getEntityResolver());
+		reader.setErrorHandler(new SimpleErrorHandler());
+		
+		synthElements = new ArrayList<ISynthElement>(2);
+=======
 		if(nodeName.equals(ISynthElement.JSML)) {
 			clazz = JSML.class;
 		}else if(nodeName.equals(ISynthElement.BREAK)) {
@@ -122,6 +175,42 @@ public final class JSMLParser {
 		System.out.println(clazz.getName());
 		
 		return ElementFactory.getSynthElementInstance(element, clazz);
+>>>>>>> .r34
 	}
+
+	private static EntityResolver getEntityResolver() {
+		EntityResolver resolver = new EntityResolver() {
+			public InputSource resolveEntity(String publicId, String systemId) {
+				InputStream in = getClass().getResourceAsStream("jsml.dtd");
+				return new InputSource(in);
+			}
+		};
+		return resolver;
+	}
+	
+	public List<ISynthElement> getSynthElements(){
+		return synthElements;
+	}
+
+	public void parse() {
+		try {
+			Document document = reader.read(jsmlFile);
+			Element root = document.getRootElement();
+			parse(root);
+			
+		} catch (DocumentException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private void parse(Element e) {
+		synthElements.add(ElementBuilder.getSynthElementInstance(e));
+		List<Element> elements = e.elements();
+		for (Element element : elements) {
+			parse(element);
+		}
+	}
+
+	
 	
 }

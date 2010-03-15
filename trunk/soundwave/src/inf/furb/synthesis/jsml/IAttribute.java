@@ -1,4 +1,4 @@
-package inf.furb.synthesis;
+package inf.furb.synthesis.jsml;
 
 /**
  * Representa um atributo de um {@link ISynthElement}.

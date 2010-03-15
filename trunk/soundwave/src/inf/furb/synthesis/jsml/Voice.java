@@ -1,4 +1,4 @@
-package inf.furb.synthesis;
+package inf.furb.synthesis.jsml;
 
 import java.util.ArrayList;
 import java.util.List;
