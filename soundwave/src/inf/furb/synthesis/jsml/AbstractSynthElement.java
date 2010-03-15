@@ -1,8 +1,8 @@
-package inf.furb.synthesis;
+package inf.furb.synthesis.jsml;
 
 import java.util.List;
 
-public abstract class AbstractSynthElement implements ISynthElement {
+abstract class AbstractSynthElement implements ISynthElement {
 
 	private String mark;
 	protected String text;
