@@ -1,7 +1,5 @@
 package inf.furb.synthesis.jsml;
 
-import inf.furb.synthesis.jsml.ISynthElement;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
