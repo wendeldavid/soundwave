@@ -1,19 +1,16 @@
 package inf.furb.synthesis.mbrola;
 
 import inf.furb.common.ConfigNode;
-import inf.furb.common.ResourcePool;
 import inf.furb.synthesis.ISynthesizer;
+import inf.furb.synthesis.mbrola.util.Utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * Implementação do sintetizador MBRola.
  */
 public final class MBRolaSynthesizer implements ISynthesizer {
-
-	private static final String RESOURCE_PATH = "inf/furb/synthesis/mbrola/resource/";
 
 	private String mbrolabin;
 	private String voice;
@@ -23,6 +20,10 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 	@Override
 	public void configure(ConfigNode node) {
 		// TODO Auto-generated method stub
+		configureMBrolaApp();
+		configureVoice(node.getConfig("voice").toString());
+		configureInputVoice("");
+		configureOutputVoice("");
 	}
 
 	@Override
@@ -49,7 +50,7 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 		
 	}
 
-	private File getMBrolaApp() {
+	private void configureMBrolaApp() {
 		String bin = null;
 		final String osName = (String) System.getProperties().get("os.name");
 		if (osName.toLowerCase().indexOf("windows") > -1) {
@@ -62,17 +63,34 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 			throw new OSNotSupportedException(osName);
 		}
 
-		File file = getResource(bin);
+		File file = Utils.getResource(bin);
 		file.setWritable(true);
 		file.setReadable(true);
 		file.setExecutable(true);
 		
-		return file;
-	}
-
-	private File getResource(String bin) {
-		final URL resource = MBRolaSynthesizer.class.getClassLoader().getResource(RESOURCE_PATH + bin);
-		return ResourcePool.copyFile(new File(resource.getFile()));
+		try {
+			mbrolabin = file.getCanonicalPath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
+	private void configureVoice(String voiceName) {
+		File voice = Utils.getResource(voiceName);
+		this.voice = voice.getName();
+	}
+	
+	private void configureInputVoice(String string) {
+		// TODO Auto-generated method stub
+	}
+	
+	private void configureOutputVoice(String string) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void run() {
+		speech();
+	}
+
 }
