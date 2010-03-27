@@ -7,7 +7,7 @@ import inf.furb.common.ConfigNode;
  * Iterface que define um sintetizador.
  *
  */
-public interface ISynthesizer {
+public interface ISynthesizer extends Runnable{
 
 	static final String CONFIG_VOICE = "voice";
 	static final String CONFIG_IMPUT = "input";
