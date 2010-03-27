@@ -1,17 +1,7 @@
 package inf.furb.xml;
 
-import inf.furb.synthesis.jsml.Break;
-import inf.furb.synthesis.jsml.Div;
 import inf.furb.synthesis.jsml.ElementBuilder;
-import inf.furb.synthesis.jsml.Emphasis;
-import inf.furb.synthesis.jsml.Engine;
 import inf.furb.synthesis.jsml.ISynthElement;
-import inf.furb.synthesis.jsml.JSML;
-import inf.furb.synthesis.jsml.Marker;
-import inf.furb.synthesis.jsml.Phoneme;
-import inf.furb.synthesis.jsml.Prosody;
-import inf.furb.synthesis.jsml.SayAs;
-import inf.furb.synthesis.jsml.Voice;
 
 import java.io.File;
 import java.io.InputStream;
@@ -90,6 +80,4 @@ public final class JSMLParser {
 		}
 	}
 
-	
-	
 }
