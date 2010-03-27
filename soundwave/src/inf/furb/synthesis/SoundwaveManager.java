@@ -1,10 +1,13 @@
 package inf.furb.synthesis;
 
-import inf.furb.xml.JSMLParser;
-
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+
+import org.dom4j.Element;
+
+import inf.furb.synthesis.jsml.ISynthElement;
+import inf.furb.xml.JSMLParser;
 
 /**
  * Classe <b>power</b> que tem a responsabilidade primordial de receber o documento JSML, enviar ao parser e receber a estrutura e repassar ao sintetizador.<br>
