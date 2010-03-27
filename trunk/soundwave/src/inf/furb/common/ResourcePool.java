@@ -60,6 +60,7 @@ public final class ResourcePool {
 	 */
 	public static void cleanPool() {
 		Delete delete = new Delete();
+		delete.setVerbose(false);
 		delete.setIncludeEmptyDirs(true);
 		delete.setQuiet(true);
 		delete.setVerbose(false);
