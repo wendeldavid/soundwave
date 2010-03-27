@@ -1,22 +1,12 @@
 package inf.furb.xml;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import java.io.File;
+import inf.furb.utils.AbstractTestCase;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class TestXMLParse {
-
-	private File getXMLFile(String xmlFileName){
-		return new File("resources/" + xmlFileName);
-	}
-	
-	private JSMLParser getNewParser(String xmlFileName){
-		return new JSMLParser(getXMLFile(xmlFileName));
-	}
+public class TestXMLParse extends AbstractTestCase{
 
 	@Ignore
 	@Test
