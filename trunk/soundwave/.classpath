@@ -7,6 +7,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/3rd-party/dom4j/src.zip!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/3rd-party/ant/ant.jar" sourcepath="/3rd-party/ant/src.zip"/>
+	<classpathentry kind="lib" path="/3rd-party/ant/ant.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
