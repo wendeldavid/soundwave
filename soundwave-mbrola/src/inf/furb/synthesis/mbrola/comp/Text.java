@@ -117,7 +117,7 @@ public class Text {
 	
 	public void parsePhrases(double frequency, int time) {
 		for (Phrase p : phrases) {
-			p.parseWords(frequency, time);
+			p.configureWords(frequency, time);
 		}
 	}
 	

@@ -19,39 +19,67 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Contains a set of constants and static methods to be used by the components.
+ * Classe utilitária para operações de baixo nível sobre as letras que estão sendo configuradas nos textos.
  * @author Germano
  */
-public class ComponentGlobals {
+final class ComponentGlobals {
 
+	/**
+	 * Frequência base do sitetizador.
+	 */
 	public static final double BASE_FREQUENCY = 90;
 	
+	/**
+	 * tempo base utilizado pelo sintetizador
+	 */
 	public static final int BASE_TIME = 105;
 	
+	/**
+	 * Pontuação reconhecida. (. ! ?)
+	 */
 	public static final String[] PONTOS = {
 		".", "!", "?"
 	};
 	
+	/**
+	 * Separadores de uma sentença. (, -)
+	 */
 	public static final String[] SEPARATORS = {
 		",", "-"
 	};
 	
+	/**
+	 * Vogais normais e acentuadas.
+	 */
 	public static final String[] VOGALS = {
 		"a", "á", "à", "ã", "â", "e", "ê", "é", "i", "í", "o", "õ", "ó", "ô", "u", "ú", "ü"
 	};
 	
+	/**
+	 * Todas as consoantes
+	 */
 	public static final String[] CONSONANTS = {
 		"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"
 	};
 
+	/**
+	 * Consoantes regulares
+	 */
 	public static final String[] REGULAR_CONSONANTS = {
 		"b", "d", "f", "j", "k", "m", "p", "t", "v", "w", "y"
 	};
 	
+	/**
+	 * Consoantes irregulares
+	 */
 	public static final String[] IRREGULAR_CONSONANTS = {
 		"c", "g", "h", "l", "n", "q", "r", "s", "x", "z"
 	};
 	
+	/**
+	 * Retorna um mapa de vogais dos fonemas.
+	 * @return
+	 */
 	public static Map<String, String[]> getVogalsInPhonemes() {
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("a", new String[] {"a", "á", "à", "â"});
@@ -65,6 +93,10 @@ public class ComponentGlobals {
 		return map;
 	}
 	
+	/**
+	 * Retorna um mapa com vogais simples
+	 * @return
+	 */
 	public static Map<String, String[]> getVogalsInBasic() {
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("a", new String[] {"a", "á", "à", "ã", "â"});
@@ -76,6 +108,11 @@ public class ComponentGlobals {
 		return map;
 	}
 	
+	/**
+	 * Retorna a vogal
+	 * @param v
+	 * @return
+	 */
 	public static String vogal(String v) {
 		if (inArray(v, new String[]{"a","á","à","â","ä","ã","A","Á","À","Â","Ä","Ã"})) return "A";
 		if (inArray(v, new String[]{"e","é","è","ê","ë","E","É","È","Ê","Ë"})) return "E";
@@ -83,9 +120,14 @@ public class ComponentGlobals {
 		if (inArray(v, new String[]{"o","ó","ò","ô","ö","õ","O","Ó","Ò","Ô","Ö","Õ"})) return "O";
 		if (inArray(v, new String[]{"u","ú","ù","û","ü","U","Ú","Ù","Û","Ü"})) return "U";
 		
-		throw new IllegalArgumentException("The argument is not a valid vogal.");
+		throw new IllegalArgumentException("The argument '" + v + "' is not a valid vogal.");
 	}
 	
+	/**
+	 * Retorna se uma letra é vogal.
+	 * @param v
+	 * @return
+	 */
 	public static boolean isVogal(String v) {
 		String[] allVogals = {
 				"a","e","i","o","u",
@@ -105,6 +147,11 @@ public class ComponentGlobals {
 		return inArray(v, allVogals);
 	}
 	
+	/**
+	 * Retorna se uma letra é consoante.
+	 * @param c
+	 * @return
+	 */
 	public static boolean isConsonant(String c) {
 		return (c.equals("")) || (!isVogal(c) && !Character.isDigit(c.charAt(0)));
 	}
@@ -118,6 +165,11 @@ public class ComponentGlobals {
 		return ((vogal(f).equals("O")) && (vogal(s).equals("E")));
 	}
 	
+	/**
+	 * Retorna se é uma letra do alfabedo português.
+	 * @param c
+	 * @return
+	 */
 	public static boolean isLetter(String c) {
 		String[] letters = new String[] {
 			"a","á","à","ã","â","e","ê","é","i","í","o","õ","ó","ô","u","ú","b","c",
@@ -127,6 +179,11 @@ public class ComponentGlobals {
 		return inArray(c, letters);
 	}
 	
+	/**
+	 * Retorna se é uma vogal anasalada.
+	 * @param c
+	 * @return
+	 */
 	public static boolean isNasal(String c) {
 		String[] chars = new String[] {
 			"ã","õ"
@@ -135,6 +192,11 @@ public class ComponentGlobals {
 		return inArray(c, chars);
 	}
 
+	/**
+	 * Retorna se o caractere é de pontuação
+	 * @param c
+	 * @return
+	 */
 	public static boolean isPontuacao(String c) {
 		String[] chars = new String[] {
 			".","?","!"
@@ -156,6 +218,11 @@ public class ComponentGlobals {
 		return "_";
 	}
 	
+	/**
+	 * Retorna se a vogal possui acentuação.
+	 * @param syllable
+	 * @return
+	 */
 	public static boolean hasAccentuation(String syllable) {
 		String[] accentuatedVogals = new String[] {
 			"á","é","í","ó","ú","à","è","ì","ò","ù","â","ê","î","ô","û","ã","õ",
@@ -171,6 +238,11 @@ public class ComponentGlobals {
 		return false;
 	}
 	
+	/**
+	 * Retorna se a sílaba é oxitona
+	 * @param syllable
+	 * @return
+	 */
 	public static boolean isOxitona(String syllable) {
 		int syllableLenght = syllable.length();
 		
