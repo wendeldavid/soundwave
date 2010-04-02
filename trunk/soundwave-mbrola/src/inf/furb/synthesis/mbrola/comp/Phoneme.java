@@ -15,21 +15,36 @@
 package inf.furb.synthesis.mbrola.comp;
 
 /**
- * Represents a phoneme object of a syllable.
- * @author Germano
+ * Esta classe representa um fonema de uma sílaba.
  */
-public class Phoneme {
+public final class Phoneme {
 
 	private String phoneme;
 	private int time;
 	private double frequency;
-	
+
+	/**
+	 * Construtor do fonema.<br>
+	 * Representa digitalmente um som que será reproduzido.
+	 * 
+	 * @param phoneme
+	 * @see Syllable
+	 * @see ComponentGlobals
+	 */
 	public Phoneme(String phoneme) {
 		this.phoneme = phoneme;
 		this.time = 0;
 		this.frequency = 0;
 	}
-	
+
+	/**
+	 * Exite o fonema no formato do mbrola.<br>
+	 * <code>fonema tempo 100 frequencia</code><br>
+	 * ex:<br>
+	 * a 300 100 43
+	 * 
+	 * @return fonema
+	 */
 	public String showPhoneme() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.phoneme);
@@ -38,31 +53,66 @@ public class Phoneme {
 		sb.append(" 100 ");
 		sb.append(this.frequency);
 		sb.append("\n");
-		
+
 		return sb.toString();
 	}
-	
-	public void parsePhoneme(double frequency, int time) {
+
+	/**
+	 * Configura a frequencia e o tempo que o fonema levará para ser reproduzido.
+	 * 
+	 * @param frequency
+	 *            frequencia em Hz
+	 * @param time
+	 *            tempo em millisegundos
+	 */
+	public void configurePhoneme(double frequency, int time) {
 		this.frequency = frequency;
 		this.time = time;
 	}
 
+	/**
+	 * Retorna o fonema.
+	 * 
+	 * @return fonema
+	 */
 	public String getPhoneme() {
 		return phoneme;
 	}
 
+	/**
+	 * Retorna o tempo em millisegundos.
+	 * 
+	 * @return tempo
+	 */
 	public int getTime() {
 		return time;
 	}
 
+	/**
+	 * Retorna a ferquencia em Hz.
+	 * 
+	 * @return frequencia
+	 */
 	public double getFrequency() {
 		return frequency;
 	}
 
+	/**
+	 * Seta o tempo em millisegundos.
+	 * 
+	 * @param time
+	 *            tempo
+	 */
 	public void setTime(int time) {
 		this.time = time;
 	}
 
+	/**
+	 * Define a frequencia em Hertz.
+	 * 
+	 * @param frequency
+	 *            frequencia
+	 */
 	public void setFrequency(double frequency) {
 		this.frequency = frequency;
 	}

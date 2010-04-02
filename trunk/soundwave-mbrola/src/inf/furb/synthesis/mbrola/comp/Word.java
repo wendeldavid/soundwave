@@ -27,28 +27,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a word object of a phrase.
- * 
- * @author Germano
+ * Esta classe representa uma palavra de uma frase. 
  */
-public class Word {
+public final class Word {
 
-	private class SyllabicSeparation {
+	/**
+	 * Separação silábia de uma palavra.
+	 */
+	private final static class SyllabicSeparation {
 		private List<String> syllables = new ArrayList<String>();
 		private int tonicSyllableIndex;
 
+		/**
+		 * Adiciona uma sílaba
+		 * @param s
+		 */
 		public void addSyllable(String s) {
 			syllables.add(s);
 		}
 
+		/**
+		 * Retorna as sílabas
+		 * @return lista de sílabas
+		 */
 		public List<String> getSyllables() {
 			return syllables;
 		}
 
+		/**
+		 * Retorna o índice da sílaba tônica
+		 * @return
+		 */
 		public int getTonicSyllableIndex() {
 			return tonicSyllableIndex;
 		}
 
+		/**
+		 * Define o indice da sílaba tônica
+		 * @param tonicSyllableIndex
+		 */
 		public void setTonicSyllableIndex(int tonicSyllableIndex) {
 			this.tonicSyllableIndex = tonicSyllableIndex;
 		}
@@ -58,6 +75,10 @@ public class Word {
 	private int numSyllables;
 	private List<Syllable> syllables;
 
+	/**
+	 * Construtor de uma palavra
+	 * @param word palavra
+	 */
 	public Word(String word) {
 		this.word = word.trim();
 		this.syllables = new ArrayList<Syllable>();
@@ -183,6 +204,10 @@ public class Word {
 		return ss;
 	}
 
+	/**
+	 * Retorna as silabas que formam essa palavra.
+	 * @return
+	 */
 	public String showSyllables() {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sbDebug = new StringBuilder();
@@ -199,20 +224,38 @@ public class Word {
 		return sb.toString();
 	}
 
-	public void parseSyllables(double frequency, int time) {
+	/**
+	 * Configura as silabas dessa palavra.
+	 * @param frequency
+	 * @param time
+	 * @see {@link Syllable}.configurePhonemes(frequency, time)
+	 */
+	public void confgureSyllables(double frequency, int time) {
 		for (Syllable s : syllables) {
-			s.parsePhonemes(frequency, time);
+			s.configurePhonemes(frequency, time);
 		}
 	}
 
+	/**
+	 * Retorna a palavra.
+	 * @return
+	 */
 	public String getWord() {
 		return word;
 	}
 
+	/**
+	 * Retorna o numero de silabas dessa palavra. 
+	 * @return
+	 */
 	public int getNumSyllables() {
 		return numSyllables;
 	}
 
+	/**
+	 * Retorna a lista de silabas dessa palavra.
+	 * @return
+	 */
 	public List<Syllable> getSyllables() {
 		return syllables;
 	}
