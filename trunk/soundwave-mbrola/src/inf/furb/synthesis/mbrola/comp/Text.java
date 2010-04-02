@@ -68,7 +68,7 @@ public class Text {
 		String[] allWordsOfTheText = text.split(" ");
 		for (String w : allWordsOfTheText) {
 			if (isNumericWord(w)) {
-				textToBeParsed = textToBeParsed.replace(w, Extenso.converte(Long.parseLong(w)));
+				textToBeParsed = textToBeParsed.replace(w, NumToWord.convert(Long.parseLong(w)));
 			}
 		}
 		
