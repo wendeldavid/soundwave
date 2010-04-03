@@ -21,15 +21,18 @@ import java.util.List;
 
 
 /**
- * Represents the text object to be parsed.
- * @author Germano
+ * Representa um texto completo.
  */
 public class Text {
 
 	private String text;
 	private int numPhrases;
 	private List<Phrase> phrases;
-	
+
+	/**
+	 * Construtor do texto.
+	 * @param text
+	 */
 	public Text(String text) {
 		super();
 		this.text = text.toLowerCase();
@@ -102,6 +105,10 @@ public class Text {
 		return textToBeParsed;
 	}
 
+	/**
+	 * Retorna as frases do texto.
+	 * @return
+	 */
 	public String showPhrases() {
 		StringBuilder sb = new StringBuilder();
 		
@@ -115,20 +122,38 @@ public class Text {
 		return sb.toString();
 	}
 	
-	public void parsePhrases(double frequency, int time) {
+	/**
+	 * Configura as frases.
+	 * @param frequency
+	 * @param time
+	 * @see {@link Phrase}
+	 */
+	public void configurePhrases(double frequency, int time) {
 		for (Phrase p : phrases) {
 			p.configureWords(frequency, time);
 		}
 	}
 	
+	/**
+	 * Retorna o texto
+	 * @return
+	 */
 	public String getText() {
 		return text;
 	}
 
+	/**
+	 * Retorna o número de frases.
+	 * @return
+	 */
 	public int getNumPhrases() {
 		return numPhrases;
 	}
 
+	/**
+	 * Retorna uma lista das frases.
+	 * @return
+	 */
 	public List<Phrase> getPhrases() {
 		return phrases;
 	}
