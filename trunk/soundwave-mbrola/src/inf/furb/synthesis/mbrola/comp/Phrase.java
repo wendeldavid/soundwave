@@ -96,7 +96,7 @@ public class Phrase {
 	}
 
 	/**
-	 * Configura a palavra.
+	 * Configura as palavras.
 	 * @param frequency
 	 * @param time
 	 * @see {@link Word}
