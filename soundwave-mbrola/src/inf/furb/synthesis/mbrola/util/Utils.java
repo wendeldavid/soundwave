@@ -4,7 +4,8 @@ import inf.furb.common.ResourcePool;
 import inf.furb.synthesis.mbrola.MBRolaSynthesizer;
 
 import java.io.File;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Classe utilitária utilizada pelo sintetizador.
@@ -19,8 +20,14 @@ public final class Utils {
 	 * @return arquivo do pool
 	 */
 	public static File getResource(String res) {
-		final URL resource = MBRolaSynthesizer.class.getClassLoader().getResource(RESOURCE_PATH + res);
-		return ResourcePool.copyFile(new File(resource.getFile()));
+		URI resource;
+		try {
+			resource = MBRolaSynthesizer.class.getClassLoader().getResource(RESOURCE_PATH + res).toURI();
+			return ResourcePool.copyFile(new File(resource));
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
