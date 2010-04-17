@@ -43,7 +43,12 @@ class AttributeImpl implements IAttribute {
 		}
 
 		for (int i = 0; i < validValues.length; i++) {
-			if (validValues[i].equals(value)) {
+			//isso é para permitir que null também seja visto como uma valor válido
+			if(validValues[i] == null && value == null) {
+				return true;
+			}
+			
+			if (value.equals(validValues[i])) {
 				return true;
 			}
 		}
@@ -69,8 +74,6 @@ class AttributeImpl implements IAttribute {
 	public void setValue(String value) {
 		if (isValid(value)) {
 			this.value = value;
-		}else {
-			throw new IllegalArgumentException("the value \"" + value + "\" is invalid");
 		}
 	}
 
