@@ -5,18 +5,152 @@ package inf.furb.synthesis.mbrola.comp;
  */
 public final class Speller implements IComponent{
 
-	@Override
-	public void configure(double frequency, int time) {
-		// TODO Auto-generated method stub
+	private char[] text;
+	private double frequency;
+	private int time;
+
+	public Speller(String text) {
+		this(text.toCharArray());
+	}
+	
+	public Speller(char[] text) {
+		this.text = text;
 		
 	}
 
 	@Override
-	public String show() {
-		// TODO Auto-generated method stub
-		return null;
+	public void configure(double frequency, int time) {
+		this.frequency = frequency;
+		this.time = time;
 	}
 
-	
+	@Override
+	public String show() {
+		StringBuilder sb = new StringBuilder();
+		for (char c : this.text) {
+			Text component = new Text(spell(c));
+			component.configure(this.frequency, this.time);
+			sb.append(component.show());
+		}
+		return sb.toString();
+	}
+
+	private String spell(char c) {
+		switch (Character.toLowerCase(c)) {
+		case 'a':
+			return "a";
+		case 'b':
+			return "be";
+		case 'c':
+			return "se";
+		case 'd':
+			return "de";
+		case 'e':
+			return "e";
+		case 'f':
+			return "éfi";
+		case 'g':
+			return "ge";
+		case 'h':
+			return "agá";
+		case 'i':
+			return "i";
+		case 'j':
+			return "jóta";
+		case 'l':
+			return "éli";
+		case 'm':
+			return "emi";
+		case 'n':
+			return "eni";
+		case 'o':
+			return "o";
+		case 'p':
+			return "pe";
+		case 'q':
+			return "ke";
+		case 'r':
+			return "érri";
+		case 's':
+			return "éssi";
+		case 't':
+			return "te";
+		case 'u':
+			return "u";
+		case 'v':
+			return "ve";
+		case 'w':
+			return "dábliu";
+		case 'x':
+			return "xis";
+		case 'y':
+			return "ípsilon";
+		case 'z':
+			return "ze";
+			//agora os caracteres especiais
+		case '@':
+			return "arroba";
+		case '#':
+			return "sustenido";
+		case '$':
+			return "sifrão";
+		case '%':
+			return "porcento";
+		case '/':
+			return "barra";
+		case '\\':
+			return "contra barra";
+		case ',':
+			return "vírgula";
+		case '.':
+			return "ponto";
+		case '!':
+			return "ponto de exclamação";
+		case '?':
+			return "ponto de interrogação";
+		case ':':
+			return "dois pontos";
+		case ';':
+			return "ponto e vírgula";
+		case '-':
+			return "menos";
+		case '+':
+			return "mais";
+		case '*':
+			return "asterístico";
+		case '=':
+			return "igual";
+		case '(':
+			return "abre parênteses";
+		case ')':
+			return "fecha parênteses";
+		case '[':
+			return "abre colchete";
+		case ']':
+			return "fecha colchete";
+		case '{':
+			return "abre chaves";
+		case '}':
+			return "fecha chaves";
+		case '\'':
+			return "apóstrofo";
+		case '"':
+			return "aspas";
+		case '¨':
+			return "trema";
+		case '&':
+			return "e comercial";
+		case '`':
+			return "acento grave";
+		case '´':
+			return "acento agudo";
+		case '^':
+			return "acento circunflexo";
+		case '~':
+			return "til";
+		default:
+			return "";
+		}
+	}
 	
 }
