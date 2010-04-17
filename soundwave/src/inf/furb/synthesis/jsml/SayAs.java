@@ -1,7 +1,9 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
@@ -19,36 +21,29 @@ public final class SayAs extends AbstractSynthElement implements ISynthElement {
 	public static final String CLASS_MEASURE = "measure";
 	public static final String CLASS_NUMBER = "number";
 
-	private IAttribute clazz;
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(1);
 
 	SayAs(Element e) {
-		final String[] validValues = { CLASS_LITERAL, CLASS_DATE, //
+		final String[] validValues = { null, CLASS_LITERAL, CLASS_DATE, //
 				CLASS_TIME, CLASS_NAME,// 
 				CLASS_PHONE, CLASS_NET, //
 				CLASS_ADDRESS, CLASS_CURRENCY, //
 				CLASS_MEASURE, CLASS_NUMBER //
 		};
 		
-		clazz = new AttributeImpl(CLASS);
-		clazz.setRequired(true);
+		IAttribute clazz = new AttributeImpl(CLASS);
+		clazz.setRequired(false);
 		clazz.setValidValues(validValues, "");
 		clazz.setValue(e.attributeValue(CLASS));
+		attributes.put(CLASS, clazz);
 		
 		setMark(e.attributeValue(MARK));
 		text = e.getTextTrim();
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		List<IAttribute> ret = new ArrayList<IAttribute>(1);
-		ret.add(clazz);
-		return ret;
-	}
-
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
@@ -57,9 +52,7 @@ public final class SayAs extends AbstractSynthElement implements ISynthElement {
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(CLASS)) {
-			clazz.setValue(value);
-		}
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 }
