@@ -22,7 +22,7 @@ import java.util.Map;
  * Classe utilitária para operações de baixo nível sobre as letras que estão sendo configuradas nos textos.
  * @author Germano
  */
-final class ComponentGlobals {
+public final class ComponentGlobals {
 
 	/**
 	 * Frequência base do sitetizador.
