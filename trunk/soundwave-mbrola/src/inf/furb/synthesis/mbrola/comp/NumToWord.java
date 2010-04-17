@@ -47,7 +47,7 @@ public final class NumToWord {
 	 */
 	public static final String[] TENS = { //
 	"", "", "vinte", "trinta", "quarenta",// 
-			"cinquenta", "sessenta", "setenta", "oitenta", "noventa", "cem" };
+			"cinqüenta", "sessenta", "setenta", "oitenta", "noventa", "cem" };
 
 	/**
 	 * Centenas numéricas.<br>
