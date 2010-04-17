@@ -1,10 +1,15 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
+/**
+ * Representa uma pausa.
+ */
 final public class Break extends AbstractSynthElement implements ISynthElement {
 
 	public static final String SIZE = "size";
@@ -15,49 +20,38 @@ final public class Break extends AbstractSynthElement implements ISynthElement {
 	public static final String SIZE_MEDIUM = "medium";
 	public static final String SIZE_LARGE = "large";
 	
-	private IAttribute size;
-	private IAttribute time;
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(2);
 	
 	Break(Element e) {
-		final String[] sizeValidValues = {SIZE_NONE, SIZE_SMALL, SIZE_MEDIUM, SIZE_LARGE};
-		size = new AttributeImpl(SIZE);
+		final String[] sizeValidValues = {null, SIZE_NONE, SIZE_SMALL, SIZE_MEDIUM, SIZE_LARGE};
+		AttributeImpl size = new AttributeImpl(SIZE);
 		size.setRequired(false);
 		size.setValidValues(sizeValidValues, SIZE_MEDIUM);
 		size.setValue(e.attributeValue(SIZE));
+		attributes.put(SIZE, size);
 		
-		time = new AttributeImpl(TIME);
+		AttributeImpl time = new AttributeImpl(TIME);
+		time.setRequired(false);
 		time.setValue(e.attributeValue(TIME));
+		attributes.put(TIME, time);
 		
 		text = e.getTextTrim();
 		setMark(e.attributeValue(MARK));
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		ArrayList<IAttribute> ret = new ArrayList<IAttribute>(2);
-		ret.add(size);
-		ret.add(time);
-		return ret;
-	}
-
-	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(SIZE)) {
-			size.setValue(value);
-		}else if(name.equals(TIME)) {
-			time.setValue(value);
-		}
-	}
-	
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
 	public String getName() {
 		return "break";
+	}
+
+	@Override
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 
 }

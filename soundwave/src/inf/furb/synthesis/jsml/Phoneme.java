@@ -1,26 +1,20 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.dom4j.Element;
 
 final public class Phoneme extends AbstractSynthElement implements ISynthElement {
 
 	public static final String PHONEME = "phoneme";
-	
+
 	Phoneme(Element e) {
 		setMark(e.attributeValue(MARK));
 		text = e.getTextTrim();
 	}
-	
-	@Override
-	public List<IAttribute> getAttributes() {
-		return null;
-	}
 
 	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
+	public Collection<IAttribute> getAttributes() {
 		return null;
 	}
 
@@ -30,8 +24,9 @@ final public class Phoneme extends AbstractSynthElement implements ISynthElement
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		//do nothing
+	public IAttribute getAttribute(String attName) {
+		// do nothing
+		return null;
 	}
 
 }

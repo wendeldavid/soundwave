@@ -1,6 +1,6 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Elemento que contém informações semâmticas do texto para o sintetizador.
@@ -22,17 +22,17 @@ public interface ISynthElement {
 	public static final String VOICE = "voice";
 	
 	/**
-	 * Retorna uma lista com os atributos válidos.
-	 * @return lista de atributos
+	 * Retorna uma coleção com os atributos válidos.
+	 * @return coleção de atributos
 	 */
-	public List<IAttribute> getAttributes();
+	public Collection<IAttribute> getAttributes();
 	
 	/**
-	 * Seta um atributo e um valor a este elemento.
-	 * @param nome 
-	 * @param value
+	 * Retorna o atributo solicitado no parâmetro.
+	 * @param attName
+	 * @return {@link IAttribute}
 	 */
-	public void setAttribute(String name, String value);
+	public IAttribute getAttribute(String attName);
 	
 	/**
 	 * Retorna o nome do elemento.
@@ -58,10 +58,4 @@ public interface ISynthElement {
 	 */
 	public void setMark(String mark);
 	
-	/**
-	 * Retorna uma lista dos elementos internos deste elemento.
-	 * @return lista de elementos internos
-	 * @see ISynthElement
-	 */
-	public List<ISynthElement> getInnerElements();
 }

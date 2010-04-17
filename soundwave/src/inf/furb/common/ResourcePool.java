@@ -1,6 +1,7 @@
 package inf.furb.common;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.tools.ant.taskdefs.Copy;
 import org.apache.tools.ant.taskdefs.Delete;
@@ -10,11 +11,11 @@ import org.apache.tools.ant.taskdefs.Delete;
  */
 public final class ResourcePool {
 
-	private static final File TEMP_DIR = new File(System.getProperty("java.io.tmpdir") + File.separator + ".soundwave");
+	public static final File TEMP_DIR = new File(System.getProperty("java.io.tmpdir") + File.separator + ".soundwave");
 
 	static {
-		verifyCreatePoolDir();
 		cleanPool();
+		verifyCreatePoolDir();
 	}
 
 	/**
@@ -53,6 +54,22 @@ public final class ResourcePool {
 		copy.setOverwrite(overwrite);
 		copy.execute();
 		return new File(TEMP_DIR, file.getName());
+	}
+	
+	/**
+	 * Cria um novo arquivo no diretório temporário e retorna sua referência.
+	 * @return referência do arquivo criado.
+	 */
+	public static File createNewFile(String fileName) {
+		File newFile = new File(TEMP_DIR, fileName);
+		try {
+			if(newFile.createNewFile()) {
+				return newFile;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**

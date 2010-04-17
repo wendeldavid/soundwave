@@ -1,5 +1,7 @@
 package inf.furb.common;
 
+import inf.furb.synthesis.jsml.ISynthElement;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.Map;
  */
 public class ConfigNode {
 
+	private String type;
+	
 	private Map<String, Object> map;
 	
 	/**
@@ -50,6 +54,22 @@ public class ConfigNode {
 	 */
 	public Map<String, Object> getConfiMap(){
 		return Collections.unmodifiableMap(map);
+	}
+
+	/**
+	 * Define o tipo de configuração.
+	 * @param type
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	/**
+	 * Retorna o tipo da configuração.
+	 * @return
+	 */
+	public String getType() {
+		return type;
 	}
 	
 }
