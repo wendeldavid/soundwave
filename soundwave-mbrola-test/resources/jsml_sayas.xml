@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml lang="pt-br" mark="mark_jsml">
+	<voice gender="female" age="adult" variant="6" name="br2" mark="mark_voice"></voice>
+
+	<sayas mark="mark_text">Honda</sayas>
+
+	<sayas class="literal" mark="mark_sayas_literal">XR</sayas>
+	
+	<sayas class="number" mark="mark_sayas_number">250</sayas>
+	
+	<sayas mark="mark_text">Tornado</sayas>
+	
+	<sayas class="measure" mark="mark_sayas_measure">753Km</sayas>
+	
+	<sayas class="date" mark="mark_sayas_date">11/05/2010</sayas>
+	
+	<sayas class="time" mark="mark_sayas_time">01:26</sayas>
+</jsml>
