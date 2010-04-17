@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Representa um texto completo.
  */
-public class Text {
+public class Text implements IComponent{
 
 	private String text;
 	private int numPhrases;
@@ -109,15 +109,13 @@ public class Text {
 	 * Retorna as frases do texto.
 	 * @return
 	 */
-	public String showPhrases() {
+	@Override
+	public String show() {
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("_ 300\n");
 		for (Phrase p : phrases) {
-			sb.append(p.showWords());
+			sb.append(p.show());
 		}
-		sb.append("_ 300\n");
-		sb.append("_ 300\n");
 		
 		return sb.toString();
 	}
@@ -128,9 +126,10 @@ public class Text {
 	 * @param time
 	 * @see {@link Phrase}
 	 */
-	public void configurePhrases(double frequency, int time) {
+	@Override
+	public void configure(double frequency, int time) {
 		for (Phrase p : phrases) {
-			p.configureWords(frequency, time);
+			p.configure(frequency, time);
 		}
 	}
 	

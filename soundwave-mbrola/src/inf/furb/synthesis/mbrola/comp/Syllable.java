@@ -28,7 +28,7 @@ import static inf.furb.synthesis.mbrola.comp.ComponentGlobals.isVogal;
 /**
  * Esta classe representa um sílaba de uma palavra.
  */
-public final class Syllable {
+public final class Syllable implements IComponent{
 
 	/**
 	 * Tonicidade de uma sílaba. Ela pode ser de dois tipos:<br>
@@ -247,10 +247,11 @@ public final class Syllable {
 	 * @return fonemas
 	 * @see {@link Phoneme}.showPhoneme()
 	 */
-	public String showPhonemes() {
+	@Override
+	public String show() {
 		StringBuilder sb = new StringBuilder();
 		for (Phoneme p : phonemes) {
-			sb.append(p.showPhoneme());
+			sb.append(p.show());
 		}
 
 		return sb.toString();
@@ -265,14 +266,15 @@ public final class Syllable {
 	 *            tempo em millisegundos
 	 * @see {@link Phoneme}.configurePhoneme(frequency, time)
 	 */
-	public void configurePhonemes(double frequency, int time) {
+	@Override
+	public void configure(double frequency, int time) {
 		if (this.tonicity == Tonicity.TONICA) {
 			for (Phoneme p : this.phonemes) {
-				p.configurePhoneme(frequency, time + 15);
+				p.configure(frequency, time + 15);
 			}
 		} else {
 			for (Phoneme p : this.phonemes) {
-				p.configurePhoneme(frequency, time);
+				p.configure(frequency, time);
 			}
 		}
 	}

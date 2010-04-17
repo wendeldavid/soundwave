@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Esta classe representa uma palavra de uma frase. 
  */
-public final class Word {
+public final class Word implements IComponent{
 
 	/**
 	 * Separação silábia de uma palavra.
@@ -208,7 +208,8 @@ public final class Word {
 	 * Retorna as silabas que formam essa palavra.
 	 * @return
 	 */
-	public String showSyllables() {
+	@Override
+	public String show() {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sbDebug = new StringBuilder();
 		for (Syllable s : syllables) {
@@ -218,7 +219,7 @@ public final class Word {
 				sbDebug.append(s.getSyllable() + " ");
 			}
 
-			sb.append(s.showPhonemes());
+			sb.append(s.show());
 		}
 
 		return sb.toString();
@@ -230,9 +231,10 @@ public final class Word {
 	 * @param time
 	 * @see {@link Syllable}.configurePhonemes(frequency, time)
 	 */
-	public void confgureSyllables(double frequency, int time) {
+	@Override
+	public void configure(double frequency, int time) {
 		for (Syllable s : syllables) {
-			s.configurePhonemes(frequency, time);
+			s.configure(frequency, time);
 		}
 	}
 

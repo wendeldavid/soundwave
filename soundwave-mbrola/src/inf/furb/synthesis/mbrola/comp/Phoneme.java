@@ -17,7 +17,7 @@ package inf.furb.synthesis.mbrola.comp;
 /**
  * Esta classe representa um fonema de uma sílaba.
  */
-public final class Phoneme {
+public final class Phoneme implements IComponent{
 
 	private String phoneme;
 	private int time;
@@ -45,7 +45,8 @@ public final class Phoneme {
 	 * 
 	 * @return fonema
 	 */
-	public String showPhoneme() {
+	@Override
+	public String show() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.phoneme);
 		sb.append(" ");
@@ -65,7 +66,8 @@ public final class Phoneme {
 	 * @param time
 	 *            tempo em millisegundos
 	 */
-	public void configurePhoneme(double frequency, int time) {
+	@Override
+	public void configure(double frequency, int time) {
 		this.frequency = frequency;
 		this.time = time;
 	}
