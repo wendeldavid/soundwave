@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Representa uma frase de um texto.
  */
-public class Phrase {
+public class Phrase implements IComponent{
 
 	/**
 	 * Tipo da frase. Pode ser de tres tipos: {@link PhraseType}.AFIRMATIVA, {@link PhraseType}.EXCLAMATIVA, {@link PhraseType}.INTERROGATIVA
@@ -85,10 +85,11 @@ public class Phrase {
 	 * Retorna a palavra
 	 * @return
 	 */
-	public String showWords() {
+	@Override
+	public String show() {
 		StringBuilder sb = new StringBuilder();
 		for (Word w : words) {
-			sb.append(w.showSyllables());
+			sb.append(w.show());
 		}
 		sb.append("_ 300\n");
 
@@ -101,7 +102,8 @@ public class Phrase {
 	 * @param time
 	 * @see {@link Word}
 	 */
-	public void configureWords(double frequency, int time) {
+	@Override
+	public void configure(double frequency, int time) {
 		double l = 0;
 		switch (this.type) {
 		case INTERROGATIVA: {
@@ -114,7 +116,7 @@ public class Phrase {
 			}
 
 			for (Word word : this.words) {
-				word.confgureSyllables(0, time);
+				word.configure(0, time);
 				for (Syllable syllable : word.getSyllables()) {
 					for (Phoneme phoneme : syllable.getPhonemes()) {
 						double frequency1 = 2 * Math.sin(l) + 15;
@@ -133,7 +135,7 @@ public class Phrase {
 
 		default: { // EXCLAMATIVA or AFFIRMATIVA
 			for (Word word : this.words) {
-				word.confgureSyllables(frequency, time);
+				word.configure(frequency, time);
 				for (Syllable syllable : word.getSyllables()) {
 					for (Phoneme phoneme : syllable.getPhonemes()) {
 						frequency = 2 * Math.sin(l) + 100;
