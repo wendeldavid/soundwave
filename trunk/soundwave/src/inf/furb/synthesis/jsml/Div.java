@@ -1,7 +1,9 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
@@ -12,44 +14,35 @@ final public class Div extends AbstractSynthElement implements ISynthElement {
 	public static final String TYPE_PARAGRAPH = "paragraph";
 	public static final String TYPE_SENT = "sent";
 	public static final String TYPE_SENTENCE = "sentence";
-	
-	public IAttribute type;
+
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(1);
 	
 	Div(Element e) {
 		final String[] validValues = {TYPE_PARA, TYPE_PARAGRAPH, TYPE_SENT, TYPE_SENTENCE};
 		
-		type = new AttributeImpl(TYPE);
+		AttributeImpl type = new AttributeImpl(TYPE);
 		type.setRequired(true);
 		type.setValidValues(validValues, TYPE_SENTENCE);
 		type.setValue(e.attributeValue(TYPE));
+		attributes.put(TYPE, type);
 		
 		text = e.getTextTrim();
 		setMark(e.attributeValue(MARK));
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		ArrayList<IAttribute> ret = new ArrayList<IAttribute>(1);
-		ret.add(type);
-		return ret;
-	}
-
-	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(TYPE)) {
-			this.type.setValue(value);
-		}
-	}
-	
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
 	public String getName() {
 		return "div";
+	}
+
+	@Override
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 
 }

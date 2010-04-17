@@ -1,6 +1,6 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.dom4j.Element;
 
@@ -12,26 +12,20 @@ public final class Marker extends AbstractSynthElement implements ISynthElement 
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String getName() {
 		return "marker";
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		// TODO Auto-generated method stub
+	public IAttribute getAttribute(String attName) {
+		//do nothing
+		return null;
+	}
 
+	@Override
+	public Collection<IAttribute> getAttributes() {
+		//do nothing
+		return null;
 	}
 
 }

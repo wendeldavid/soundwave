@@ -1,7 +1,9 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
@@ -9,28 +11,21 @@ public final class JSML extends AbstractSynthElement implements ISynthElement {
 	
 	public static final String LANG = "lang";
 
-	private IAttribute lang;
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(1);;
 
 	JSML(Element e) {
-		lang = new AttributeImpl(LANG);
+		IAttribute lang = new AttributeImpl(LANG);
 		lang.setRequired(false);
 		lang.setValue(e.attributeValue(LANG));
+		attributes.put(LANG, lang);
 		
 		setMark(e.attributeValue(MARK));
 		text = e.getTextTrim();
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		List<IAttribute> ret = new ArrayList<IAttribute>(1);
-		ret.add(lang);
-		return ret;
-	}
-
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
@@ -39,10 +34,8 @@ public final class JSML extends AbstractSynthElement implements ISynthElement {
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(LANG)) {
-			lang.setValue(value);
-		}
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 
 }

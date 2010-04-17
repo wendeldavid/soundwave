@@ -1,7 +1,9 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
@@ -10,33 +12,25 @@ public final class Engine extends AbstractSynthElement implements ISynthElement 
 	public static final String NAME = "name";
 	public static final String DATA = "data";
 	
-	private IAttribute name;
-	private IAttribute data;
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(2);
 	
 	Engine(Element e) {
-		name = new AttributeImpl(NAME);
+		AttributeImpl name = new AttributeImpl(NAME);
 		name.setValue(e.attributeValue(NAME));
+		attributes.put(NAME, name);
 		
-		data = new AttributeImpl(DATA);
+		AttributeImpl data = new AttributeImpl(DATA);
 		data.setRequired(true);
 		data.setValue(e.attributeValue(DATA));
+		attributes.put(DATA, data);
 		
 		setMark(e.attributeValue(MARK));
 		text = e.getTextTrim();
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		List<IAttribute> ret = new ArrayList<IAttribute>(2);
-		ret.add(name);
-		ret.add(data);
-		return ret;
-	}
-
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
@@ -45,12 +39,8 @@ public final class Engine extends AbstractSynthElement implements ISynthElement 
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(DATA)) {
-			this.data.setValue(value);
-		}else if(name.equals(NAME)) {
-			this.name.setValue(value);
-		}
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 
 }

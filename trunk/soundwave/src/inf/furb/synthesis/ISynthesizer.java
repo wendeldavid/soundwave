@@ -1,6 +1,8 @@
 package inf.furb.synthesis;
 
-import inf.furb.common.ConfigNode;
+import inf.furb.synthesis.jsml.ISynthElement;
+
+import java.util.List;
 
 
 /**
@@ -16,19 +18,12 @@ public interface ISynthesizer extends Runnable{
 	 /**
 	 * Configura o sintetizador.<br>
 	 * Nesta etapa o sintetizador inicia suas configurações necessárias como vozes disponíveis, SO utilizado, I/O, etc.
-	 * @param node
+	 * @param config
 	 */
-	public void configure(ConfigNode node);
-	
-	/**
-	 * Inicia o sintetizador.<br>
-	 * Nesta etapa o sintetizador recebe o texto e se prepara para "falar" conforme sua configuração. 
-	 */
-	public void start(ConfigNode node);
+	public void configure(List<ISynthElement> config);
 	
 	/**
 	 * Faz com que o sintetizador fale o texto atribuído a ele.
 	 */
 	public void speech();
-	
 }

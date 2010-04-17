@@ -1,7 +1,9 @@
 package inf.furb.synthesis.jsml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dom4j.Element;
 
@@ -12,30 +14,23 @@ final public class Emphasis extends AbstractSynthElement implements ISynthElemen
 	public static final String LEVEL_MODERATE = "moderate";
 	public static final String LEVEL_STRONG = "strong";
 	
-	private IAttribute level;
+	private Map<String, IAttribute> attributes = new HashMap<String, IAttribute>(1);
 	
 	Emphasis(Element e) {
 		final String[] validValues = {LEVEL_NONE, LEVEL_MODERATE, LEVEL_STRONG};
-		level = new AttributeImpl(LEVEL);
+		AttributeImpl level = new AttributeImpl(LEVEL);
 		level.setRequired(false);
 		level.setValidValues(validValues, LEVEL_MODERATE);
 		level.setValue(e.attributeValue(LEVEL));
+		attributes.put(LEVEL, level);
 		
 		text = e.getTextTrim(); 
 		setMark(e.attributeValue(MARK));
 	}
 	
 	@Override
-	public List<IAttribute> getAttributes() {
-		List<IAttribute> ret = new ArrayList<IAttribute>(1);
-		ret.add(level);
-		return ret;
-	}
-
-	@Override
-	public List<ISynthElement> getInnerElements() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<IAttribute> getAttributes() {
+		return Collections.unmodifiableCollection(attributes.values());
 	}
 
 	@Override
@@ -44,10 +39,8 @@ final public class Emphasis extends AbstractSynthElement implements ISynthElemen
 	}
 
 	@Override
-	public void setAttribute(String name, String value) {
-		if(name.equals(LEVEL)) {
-			level.setValue(value);
-		}
+	public IAttribute getAttribute(String attName) {
+		return attributes.get(attName);
 	}
 
 }
