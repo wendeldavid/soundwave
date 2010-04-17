@@ -5,5 +5,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/soundwave"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-mbrola"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
