@@ -78,10 +78,4 @@ public final class Calendar {
 
 		return sb.toString();
 	}
-
-	public static void main(String[] args) {
-		System.out.println(formatDate("11/05/2010"));
-		System.out.println(formatTime("12:20:06"));
-	}
-
 }
