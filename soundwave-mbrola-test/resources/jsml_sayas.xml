@@ -11,12 +11,14 @@
 	<sayas mark="mark_text">Tornado</sayas>
 	
 	<sayas class="measure" mark="mark_sayas_measure">753Km</sayas>
+	<sayas>a</sayas>
+	<sayas class="measure">99Km/h</sayas>
 	
 	<break time="1000" />
 	<sayas class="date" mark="mark_sayas_date">11/05/2010</sayas>
 	
 	<break time="1000" />
-	<sayas class="time" mark="mark_sayas_time">01:26</sayas>
+	<sayas class="time" mark="mark_sayas_time">01:26:14</sayas>
 	<!--
 	<sayas class="literal" mark="mark_sayas_literal"><![CDATA[ abcdefghijklmnopqrstuvwxyz!@#$%¨&.,:;/?\()[]{}"-=* ]]></sayas>
 	 -->
