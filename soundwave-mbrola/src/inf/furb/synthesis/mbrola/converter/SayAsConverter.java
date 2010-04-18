@@ -4,6 +4,7 @@ import java.math.BigInteger;
 
 import inf.furb.synthesis.jsml.ISynthElement;
 import inf.furb.synthesis.jsml.SayAs;
+import inf.furb.synthesis.mbrola.comp.Calendar;
 import inf.furb.synthesis.mbrola.comp.ComponentGlobals;
 import inf.furb.synthesis.mbrola.comp.IComponent;
 import inf.furb.synthesis.mbrola.comp.NumToWord;
@@ -23,6 +24,24 @@ class SayAsConverter implements IConverter{
 			
 		}else if(SayAs.CLASS_LITERAL.equals(elementClass)) {
 			text = new Speller(elementText);
+
+		}else if(SayAs.CLASS_DATE.equals(elementClass)) {
+			String date = Calendar.formatDate(elementText);
+			text = new Text(date);
+			
+		}else if(SayAs.CLASS_TIME.equals(elementClass)) {
+			String time = Calendar.formatTime(elementText);
+			text = new Text(time);
+			
+		}else if(SayAs.CLASS_MEASURE.equals(elementClass)) {
+			
+		}else if(SayAs.CLASS_NET.equals(elementClass)) {
+			
+		}else if(SayAs.CLASS_ADDRESS.equals(elementClass)) {
+			
+		}else if(SayAs.CLASS_CURRENCY.equals(elementClass)) {
+			
+		}else if(SayAs.CLASS_PHONE.equals(elementClass)) {
 			
 		}else {
 			text = new Text(element.getText());
