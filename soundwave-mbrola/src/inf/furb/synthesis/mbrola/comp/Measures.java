@@ -156,11 +156,4 @@ public final class Measures {
 		}
 		return copyText;
 	}
-
-	public static void main(String[] args) {
-		String s = "6,45Km/h";
-
-		System.out.println(processMeasure(s, true));
-	}
-
 }
