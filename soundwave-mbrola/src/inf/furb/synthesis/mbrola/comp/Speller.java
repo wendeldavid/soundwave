@@ -57,6 +57,8 @@ public final class Speller implements IComponent{
 			return "i";
 		case 'j':
 			return "jóta";
+		case 'k':
+			return "ka";
 		case 'l':
 			return "éli";
 		case 'm':
@@ -123,15 +125,15 @@ public final class Speller implements IComponent{
 		case '(':
 			return "abre parênteses";
 		case ')':
-			return "fecha parênteses";
+			return "fécha parênteses";
 		case '[':
 			return "abre colchete";
 		case ']':
-			return "fecha colchete";
+			return "fécha colchete";
 		case '{':
 			return "abre chaves";
 		case '}':
-			return "fecha chaves";
+			return "fécha chaves";
 		case '\'':
 			return "apóstrofo";
 		case '"':
@@ -149,7 +151,7 @@ public final class Speller implements IComponent{
 		case '~':
 			return "til";
 		default:
-			return "";
+			return "_";
 		}
 	}
 	
