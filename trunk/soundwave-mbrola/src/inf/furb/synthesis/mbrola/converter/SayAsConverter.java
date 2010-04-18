@@ -7,6 +7,7 @@ import inf.furb.synthesis.jsml.SayAs;
 import inf.furb.synthesis.mbrola.comp.Calendar;
 import inf.furb.synthesis.mbrola.comp.ComponentGlobals;
 import inf.furb.synthesis.mbrola.comp.IComponent;
+import inf.furb.synthesis.mbrola.comp.Measures;
 import inf.furb.synthesis.mbrola.comp.NumToWord;
 import inf.furb.synthesis.mbrola.comp.Speller;
 import inf.furb.synthesis.mbrola.comp.Text;
@@ -34,6 +35,8 @@ class SayAsConverter implements IConverter{
 			text = new Text(time);
 			
 		}else if(SayAs.CLASS_MEASURE.equals(elementClass)) {
+			String measure = Measures.processMeasure(elementText, true);
+			text = new Text(measure);
 			
 		}else if(SayAs.CLASS_NET.equals(elementClass)) {
 			
