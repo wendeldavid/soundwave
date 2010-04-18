@@ -11,8 +11,15 @@ import java.util.regex.Pattern;
  */
 public final class Measures {
 
+	private static final Map<String, String> measuresMapSpeed = new HashMap<String, String>(3);
+	
 	private static final Map<String, String> measuresMap = new HashMap<String, String>();
 	static {
+		//velocidade
+		measuresMapSpeed.put("/h", "por hora");
+		measuresMapSpeed.put("/m", "por minuto");
+		measuresMapSpeed.put("/s", "por segundo");
+		
 		// comprimento/area
 		measuresMap.put("Km", "quilômetros");
 		measuresMap.put("Hm", "hectômetros");
@@ -24,7 +31,6 @@ public final class Measures {
 		measuresMap.put("mi", "milhas");
 		measuresMap.put("yd", "jardas");
 		measuresMap.put("ft", "psé");
-		measuresMap.put("", "");
 		measuresMap.put("\"", "polegadas");
 		// massa
 		measuresMap.put("lb", "libras");
@@ -137,14 +143,22 @@ public final class Measures {
 		String copyText = new String(text);
 		for (String key : measuresMap.keySet()) {
 			if (text.contains(key)) {
-				copyText = copyText.replaceAll(key, measuresMap.get(key)) + " ";
+				copyText = copyText.replaceAll(key, " " + measuresMap.get(key));
+				break;
+			}
+		}
+		//gambi das braba pra fazer replace do /h se for Km/h por exemplo
+		for (String key : measuresMapSpeed.keySet()) {
+			if (text.contains(key)) {
+				copyText = copyText.replaceAll(key, " " + measuresMapSpeed.get(key));
+				break;
 			}
 		}
 		return copyText;
 	}
 
 	public static void main(String[] args) {
-		String s = "123Km 6,45psi";
+		String s = "6,45Km/h";
 
 		System.out.println(processMeasure(s, true));
 	}
