@@ -1,7 +1,5 @@
 package inf.furb.common;
 
-import inf.furb.synthesis.jsml.ISynthElement;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
