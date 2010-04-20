@@ -13,21 +13,26 @@ import java.net.URISyntaxException;
 public final class Utils {
 
 	private static final String RESOURCE_PATH = "inf/furb/synthesis/mbrola/resource/";
-	
+
 	/**
 	 * Retorna o {@link File} do {@link ResourcePool} do arquivo procurado no classloader.
-	 * @param res arquivo procurado
+	 * 
+	 * @param res
+	 *            arquivo procurado
 	 * @return arquivo do pool
 	 */
 	public static File getResource(String res) {
-		URI resource;
+		URI resource = null;
 		try {
 			resource = MBRolaSynthesizer.class.getClassLoader().getResource(RESOURCE_PATH + res).toURI();
-			return ResourcePool.copyFile(new File(resource));
+			File copiedFile = ResourcePool.copyFile(new File(resource));
+			return copiedFile;
 		} catch (URISyntaxException e) {
-			e.printStackTrace();
+			 e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			return ResourcePool.copyFile(new File("./resource/", res), true);
 		}
 		return null;
 	}
-	
+
 }
