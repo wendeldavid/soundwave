@@ -36,7 +36,7 @@ public class Compiler {
         Sintatico sintatico = new Sintatico();
         sintatico.parse(lexico, semantico);
         if(modelo == null)
-            throw new AnalysisError("C√≥digo compilado n√£o √© um Modelo");
+            throw new AnalysisError("CÛdigo compilado n„o È um Modelo");
         return modelo;
     }
     
@@ -46,7 +46,7 @@ public class Compiler {
         Sintatico sintatico = new Sintatico();
         sintatico.parse(lexico, semantico);
         if(mundo == null)
-            throw new AnalysisError("C√≥digo compilado n√£o √© um Mundo");
+            throw new AnalysisError("CÛdigo compilado n„o È um Mundo");
         return mundo;
     }
 
