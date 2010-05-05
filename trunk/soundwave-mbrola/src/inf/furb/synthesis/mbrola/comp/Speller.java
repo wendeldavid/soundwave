@@ -35,7 +35,7 @@ public final class Speller implements IComponent{
 		return sb.toString();
 	}
 
-	private String spell(char c) {
+	public static String spell(char c) {
 		switch (Character.toLowerCase(c)) {
 		case 'a':
 			return "a";

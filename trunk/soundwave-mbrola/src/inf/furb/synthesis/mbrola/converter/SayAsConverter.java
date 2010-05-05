@@ -1,16 +1,20 @@
 package inf.furb.synthesis.mbrola.converter;
 
-import java.math.BigInteger;
-
 import inf.furb.synthesis.jsml.ISynthElement;
 import inf.furb.synthesis.jsml.SayAs;
+import inf.furb.synthesis.mbrola.comp.Address;
 import inf.furb.synthesis.mbrola.comp.Calendar;
 import inf.furb.synthesis.mbrola.comp.ComponentGlobals;
+import inf.furb.synthesis.mbrola.comp.Currency;
 import inf.furb.synthesis.mbrola.comp.IComponent;
 import inf.furb.synthesis.mbrola.comp.Measures;
+import inf.furb.synthesis.mbrola.comp.Net;
 import inf.furb.synthesis.mbrola.comp.NumToWord;
+import inf.furb.synthesis.mbrola.comp.Phone;
 import inf.furb.synthesis.mbrola.comp.Speller;
 import inf.furb.synthesis.mbrola.comp.Text;
+
+import java.math.BigInteger;
 
 class SayAsConverter implements IConverter{
 
@@ -39,12 +43,20 @@ class SayAsConverter implements IConverter{
 			text = new Text(measure);
 			
 		}else if(SayAs.CLASS_NET.equals(elementClass)) {
+			String net = Net.processNet(elementText);
+			text = new Text(net);
 			
 		}else if(SayAs.CLASS_ADDRESS.equals(elementClass)) {
+			String address = Address.processAddress(elementText);
+			text = new Text(address);
 			
 		}else if(SayAs.CLASS_CURRENCY.equals(elementClass)) {
+			String currency = Currency.processCurrency(elementText);
+			text = new Text(currency);
 			
 		}else if(SayAs.CLASS_PHONE.equals(elementClass)) {
+			String phone = Phone.processPhone(elementText);
+			text = new Text(phone);
 			
 		}else {
 			text = new Text(element.getText());
