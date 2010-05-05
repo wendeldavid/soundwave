@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<jsml lang="pt-br" mark="mark_jsml">
-	<voice gender="female" age="adult" variant="6" name="br2" mark="mark_voice"></voice>
-
+<jsml lang="pt-br">
+	<voice gender="female" age="adult" variant="6" name="br2"></voice>
+ 
 	<sayas mark="mark_text">Honda</sayas>
 
-	<sayas class="literal" mark="mark_sayas_literal">XR</sayas>
+	<sayas class="literal">XR</sayas>
 	
-	<sayas class="number" mark="mark_sayas_number">250</sayas>
+	<sayas class="number">250</sayas>
 	
 	<sayas mark="mark_text">Tornado</sayas>
 	
-	<sayas class="measure" mark="mark_sayas_measure">753Km</sayas>
+	<sayas class="measure">753Km</sayas>
 	<sayas>a</sayas>
 	<sayas class="measure">99Km/h</sayas>
 	
 	<break time="1000" />
-	<sayas class="date" mark="mark_sayas_date">11/05/2010</sayas>
+	<sayas class="date">11/05/2010</sayas>
 	
 	<break time="1000" />
-	<sayas class="time" mark="mark_sayas_time">01:26:14</sayas>
+	<sayas class="time">01:26:14</sayas>
+	
+	<break time="1000" />
+	<sayas class="phone">3339-3850</sayas>
+
+	<break time="1000" />
+	<sayas class="currency">R$3560,00</sayas>
+	
+	<break time="1000" />
+	<sayas class="address">r. Gervásio Deschamps nº 148</sayas>
+	
+	<break time="1000" />
+	<sayas class="net">http://furb.br/ava</sayas>
+	<sayas class="net">roque@inf.furb.br</sayas>
+	
 	<!--
-	<sayas class="literal" mark="mark_sayas_literal"><![CDATA[ abcdefghijklmnopqrstuvwxyz!@#$%¨&.,:;/?\()[]{}"-=* ]]></sayas>
+	<sayas class="literal" ><![CDATA[ abcdefghijklmnopqrstuvwxyz!@#$%¨&.,:;/?\()[]{}"-=* ]]></sayas>
 	 -->
 </jsml>
