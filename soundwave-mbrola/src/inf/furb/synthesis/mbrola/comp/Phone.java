@@ -9,10 +9,10 @@ public final class Phone {
 		StringBuilder sb = new StringBuilder();
 		
 		char[] digits = elementText.toCharArray();
-		for (int i = 0; i < digits.length; i++) {
-			if(Character.isDigit(digits[i])) {
-				long digit = Long.parseLong(String.valueOf(digits[i]));
-				sb.append(NumToWord.convert(digit)).append(" ");
+		for (char digit : digits) {
+			if(Character.isDigit(digit)) {
+				long numericDigit = Long.parseLong(String.valueOf(digit));
+				sb.append(NumToWord.convert(numericDigit)).append(" ");
 			}
 		}
 		
