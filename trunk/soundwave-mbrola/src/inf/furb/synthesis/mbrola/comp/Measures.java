@@ -13,7 +13,7 @@ public final class Measures {
 
 	private static final Map<String, String> measuresMapSpeed = new HashMap<String, String>(3);
 	
-	private static final Map<String, String> measuresMap = new HashMap<String, String>();
+	private static final Map<String, String> measuresMap = new HashMap<String, String>(34);
 	static {
 		//velocidade
 		measuresMapSpeed.put("/h", "por hora");
