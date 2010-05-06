@@ -54,7 +54,6 @@ public final class Address {
 		for (String key : addressesMap.keySet()) {
 			if (text.contains(key)) {
 				copyText = copyText.replaceAll(key, addressesMap.get(key));
-				break;
 			}
 		}
 		return copyText;
