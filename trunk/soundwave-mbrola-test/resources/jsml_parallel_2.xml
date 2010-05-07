@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml lang="pt-br">
+	<voice gender="female" age="adult" variant="6" name="br2"></voice>
+ 
+	<sayas>Atenção Proprietário do veículo placa</sayas>
+	<break time="500" />
+	<sayas class="literal">MDK1234</sayas>
+	<break time="500" />
+	<sayas>favor comparecer ao seu veículo.</sayas>
+	
+
+</jsml>

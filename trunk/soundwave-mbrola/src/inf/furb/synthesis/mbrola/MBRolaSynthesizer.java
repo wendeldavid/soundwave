@@ -24,10 +24,11 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 	private String voice;
 	private String input;
 	private String output;
-
+	
 	public MBRolaSynthesizer() {
-		input = ResourcePool.TEMP_DIR + File.separator + "input.pho";
-		output = ResourcePool.TEMP_DIR + File.separator + "output.wav";
+		long uniqueID = System.nanoTime();
+		input = ResourcePool.TEMP_DIR + File.separator + uniqueID + "input.pho";
+		output = ResourcePool.TEMP_DIR + File.separator + uniqueID + "output.wav";
 	}
 
 	@Override
@@ -85,7 +86,10 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 		}
 
 		try {
-			WavePlayer.playAudioFile(output);
+//			WavePlayer.playAudioFile(output);
+			WavePlayer player = new WavePlayer(output);
+			Thread threadPlayer = new Thread(player);
+			threadPlayer.start();
 		} catch (UnsupportedAudioFileException e) {
 			e.printStackTrace();
 		}
