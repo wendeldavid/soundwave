@@ -16,7 +16,7 @@ public class NumToWordTest {
 	@Test
 	public void dezenas() {
 		Assert.assertEquals("dezesseis", NumToWord.convert(16));
-		Assert.assertEquals("cinquenta e um", NumToWord.convert(51));
+		Assert.assertEquals("cinqüenta e um", NumToWord.convert(51));
 	}
 
 	@Test
