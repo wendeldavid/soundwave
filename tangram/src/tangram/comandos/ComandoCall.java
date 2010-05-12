@@ -29,12 +29,12 @@ public class ComandoCall implements Comando{
             new Thread(){
                 @Override
                 public void run(){
-                    //System.out.println("Comando FaÃ§a: " + metodo + " paralelo");
+                    //System.out.println("Comando Faça: " + metodo + " paralelo");
                     executor.execute(metodo);
                 }
             }.start();
         }else{
-            //System.out.println("Comando FaÃ§a: " + metodo);
+            //System.out.println("Comando Faça: " + metodo);
             executor.execute(metodo);
         }
     }

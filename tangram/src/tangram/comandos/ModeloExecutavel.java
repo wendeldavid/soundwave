@@ -19,14 +19,14 @@ import tangram.Peca;
 import tangram.gui.Msg;
 
 /**
- * Esta classe implementa m√©todos para executar os comandos de uma modelo da 
+ * Esta classe implementa mÈtodos para executar os comandos de uma modelo da 
  * linguagem LTD.
  * @author GlauKo
  */
 public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     
     /**
-     * Cont√©m os comandos de cada m√©todo de um modelo.
+     * ContÈm os comandos de cada mÈtodo de um modelo.
      */
     private HashMap<String,Comando> metodos;
     
@@ -36,7 +36,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     private Figura figura;
     
     /**
-     * Nome do M√©todo que deve ser executado pelo comando viva.
+     * Nome do MÈtodo que deve ser executado pelo comando viva.
      */
     private String metodoVivo;
     
@@ -46,12 +46,12 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     private String nomeModelo;
     
     /**
-     * Lista de m√©todos para executar paralelamente (Atrav√©s do m√©todo run()).
+     * Lista de mÈtodos para executar paralelamente (AtravÈs do mÈtodo run()).
      */
     private ArrayList<String> metodosParaExecutar;
     
     /**
-     * flag para o m√©todo run()
+     * flag para o mÈtodo run()
      */
     private boolean continua;
 
@@ -70,7 +70,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     }
     
     /**
-     * para a execu√ß√£o m√©todo run()
+     * para a execuÁ„o mÈtodo run()
      */
     public void parar(){
         continua = false;
@@ -93,7 +93,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     }
 
     /**
-     * retorna os m√©todos do modelo.
+     * retorna os mÈtodos do modelo.
      * @return
      */
     public HashMap<String, Comando> getMetodos() {
@@ -101,7 +101,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     }
     
     /**
-     * Adiciona um m√©todo do modelo a lista de m√©todos para executar em paralelo.
+     * Adiciona um mÈtodo do modelo a lista de mÈtodos para executar em paralelo.
      * @param metodo
      * @throws Tangram.comandos.ComandException
      */
@@ -110,8 +110,8 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     }
     
     /**
-     * Este m√©todo fica em loop, executando os m√©todos do modelo que est√£o na 
-     * lista de m√©todos para executar, at√© o m√©todo parar ser executado.
+     * Este mÈtodo fica em loop, executando os mÈtodos do modelo que est„o na 
+     * lista de mÈtodos para executar, atÈ o mÈtodo parar ser executado.
      */
     @Override
     public void run(){
@@ -165,7 +165,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
                     return rm;
             }
         }
-        throw new ComandException("Nome do identificador Inv√°lido!");
+        throw new ComandException("Nome do identificador Inv·lido!");
     }
 
     public TranslateModel getTranslateModel(String model) throws ComandException{
@@ -179,7 +179,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
                     return tm;
             }
         }
-        throw new ComandException("Nome do identificador Inv√°lido!");
+        throw new ComandException("Nome do identificador Inv·lido!");
     }
 
     public MirrorModel getMirrorModel(String model) throws ComandException{
@@ -193,7 +193,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
                     return mm;
             }
         }
-        throw new ComandException("Nome do identificador Inv√°lido!");
+        throw new ComandException("Nome do identificador Inv·lido!");
     }
 
     public ColorModel getColorModel(String model) throws ComandException{
@@ -207,14 +207,14 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
                     return cm;
             }
         }
-        throw new ComandException("Nome do identificador Inv√°lido!");
+        throw new ComandException("Nome do identificador Inv·lido!");
     }
 
     public Vetor3f getPoint(String pointName) throws ComandException{
         Vetor3f v = figura.getPoint(pointName);
         if (v != null)
             return v;
-        throw new ComandException("N√∫mero do Ponto Inv√°lido!");
+        throw new ComandException("N˙mero do Ponto Inv·lido!");
     }
 
     public DrawModel getDrawModel(String model) throws ComandException {
@@ -228,7 +228,7 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
                     return dm;
             }
         }
-        throw new ComandException("Nome do identificador Inv√°lido!");
+        throw new ComandException("Nome do identificador Inv·lido!");
     }
     
     public void setMetodoVivo(String metodoVivo) throws ComandException {
@@ -237,9 +237,9 @@ public class ModeloExecutavel extends Thread implements Executor, Cloneable {
     
     public Comando getComandoVivo() throws ComandException {
         if(metodoVivo.length() == 0)
-            throw new ComandException("N√£o h√° A√ß√£o Vivo!");
+            throw new ComandException("N„o h· AÁ„o Vivo!");
         if(!metodos.containsKey(metodoVivo))
-            throw new ComandException("A A√ß√£o Vivo n√£o existe!");
+            throw new ComandException("A AÁ„o Vivo n„o existe!");
         return metodos.get(metodoVivo);
     }
 

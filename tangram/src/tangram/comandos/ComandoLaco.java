@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *             s
  */
 public class ComandoLaco implements Comando{
-    // Numero de RepetiÃ§Ãµes
+    // Numero de Repetições
     int numeroDeRepeticoes;
     // Lista de Comandos
     ArrayList<Comando> comandos;

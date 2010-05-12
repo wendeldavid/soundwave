@@ -35,7 +35,7 @@ import com.sun.opengl.util.Animator;
 public class MundoExecutavel extends Thread implements Executor{
     
     /**
-     * Cont√©m os modelos do mundo.
+     * ContÈm os modelos do mundo.
      */
     private HashMap<String,ModeloExecutavel> modelosDoMundo;
     
@@ -45,7 +45,7 @@ public class MundoExecutavel extends Thread implements Executor{
     private ArrayList<Comando> comandosDoMundo;
     
     /**
-     * Interface Gr√°fica a qual ser√° desenhada as figuras.
+     * Interface Gr·fica a qual ser· desenhada as figuras.
      */
     private EditorGrafico editorGrafico;
 
@@ -56,7 +56,7 @@ public class MundoExecutavel extends Thread implements Executor{
     }
 
     /**
-     * Este M√©todo inicializa a execu√ß√£o do mundo, criando a tela, os modelos e
+     * Este MÈtodo inicializa a execuÁ„o do mundo, criando a tela, os modelos e
      * executando os comandos.
      */
     @Override
@@ -120,9 +120,9 @@ public class MundoExecutavel extends Thread implements Executor{
 
     public Executor getModelExecutor(String model) throws ComandException {
         if(modelosDoMundo == null)
-            throw new ComandException("Mundo n√£o possui modelos.");
+            throw new ComandException("Mundo n„o possui modelos.");
         if(!modelosDoMundo.containsKey(model))
-            throw new ComandException("Mundo n√£o possui o modelo "+model+".");
+            throw new ComandException("Mundo n„o possui o modelo "+model+".");
         return modelosDoMundo.get(model);
     }
 
@@ -174,14 +174,14 @@ public class MundoExecutavel extends Thread implements Executor{
      */
     private Figura getFigura(String model) throws ComandException{
         if(modelosDoMundo == null)
-            throw new ComandException("Mundo n√£o possui modelos.");
+            throw new ComandException("Mundo n„o possui modelos.");
         if(!modelosDoMundo.containsKey(model))
-            throw new ComandException("Mundo n√£o possui o modelo "+model+".");
+            throw new ComandException("Mundo n„o possui o modelo "+model+".");
         return modelosDoMundo.get(model).getFigura();
     }
     
     /**
-     * Executa o m√©todo start() em todos os ModeloExecutavel do mundo.
+     * Executa o mÈtodo start() em todos os ModeloExecutavel do mundo.
      */
     private void startAllModelosMundo(){
         for (ModeloExecutavel modeloExecutavel : modelosDoMundo.values()) {
@@ -190,7 +190,7 @@ public class MundoExecutavel extends Thread implements Executor{
     }
     
     /**
-     * executa o m√©todo parar() em todos os ModelosExecutavel do mundo.
+     * executa o mÈtodo parar() em todos os ModelosExecutavel do mundo.
      */
     private void stopAllModelosMundo(){
         for (ModeloExecutavel modeloExecutavel : modelosDoMundo.values()) {
@@ -199,11 +199,11 @@ public class MundoExecutavel extends Thread implements Executor{
     }
     
     /**
-     * Cria interface gr√°fica para desenhar os modelos.
+     * Cria interface gr·fica para desenhar os modelos.
      */
     private void criaTela(){
         // cria um GLCapabilities para definir que trabalha com duplo buffer e
-        // definir o n√∫mero de bits por pixel
+        // definir o n˙mero de bits por pixel
         GLCapabilities caps = new GLCapabilities();
         caps.setDoubleBuffered(true);
         caps.setRedBits(8);
@@ -228,7 +228,7 @@ public class MundoExecutavel extends Thread implements Executor{
         janela.add(canvas);
         janela.pack();
         
-        // Cria um Animator que chama o m√©todo display() constantemente.
+        // Cria um Animator que chama o mÈtodo display() constantemente.
         Animator anime = new Animator(canvas);
         anime.setRunAsFastAsPossible(true);
         anime.start();
