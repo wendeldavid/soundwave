@@ -45,7 +45,7 @@ public class ReadWriteFile {
             fos.write(b);
             fos.close();
         } catch (Exception ex){
-            System.out.println("Erro Na GravaÃ§Ã£o do Arquivo");
+            System.out.println("Erro Na Gravação do Arquivo");
         }
     }
 }
