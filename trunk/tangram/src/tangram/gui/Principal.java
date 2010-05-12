@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -30,22 +31,26 @@ public class Principal extends javax.swing.JFrame {
 	/** Creates new form Principal */
 	public Principal() {
 		initComponents();
-		mudaLookAndFeel(1);
+		mudaLookAndFeel(looks[0].getName());
 		Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation((tela.width - getSize().width) / 2, (tela.height - getSize().height) / 2);
 	}
 
-	private void mudaLookAndFeel(int index) {
+	private void mudaLookAndFeel(String looksName) {
 		try {
-			javax.swing.UIManager.setLookAndFeel(looks[index].getClassName());
-			javax.swing.SwingUtilities.updateComponentTreeUI(this);
-			if (modelo != null) {
-				javax.swing.SwingUtilities.updateComponentTreeUI(modelo.getEditorModelos());
-				modelo.getEditorModelos().pack();
-				javax.swing.SwingUtilities.updateComponentTreeUI(modelo.getEditorTexto());
-				modelo.getEditorTexto().pack();
+			for(int i = 0; i < looks.length; i++) {
+				if(looks[i].getName().equals(looksName)){
+					javax.swing.UIManager.setLookAndFeel(looks[i].getClassName());
+					javax.swing.SwingUtilities.updateComponentTreeUI(this);
+					if (modelo != null) {
+						javax.swing.SwingUtilities.updateComponentTreeUI(modelo.getEditorModelos());
+						modelo.getEditorModelos().pack();
+						javax.swing.SwingUtilities.updateComponentTreeUI(modelo.getEditorTexto());
+						modelo.getEditorTexto().pack();
+					}
+					pack();
+				}
 			}
-			pack();
 		} catch (Exception e) {
 			Msg.erro("Look and Feel escolhido não disponível");
 		}
@@ -171,10 +176,6 @@ public class Principal extends javax.swing.JFrame {
 		jmSalvaComo = new javax.swing.JMenuItem();
 		jSeparator5 = new javax.swing.JSeparator();
 		jmLookAndFeel = new javax.swing.JMenu();
-		jmFAFWin = new javax.swing.JMenuItem();
-		jmiLAFMet = new javax.swing.JMenuItem();
-		jmiMot = new javax.swing.JMenuItem();
-		jmiLAFCla = new javax.swing.JMenuItem();
 		jSeparator6 = new javax.swing.JSeparator();
 		jmFechar = new javax.swing.JMenuItem();
 		jmEditar = new javax.swing.JMenu();
@@ -266,37 +267,11 @@ public class Principal extends javax.swing.JFrame {
 
 		jmLookAndFeel.setText("Look & Feel");
 
-		jmFAFWin.setText("Windows");
-		jmFAFWin.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jmFAFWinActionPerformed(evt);
-			}
-		});
-		jmLookAndFeel.add(jmFAFWin);
-
-		jmiLAFMet.setText("Metal");
-		jmiLAFMet.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jmiLAFMetActionPerformed(evt);
-			}
-		});
-		jmLookAndFeel.add(jmiLAFMet);
-
-		jmiMot.setText("Motif");
-		jmiMot.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jmiMotActionPerformed(evt);
-			}
-		});
-		jmLookAndFeel.add(jmiMot);
-
-		jmiLAFCla.setText("Clássico");
-		jmiLAFCla.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jmiLAFClaActionPerformed(evt);
-			}
-		});
-		jmLookAndFeel.add(jmiLAFCla);
+		for(int i = 0; i < looks.length; i++) {
+			JMenuItem jMenuItemLookAndFeel = new JMenuItem(looks[i].getName());
+			addLookAndFeelListener(jMenuItemLookAndFeel);
+			jmLookAndFeel.add(jMenuItemLookAndFeel);
+		}
 
 		jmArquivo.add(jmLookAndFeel);
 		jmArquivo.add(jSeparator6);
@@ -448,6 +423,14 @@ public class Principal extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+	
+	private void addLookAndFeelListener(JMenuItem jMenuItem) {
+		jMenuItem.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				mudaLookAndFeel(evt.getActionCommand());
+			}
+		});
+	}
 
 	private void jmiNovoModeloActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmiNovoModeloActionPerformed
 		novoModelo();
@@ -457,22 +440,6 @@ public class Principal extends javax.swing.JFrame {
 		salvarModelo();
 		salvarMundo();
 	}// GEN-LAST:event_jmiSalvarActionPerformed
-
-	private void jmFAFWinActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmFAFWinActionPerformed
-		mudaLookAndFeel(2);
-	}// GEN-LAST:event_jmFAFWinActionPerformed
-
-	private void jmiLAFMetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmiLAFMetActionPerformed
-		mudaLookAndFeel(0);
-	}// GEN-LAST:event_jmiLAFMetActionPerformed
-
-	private void jmiMotActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmiMotActionPerformed
-		mudaLookAndFeel(1);
-	}// GEN-LAST:event_jmiMotActionPerformed
-
-	private void jmiLAFClaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmiLAFClaActionPerformed
-		mudaLookAndFeel(3);
-	}// GEN-LAST:event_jmiLAFClaActionPerformed
 
 	private void jmiModoMovePecaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jmiModoMovePecaActionPerformed
 		mudaModo(Modo.SELECIONA_PECA);
@@ -584,7 +551,6 @@ public class Principal extends javax.swing.JFrame {
 	private javax.swing.JMenuItem jmCut;
 	private javax.swing.JMenu jmEditar;
 	private javax.swing.JMenu jmEditorGrafico;
-	private javax.swing.JMenuItem jmFAFWin;
 	private javax.swing.JMenuItem jmFechar;
 	private javax.swing.JMenu jmInseirComando;
 	private javax.swing.JMenu jmLookAndFeel;
@@ -594,13 +560,10 @@ public class Principal extends javax.swing.JFrame {
 	private javax.swing.JMenuItem jmPaste;
 	private javax.swing.JMenuItem jmSalvaComo;
 	private javax.swing.JMenuItem jmiCarregar;
-	private javax.swing.JMenuItem jmiLAFCla;
-	private javax.swing.JMenuItem jmiLAFMet;
 	private javax.swing.JMenuItem jmiModoEspelhar;
 	private javax.swing.JMenuItem jmiModoMoveModelo;
 	private javax.swing.JMenuItem jmiModoMovePeca;
 	private javax.swing.JMenuItem jmiModoPan;
-	private javax.swing.JMenuItem jmiMot;
 	private javax.swing.JMenuItem jmiNovoModelo;
 	private javax.swing.JMenuItem jmiSalvar;
 	// End of variables declaration//GEN-END:variables
