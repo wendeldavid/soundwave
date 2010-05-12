@@ -39,7 +39,7 @@ public class InsereComandoFaca extends javax.swing.JPanel {
         String codigo = null;
         if( dialog == null){
             // cria um novo dialog
-            dialog = new JDialog(frame, "Insere Comando Fa√ßa", true);
+            dialog = new JDialog(frame, "Insere Comando FaÁa", true);
             // adiciona este painel no dialog
             dialog.add(this);
             dialog.pack();
@@ -47,13 +47,13 @@ public class InsereComandoFaca extends javax.swing.JPanel {
             dialog.setLocation( (tela.width - dialog.getSize().width)/2, 
                     (tela.height - dialog.getSize().height)/2 );
         }
-        // mostra o dialog e segura a execu√ß√£o at√© o fechamento do mesmo
+        // mostra o dialog e segura a execuÁ„o at√© o fechamento do mesmo
         dialog.setVisible(true);
         // se confirmou
         if(gerarCodigo){
             // cria nova string
             codigo = new String();
-            codigo += "fa√ßa " + acao;
+            codigo += "faÁa " + acao;
         }
         return codigo;
     }
@@ -72,7 +72,7 @@ public class InsereComandoFaca extends javax.swing.JPanel {
         jbtConfirma = new javax.swing.JButton();
         jbtCancela = new javax.swing.JButton();
 
-        acaoAExecutar.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleciona a A√ß√£o"));
+        acaoAExecutar.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleciona a AÁ„o"));
 
         jcbAcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -156,7 +156,7 @@ private void jbtCancelacancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:eve
         try{
             acao = (String) jcbAcao.getSelectedItem();
         } catch (Exception e){
-            Msg.erro("Seleciona uma a√ß√£o!");
+            Msg.erro("Seleciona uma aÁ„o!");
             jcbAcao.requestFocus();
             return false;
         }

@@ -122,7 +122,7 @@ public class EditorTextualMundo extends javax.swing.JFrame {
 
         jbLinha.setText("jbLinha");
 
-        jbHelp.setText("rodapÃ©");
+        jbHelp.setText("rodapé");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -137,14 +137,14 @@ public class EditorTextualMundo extends javax.swing.JFrame {
 
         jcbAcoes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("faÃ§a");
+        jButton1.setText("faça");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdicionaComandoFaca(evt);
             }
         });
 
-        jButton2.setText("faÃ§a em paralelo");
+        jButton2.setText("faça em paralelo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -270,7 +270,7 @@ public class EditorTextualMundo extends javax.swing.JFrame {
     private void AdicionaComandoFaca(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionaComandoFaca
         String comando = (String) jcbAcoes.getSelectedItem();
         if(comando != null && comando.length() > 0)
-            insereComando("faÃ§a " + lbModelName.getText() + "." + comando);
+            insereComando("faça " + lbModelName.getText() + "." + comando);
     }//GEN-LAST:event_AdicionaComandoFaca
 
 private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -280,14 +280,14 @@ private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:even
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     String comando = (String) jcbAcoes.getSelectedItem();
     if(comando != null && comando.length() > 0)
-        insereComando("faÃ§a " + lbModelName.getText() +
+        insereComando("faça " + lbModelName.getText() +
                 "." + comando + " em paralelo");
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     String comando = (String) jcbAcoes.getSelectedItem();
     if(comando != null && comando.length() > 0)
-        insereComando("faÃ§a " + lbModelName.getText() +
+        insereComando("faça " + lbModelName.getText() +
                 ".VIVA(" + comando + ")");
 }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -39,7 +39,7 @@ public class InsereComandoRepete extends javax.swing.JPanel {
             dialog.setLocation( (tela.width - dialog.getSize().width)/2, 
                     (tela.height - dialog.getSize().height)/2 );
         }
-        // mostra o dialog e segura a execuÃ§Ã£o atÃ© o fechamento do mesmo
+        // mostra o dialog e segura a execuçÃ£o atÃ© o fechamento do mesmo
         dialog.setVisible(true);
         // se confirmou
         if(gerarCodigo){
@@ -67,9 +67,9 @@ public class InsereComandoRepete extends javax.swing.JPanel {
         jbtConfirma = new javax.swing.JButton();
         jbtCancela = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("NÃºmero de repetiÃ§Ãµes"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Número de repetições"));
 
-        jLabel1.setText("RepetiÃ§Ãµes");
+        jLabel1.setText("Repetições");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,7 +160,7 @@ dialog.setVisible(false);
         try{
             repeticoes = Integer.parseInt(jTextField1.getText());
         } catch(Exception e){
-            Msg.erro("Entrada InvÃ¡lida!");
+            Msg.erro("Entrada Inválida!");
             jTextField1.requestFocus();
             return false;
         }

@@ -72,19 +72,19 @@ public class EditorTextual extends javax.swing.JFrame {
     
     private void criaNovaAcao(){
         // pergunto o nome da nova acao
-        String novoNome = entrada("Nome da Nova A√ß√£o");
+        String novoNome = entrada("Nome da Nova AÁ„o");
         
         if (novoNome == null)
             return;
             
         // valida o nome
         if(!ModelMaker.isNomeAcaoValido(novoNome)){
-            Msg.erro("Nome Inv√°lido para A√ßao!");
+            Msg.erro("Nome Inv·lido para AÁ„o!");
             return;
         }
-        // verifica se n√£o existe um nome igual para o modelo
+        // verifica se n„o existe um nome igual para o modelo
         if(getModelo().getAcoes().containsKey(novoNome)){
-            Msg.erro("Nome da Acao j√° Existe!");
+            Msg.erro("Nome da AÁ„o j· Existe!");
             return;
         }
         // adciona acao no modelo
@@ -101,7 +101,7 @@ public class EditorTextual extends javax.swing.JFrame {
     
     public void retornaPosicaoCria(){
         ModeloExecutavel exe = modelo.compilaCria();
-        // Se Ocorreu Algum erro na compila√ß√£o n√£o faz metodo.
+        // Se Ocorreu Algum erro na compilaÁ„o n„o faz metodo.
         if(exe == null)
             return;
         Figura figura = (Figura) modelo.getFiguras().get(0);
@@ -154,10 +154,10 @@ public class EditorTextual extends javax.swing.JFrame {
             }
         });
 
-        jpAcoes.setBorder(javax.swing.BorderFactory.createTitledBorder("A√ß√µes"));
+        jpAcoes.setBorder(javax.swing.BorderFactory.createTitledBorder("AÁıes"));
 
-        jcbAcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Posi√ß√£o_Inicial", "Vida" }));
-        jcbAcao.setToolTipText("<html> Escolha aqui a A√ß√£o do Modelo para ser editado. </html>");
+        jcbAcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PosiÁ„o_Inicial", "Vida" }));
+        jcbAcao.setToolTipText("<html> Escolha aqui a AÁ„o do Modelo para ser editado. </html>");
         jcbAcao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAcaoActionPerformed(evt);
@@ -192,21 +192,21 @@ public class EditorTextual extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtaCodigo);
 
-        jpAngulo.setBorder(javax.swing.BorderFactory.createTitledBorder("Op√ß√µes de Rota√ß√£o"));
+        jpAngulo.setBorder(javax.swing.BorderFactory.createTitledBorder("OpÁıes de RotaÁ„o"));
 
         jcbAngulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "45", "15", "5", "-5", "-15", "-45" }));
-        jcbAngulo.setToolTipText("Seleciona o Angulo para Rota√ß√£o de Pe√ßas ou Modelos no Editor de Modelos");
+        jcbAngulo.setToolTipText("Seleciona o Angulo para RotaÁ„o de PeÁas ou Modelos no Editor de Modelos");
         jcbAngulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAnguloActionPerformed(evt);
             }
         });
 
-        jlbAngulo.setText("√Çngulo");
+        jlbAngulo.setText("¬ngulo");
 
         jlbSelecPonto.setText("Selec. Ponto");
 
-        jcbSelecPonto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N√£o", "Sim" }));
+        jcbSelecPonto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N„o", "Sim" }));
         jcbSelecPonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atualizaSelecPonto(evt);
@@ -241,7 +241,7 @@ public class EditorTextual extends javax.swing.JFrame {
 
         jpGerador.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerador de Texto"));
 
-        jcbGerador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N√£o Gerar", "Estatico", "Iterativo" }));
+        jcbGerador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N„o Gerar", "Estatico", "Iterativo" }));
         jcbGerador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbGeradorActionPerformed(evt);
@@ -264,17 +264,17 @@ public class EditorTextual extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jpBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Bot√µes"));
+        jpBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Botıes"));
 
-        jbtEditorGrafico.setText("Editor Gr√°fico");
+        jbtEditorGrafico.setText("Editor Gr·fico");
         jbtEditorGrafico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chamaEditorGrafico(evt);
             }
         });
 
-        jbtNovaAcao.setText("Nova A√ß√£o");
-        jbtNovaAcao.setToolTipText("Cria nova A√ß√£o para o Modelo.");
+        jbtNovaAcao.setText("Nova AÁ„o");
+        jbtNovaAcao.setToolTipText("Cria nova AÁ„o para o Modelo.");
         jbtNovaAcao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novaAcao(evt);
@@ -282,7 +282,7 @@ public class EditorTextual extends javax.swing.JFrame {
         });
 
         jbtPreExecutar.setText(">");
-        jbtPreExecutar.setToolTipText("Pr√©-executar a√ß√µes do Modelo");
+        jbtPreExecutar.setToolTipText("Pr√©-executar aÁıes do Modelo");
         jbtPreExecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 preExecutar(evt);
@@ -359,9 +359,9 @@ public class EditorTextual extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAcaoActionPerformed
-        // Pega o nome da a√ß√£o selecionada
+        // Pega o nome da aÁ„o selecionada
         String acaoSelecionada = (String)jcbAcao.getSelectedItem();
-        // se n√£o seleciona acao retorna
+        // se n„o seleciona acao retorna
         if(acaoSelecionada == null)
             return;
         // se a acao selecionada anteriormente e nula inicializa ela
@@ -377,7 +377,7 @@ public class EditorTextual extends javax.swing.JFrame {
                 retornaPosicaoCria();
                 // muda gerador para estatico
                 jcbGerador.setSelectedIndex(1);
-                // n√£o deixa alterar gerador
+                // n„o deixa alterar gerador
                 jcbGerador.setEnabled(false);
             } else
                 jcbGerador.setEnabled(true);
@@ -388,7 +388,7 @@ public class EditorTextual extends javax.swing.JFrame {
 
     private void novaAcao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaAcao
         if(getModelo() == null){
-            Msg.erro("N√£o existe Modelo!");
+            Msg.erro("N„o existe Modelo!");
             return;
         }
         criaNovaAcao();
@@ -434,17 +434,17 @@ public class EditorTextual extends javax.swing.JFrame {
 }//GEN-LAST:event_chamaEditorGrafico
 
     private void preExecutar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preExecutar
-        // Se e metodo cria ou vida n√£o executa
+        // Se e metodo cria ou vida n„o executa
         if(jcbAcao.getSelectedItem().equals(ModelMaker.CRIA) ||
                 jcbAcao.getSelectedItem().equals(ModelMaker.VIVA))
             return;
         final ModeloExecutavel exe = modelo.compila();
-        // Se Ocorreu Algum erro na compila√ß√£o n√£o faz metodo.
+        // Se Ocorreu Algum erro na compilaÁ„o n„o faz metodo.
         if(exe == null)
             return;
         // atribui a figura
         exe.setFigura((Figura) modelo.getFiguras().get(0));
-        // Inicia a execu√ß√£o
+        // Inicia a execuÁ„o
         exe.start();
         // Executa Metodo
         try{

@@ -75,9 +75,9 @@ public class InsereComandoGira extends javax.swing.JPanel {
         jbtConfirma = new javax.swing.JButton();
         jbtCancela = new javax.swing.JButton();
 
-        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valor do Ã¢ngulo a girar"));
+        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valor do ângulo a girar"));
 
-        jLabel1.setText("Ã‚ngulo");
+        jLabel1.setText("Ângulo");
 
         jtAngulo.setText("123456");
 
@@ -184,7 +184,7 @@ private void jbtCancelacancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:eve
         try{
             angulo = Float.parseFloat(jtAngulo.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada invÃ¡lida!");
+            Msg.erro("Entrada inválida!");
             jtAngulo.requestFocus();
             return false;
         }
@@ -194,12 +194,12 @@ private void jbtCancelacancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:eve
             else
                 ponto = Float.parseFloat(jtPonto.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada invÃ¡lida!");
+            Msg.erro("Entrada inválida!");
             jtPonto.requestFocus();
             return false;
         }
         if(painelSelecionaPeca1.getSelected() == null){
-            Msg.erro("Entrada invÃ¡lida!");
+            Msg.erro("Entrada inválida!");
             painelSelecionaPeca1.requestFocus();
             return false;
         }

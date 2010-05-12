@@ -92,12 +92,12 @@ public class EditorGrafico extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JToolBar.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tangram 3.0 - Editor Gr√°fico de Modelos");
+        setTitle("Tangram 3.0 - Editor Gr·fico de Modelos");
         setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/Imagens/Tangram.png")));
 
         toolBarModelos.setRollover(true);
 
-        btnPeca.setText("Seleciona Pe√ßa");
+        btnPeca.setText("Seleciona PeÁa");
         btnPeca.setFocusable(false);
         btnPeca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPeca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
