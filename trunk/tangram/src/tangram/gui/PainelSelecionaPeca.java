@@ -54,7 +54,7 @@ public class PainelSelecionaPeca extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jcbSelecao = new javax.swing.JComboBox();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Selecione a PeÃ§a ou Modelo"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Selecione a Peça ou Modelo"));
 
         jLabel1.setText("Selecione");
 

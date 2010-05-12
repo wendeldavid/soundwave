@@ -159,7 +159,7 @@ private void jbtCancelacancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:eve
         try{
             tempo = Integer.parseInt(jTextField1.getText());
         } catch(Exception e){
-            Msg.erro("Entrada Inv√°lida!");
+            Msg.erro("Entrada Inv·lida!");
             jTextField1.requestFocus();
             return false;
         }

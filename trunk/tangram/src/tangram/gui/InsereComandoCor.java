@@ -482,7 +482,7 @@ private void jRadioButton16corEscolhida(java.awt.event.MouseEvent evt) {//GEN-FI
             return false;
         }
         if(painelSelecionaPeca1.getSelected() == null){
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             painelSelecionaPeca1.requestFocus();
             return false;
         }

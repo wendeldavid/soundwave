@@ -28,7 +28,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
     String acaoSelecionada;
     
     boolean gerarCodigo;
-    static String SELECIONE_UMA_ACAO = "Selecione uma A√ß√£o";
+    static String SELECIONE_UMA_ACAO = "Selecione uma AÁ„o";
 
     public String getAcaoSelecionada() {
         return acaoSelecionada;
@@ -63,7 +63,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
         String codigo = null;
         if( dialog == null){
             // cria um novo dialog
-            dialog = new JDialog(frame, "Modo Din√¢mico", true);
+            dialog = new JDialog(frame, "Modo Din‚mico", true);
             // adiciona este painel no dialog
             dialog.add(this);
             dialog.pack();
@@ -71,7 +71,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
             dialog.setLocation( (tela.width - dialog.getSize().width)/2, 
                     (tela.height - dialog.getSize().height)/2 );
         }
-        // mostra o dialog e segura a execu√ß√£o at√© o fechamento do mesmo
+        // mostra o dialog e segura a execuÁ„o at√© o fechamento do mesmo
         dialog.setVisible(true);
         // se confirmou
         if(gerarCodigo){
@@ -100,10 +100,10 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
             // quebra de linha
             codigo += "\n";
             
-            // se seleciona acao, concatena comando fa√ßa
+            // se seleciona acao, concatena comando faÁa
             if(acaoSelecionada != null && 
                     !acaoSelecionada.equals(SELECIONE_UMA_ACAO))
-                codigo += "    fa√ßa " + 
+                codigo += "    faÁa " + 
                         acaoSelecionada +
                         "\n";
             
@@ -146,9 +146,9 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(249, 261));
 
-        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valor do √¢ngulo a girar"));
+        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valor do ‚ngulo a girar"));
 
-        jLabel1.setText("√Çngulo");
+        jLabel1.setText("¬ngulo");
 
         jtAngulo.setText("123456");
 
@@ -181,9 +181,9 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        interacoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Itera√ß√£o do √¢ngulo a girar"));
+        interacoes.setBorder(javax.swing.BorderFactory.createTitledBorder("IteraÁ„o do ‚ngulo a girar"));
 
-        jLabel4.setText("N√∫mero de Repeti√ß√µes");
+        jLabel4.setText("N˙mero de RepetiÁıes");
 
         jLabel5.setText("Tempo do percurso");
 
@@ -218,7 +218,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
                     .addComponent(jtTempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        acaoAExecutar.setBorder(javax.swing.BorderFactory.createTitledBorder("Executar A√ß√£o na Itera√ß√£o"));
+        acaoAExecutar.setBorder(javax.swing.BorderFactory.createTitledBorder("Executar AÁ„o na IteraÁ„o"));
 
         jcbAcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -324,7 +324,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
         try{
             angulo = Float.parseFloat(jtAngulo.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtAngulo.requestFocus();
             return false;
         }
@@ -334,36 +334,36 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
             else
                 ponto = Float.parseFloat(jtPonto.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtPonto.requestFocus();
             return false;
         }
         try{
             repeticoes = Integer.parseInt(jtRepeticoes.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtRepeticoes.requestFocus();
             return false;
         }
         try{
             tempo = Integer.parseInt(jtTempo.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtTempo.requestFocus();
             return false;
         }
         if(repeticoes <= 0){
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtRepeticoes.requestFocus();
             return false;
         }
         if (tempo <= 0){
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtTempo.requestFocus();
             return false;
         }
         if (ponto < 0 || ponto > 22){
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtPonto.requestFocus();
             return false;
         }

@@ -46,7 +46,7 @@ public class InsereComando extends javax.swing.JPanel {
             dialog.setLocation( (tela.width - dialog.getSize().width)/2, 
                     (tela.height - dialog.getSize().height)/2 );
         }
-        // mostra o dialog e segura a execu√ß√£o at√© o fechamento do mesmo
+        // mostra o dialog e segura a execuÁ„o atÈ o fechamento do mesmo
         dialog.setVisible(true);
         // se confirmou
         if(gerarCodigo){
@@ -64,26 +64,26 @@ public class InsereComando extends javax.swing.JPanel {
         try{
             x = Float.parseFloat(jtX.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtX.requestFocus();
             return false;
         }
         try{
             y = Float.parseFloat(jtY.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtY.requestFocus();
             return false;
         }
         try{
             z = Float.parseFloat(jtZ.getText());
         } catch(Exception e) {
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             jtZ.requestFocus();
             return false;
         }
         if(painelSelecionaPeca1.getSelected() == null){
-            Msg.erro("Entrada inv√°lida!");
+            Msg.erro("Entrada inv·lida!");
             painelSelecionaPeca1.requestFocus();
             return false;
         }
@@ -125,7 +125,7 @@ public class InsereComando extends javax.swing.JPanel {
             }
         });
 
-        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valores da dist√¢ncia a percorrer"));
+        distancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Valores da dist‚ncia a percorrer"));
 
         jLabel1.setText("X");
 

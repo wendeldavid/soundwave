@@ -52,7 +52,7 @@ public class Principal extends javax.swing.JFrame {
 				}
 			}
 		} catch (Exception e) {
-			Msg.erro("Look and Feel escolhido n√£o dispon√≠vel");
+			Msg.erro("Look and Feel escolhido n„o disponÌvel");
 		}
 	}
 
@@ -66,7 +66,7 @@ public class Principal extends javax.swing.JFrame {
 		if (ModelMaker.isNomeAcaoValido(nomeModelo))
 			modelo = new Modelo(nomeModelo);
 		else
-			Msg.erro("Nome Inv√°lido para o Modelo!");
+			Msg.erro("Nome Inv·lido para o Modelo!");
 	}
 
 	private void novaAnimacao() {
@@ -79,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
 		if (ModelMaker.isNomeAcaoValido(nomeDoMundo))
 			mundo = new Mundo(nomeDoMundo);
 		else
-			Msg.erro("Nome Inv√°lido para o Mundo!");
+			Msg.erro("Nome Inv·lido para o Mundo!");
 	}
 
 	private void salvarModelo() {
@@ -98,11 +98,11 @@ public class Principal extends javax.swing.JFrame {
 			if (ModelMaker.isNomeAcaoValido(novoNome)) {
 				File file = new File(novoNome + ".mod");
 				if (file.exists())
-					if (!Msg.questao("Modelo j√° Existe!\nDeseja sobrescrever?"))
+					if (!Msg.questao("Modelo j· Existe!\nDeseja sobrescrever?"))
 						return;
 				modelo.salvar(file, novoNome);
 			} else
-				Msg.erro("Nome Inv√°lido para o Modelo!");
+				Msg.erro("Nome Inv·lido para o Modelo!");
 		} else {
 			Msg.erro("Nenhum Modelo Aberto!");
 		}
@@ -113,11 +113,11 @@ public class Principal extends javax.swing.JFrame {
 		if (ModelMaker.isNomeAcaoValido(novoNome)) {
 			File file = new File(novoNome + ".mun");
 			if (file.exists())
-				if (!Msg.questao("Mundo j√° Existe!\nDeseja sobrescrever?"))
+				if (!Msg.questao("Mundo j· Existe!\nDeseja sobrescrever?"))
 					return;
 			mundo.salvar(file, novoNome);
 		} else
-			Msg.erro("Nome Inv√°lido para o Mundo!");
+			Msg.erro("Nome Inv·lido para o Mundo!");
 	}
 
 	private void fecharModelo() {
@@ -345,7 +345,7 @@ public class Principal extends javax.swing.JFrame {
 		jmInseirComando.add(jMenuItem6);
 
 		jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-		jMenuItem7.setText("fa√ßa");
+		jMenuItem7.setText("faÁa");
 		jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jMenuItem7ActionPerformed(evt);
@@ -370,11 +370,11 @@ public class Principal extends javax.swing.JFrame {
 
 		jMenuBar.add(jmEditar);
 
-		jmEditorGrafico.setText("Editor Gr√°fico");
+		jmEditorGrafico.setText("Editor Gr·fico");
 
 		jmModos.setText("Modo");
 
-		jmiModoMovePeca.setText("Usar Pe√ßas");
+		jmiModoMovePeca.setText("Usar PeÁas");
 		jmiModoMovePeca.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jmiModoMovePecaActionPerformed(evt);
