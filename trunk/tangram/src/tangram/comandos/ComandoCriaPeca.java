@@ -38,7 +38,7 @@ public class ComandoCriaPeca implements Comando{
             //        parms[0] + "-" + parms[1] + "-" + parms[2]);
         }catch(Exception e){
             e.printStackTrace();
-            //throw new ComandException("Pe√ßa Inv√°lida");
+            //throw new ComandException("PeÁa Inv·lida");
         }
     }
 

@@ -6,7 +6,7 @@
 package tangram.comandos;
 
 /**
- * Esta interface disponibiliza um metodo para representaÃ§Ã£o e execuÃ§Ã£o de uma 
+ * Esta interface disponibiliza um metodo para representação e execução de uma 
  * comando da linguagem do LTD.
  * @author GlauKo
  */

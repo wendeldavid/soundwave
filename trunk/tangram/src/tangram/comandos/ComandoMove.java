@@ -16,7 +16,7 @@ import jogl.util.Vetor3f;
  *             s
  */
 public class ComandoMove implements Comando{
-    // nome da peÃ§a ou modelo para mover
+    // nome da peça ou modelo para mover
     String model;
     // valor para mover
     Vetor3f parm;
