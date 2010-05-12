@@ -105,7 +105,7 @@ public class Apontamento{
     
     @Override
     public String toString(){
-        return "Tipo de PeÃ§a: " + pecaColidiu.getTipo() +
+        return "Tipo de Peça: " + pecaColidiu.getTipo() +
                " - Ponto Colidiu: " + pontoColidiu.toString();
     }
     

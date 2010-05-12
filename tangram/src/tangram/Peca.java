@@ -15,39 +15,39 @@ import jogl.util.Triangulo;
 import jogl.util.Vetor3f;
 
 /**
- * Esta classe implementa uma pe√ßa do jogo Tangram.
- * Esta classe implementa m√©todos para detectar colis√£o, espelh√°-la, move-la, 
- * desenh√°-la, rotacion√°-la, mudar sua cor e clona-la
+ * Esta classe implementa uma peÁa do jogo Tangram.
+ * Esta classe implementa m√©todos para detectar colis√£o, espelh·-la, move-la, 
+ * desenh·-la, rotacion·-la, mudar sua cor e clona-la
  * @author GlauKo
  */
 public class Peca extends jogl.BasicModel implements TranslateModel,
         RotateModel, MirrorModel, RayTracing, Cloneable {
     
     /**
-     * Armazena se a pe√ßa foi movida.
+     * Armazena se a peÁa foi movida.
      */
     boolean moveuPeca;
     
     /**
-     * Armazena o tipo da pe√ßa, o qual √© o respectivo n√∫mero do nome das pe√ßas
+     * Armazena o tipo da peÁa, o qual √© o respectivo n√∫mero do nome das peÁas
      * no tangra, P1, P2, P3, P4, P5, P6, P7.
      */
     int tipo;
     
     /**
-     * Armazena o angulo que a pe√ßa foi rotacionada.
+     * Armazena o angulo que a peÁa foi rotacionada.
      */
     float angulo;
     
     /**
-     * Armazema se a pe√ßa foi espelhada
+     * Armazema se a peÁa foi espelhada
      */
     boolean mirrored;
     
     /**
-     * Cria um Pe√ßa de um Modelo (Figura) do Tangram
-     * @param tipo numero de 1 - 7 que representa uma pe√ßa do tangram
-     * @param centro ponto central da pe√ßa
+     * Cria um PeÁa de um Modelo (Figura) do Tangram
+     * @param tipo numero de 1 - 7 que representa uma peÁa do tangram
+     * @param centro ponto central da peÁa
      */
     public Peca(int tipo, Vetor3f centro){
         super(centro, 
@@ -61,7 +61,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     }
 
     /**
-     * Adciona o Vetor3f V a todos os pontos da pe√ßa
+     * Adciona o Vetor3f V a todos os pontos da peÁa
      * @param v
      */
     protected void movePeca(Vetor3f v){
@@ -128,7 +128,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     
     /**
      * retorna a String do metodo toString() do Vetor3f que representa o centro
-     * da pe√ßa.
+     * da peÁa.
      * @return
      */
     @Override
@@ -171,7 +171,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     }
 
     /**
-     * Retorna se a pe√ßa foi espelhada
+     * Retorna se a peÁa foi espelhada
      * @return
      */
     public boolean isMirrored() {
@@ -179,7 +179,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     }
 
     /**
-     * Retorna o angulo em que a pe√ßa foi rotacionada
+     * Retorna o angulo em que a peÁa foi rotacionada
      * @return
      */
     public float getAngulo() {
@@ -188,7 +188,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     
     /**
      * Adciona o valor do angulo rotaciona a variavel que armazena o angulo 
-     * rotaciona da pe√ßa.
+     * rotaciona da peÁa.
      */ 
     public void addAngulo(float adicional){
         angulo += adicional;
@@ -197,7 +197,7 @@ public class Peca extends jogl.BasicModel implements TranslateModel,
     }
     
     /**
-     * Altera a cor da Pe√ßa
+     * Altera a cor da PeÁa
      * @param color
      */
     @Override

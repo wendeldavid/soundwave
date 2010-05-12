@@ -13,14 +13,14 @@ import javax.media.opengl.GL;
 import jogl.Camera;
 
 /**
- * Esta Interface disponibiliza m√©todos para o tratamento das intera√ß√µes do 
- * usu√°rio com a inteface gr√°fica, a qual √© desenhada atrav√©s de um GLCanvas.
- * A intera√ß√£o do usu√°rio, utilizando o mouse, com a interface gr√°fica gera
- * objetos da classe MouseEvent, os quais s√£o tratados gerando a√ß√µes sobre os
+ * Esta Interface disponibiliza mÈtodos para o tratamento das interaÁıes do 
+ * usu·rio com a inteface gr·fica, a qual È desenhada atravÈs de um GLCanvas.
+ * A interaÁ„o do usu·rio, utilizando o mouse, com a interface gr·fica gera
+ * objetos da classe MouseEvent, os quais s„o tratados gerando aÁıes sobre os
  * objetos das Classes Figura e Peca.
- * Esta Interface disponibiliza m√©todos atribui ou retorna as figuras que s√£o
- * desenhadas no GLCanvas, al√©m de um m√©todo para desenhas outras informa√ß√µes no
- * GLCanvas. Disponibiliza tamb√©m o objeto da classe Camera.
+ * Esta Interface disponibiliza mÈtodos atribui ou retorna as figuras que s„o
+ * desenhadas no GLCanvas, alÈm de um mÈtodo para desenhas outras informaÁıes no
+ * GLCanvas. Disponibiliza tambÈm o objeto da classe Camera.
  * @author GlauKo
  */
 public interface MouseEventHandler {
@@ -33,7 +33,7 @@ public interface MouseEventHandler {
     public void action(GL gl, ArrayList<MouseEvent> me);
     
     /**
-     * Desenha informa√ß√µes extras na tela.
+     * Desenha informaÁıes extras na tela.
      * @param gl
      */
     public void extraDraws(GL gl);
@@ -69,7 +69,7 @@ public interface MouseEventHandler {
     public void setModo(Modo modo);
     
     /**
-     * Enumera√ß√£o que contem os possiveis modes de tratamento de eventos do 
+     * EnumeraÁ„o que contem os possiveis modes de tratamento de eventos do 
      * mouse.
      */
     public enum Modo {
@@ -82,27 +82,27 @@ public interface MouseEventHandler {
          */
         MIRROR,
         /**
-         * Modo para rota√ß√£o de pe√ßas
+         * Modo para rotaÁ„o de peÁas
          */
         ROTACIONA_PECA,
         /**
-         * Modo para rota√ß√£o de figuras
+         * Modo para rotaÁ„o de figuras
          */
         ROTACIONA_MODELO,
         /**
-         * Modo para sele√ß√£o de pontos das pe√ßas
+         * Modo para seleÁ„o de pontos das peÁas
          */
         SELECIONA_PONTO,
         /**
-         * Modo para sele√ß√£o de pe√ßas
+         * Modo para seleÁ„o de peÁas
          */
         SELECIONA_PECA,
         /**
-         * Modo para sele√ß√£o de figuras
+         * Modo para seleÁ„o de figuras
          */
         SELECIONA_MODELO,
         /**
-         * Modo para quando uma pe√ßa foi selecionada
+         * Modo para quando uma peÁa foi selecionada
          */
         PECA_SELECIONADA,
         /**

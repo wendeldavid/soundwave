@@ -216,7 +216,7 @@ public class MEHforMundo implements MouseEventHandler {
         String novaCor = ec.showDialog(null);
         // Se selecionou alguma cor
         if(novaCor != null && novaCor.length() > 0)
-            // altera a cor da peÃ§a na tela
+            // altera a cor da peça na tela
             mudaCorFunco = ColorMaker.makeColor(novaCor);
         else
             return false;

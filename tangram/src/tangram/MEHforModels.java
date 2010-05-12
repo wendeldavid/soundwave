@@ -460,11 +460,11 @@ public class MEHforModels implements MouseEventHandler{
     
     /**
      * 
-     * Chama tela para escolha da cor da PeÃ§a ou do Modelo.
+     * Chama tela para escolha da cor da Peça ou do Modelo.
      * 
      * @param cm ColorModel que deve mudar a cor.
      * @param corAtual a Cor atual do ColorModel.
-     * @param titulo nome da peÃ§a ou do modelo que serÃ¡ usado no titulo da tela.
+     * @param titulo nome da peça ou do modelo que serÃ¡ usado no titulo da tela.
      * @return retorna true se escolheu alguma cor, ou cor diferente.
      */
     private boolean mudaCorEvent(ColorModel cm, String corAtual, String titulo){
@@ -481,7 +481,7 @@ public class MEHforModels implements MouseEventHandler{
         String novaCor = ec.showDialog(null);
         // Se selecionou alguma cor
         if(novaCor != null && novaCor.length() > 0)
-            // altera a cor da peÃ§a na tela
+            // altera a cor da peça na tela
             cm.setColor(ColorMaker.makeColor(novaCor));
         else
             return false;
@@ -495,7 +495,7 @@ public class MEHforModels implements MouseEventHandler{
         String novaCor = ec.showDialog(null);
         // Se selecionou alguma cor
         if(novaCor != null && novaCor.length() > 0)
-            // altera a cor da peÃ§a na tela
+            // altera a cor da peça na tela
             mudaCorFunco = ColorMaker.makeColor(novaCor);
         else
             return false;

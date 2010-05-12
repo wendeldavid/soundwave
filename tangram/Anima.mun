@@ -1,7 +1,6 @@
 mundo Anima
 cria GaloA como Galiude(-4521.0,2670.0,-9099.0)
 cria GaloB como Galiude(795.0,2198.0,-9099.0)
-cria Pessoa como Joao(-4247.0,-559.0,-9099.0)
 cria MoinhoA como Moinho(1043.0,-832.0,-9099.0)
 faça GaloA.VaiEVolta em paralelo
 faça GaloB.VaiEVolta em paralelo
