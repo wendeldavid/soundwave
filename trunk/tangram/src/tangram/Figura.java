@@ -19,7 +19,7 @@ import jogl.util.Vetor3f;
 
 /**
  * @author GlauKo
- * Esta classe implementa uma figura (7 pe√ßas) do jogo Tangram, possuindo sete
+ * Esta classe implementa uma figura (7 peÁas) do jogo Tangram, possuindo sete
 objetos da classe Peca.
  * Esta classe implementa m√©todos para detectar colis√£o, espelh√°-la, move-la, 
  * desenh√°-la, rotacion√°-la, mudar sua cor e clona-la
@@ -28,7 +28,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
             DrawModel, RotateModel, ColorModel, Cloneable{
     
     /**
-     * Vetor que cont√©m as sete pe√ßas (Peca)
+     * Vetor que cont√©m as sete peÁas (Peca)
      */
     Peca[] pecas;
     
@@ -38,7 +38,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     String name;
 
     /**
-     * Cria uma nova figura formando o desenho de um quadrado com as sete pe√ßas.
+     * Cria uma nova figura formando o desenho de um quadrado com as sete peÁas.
      * @param name
      */
     public Figura(String name) {
@@ -57,7 +57,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Cria uma nova figura passando por parametro as pe√ßas.
+     * Cria uma nova figura passando por parametro as peÁas.
      * @param v1
      * @param v2
      * @param v3
@@ -88,7 +88,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Adiciona o valor do Vetor3f V em todas as pe√ßas da figura.
+     * Adiciona o valor do Vetor3f V em todas as peÁas da figura.
      * @param v
      */
     public void translate(Vetor3f v) {
@@ -100,7 +100,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     
     /**
      * Subtrai do Vetor3f V os vetor correspondente ao centro da figura e
-     * adiciona o resultado em todas as pe√ßas da figura.
+     * adiciona o resultado em todas as peÁas da figura.
      * @param v
      */
     public void translateTo(Vetor3f v) {
@@ -112,8 +112,8 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Retorna um objeto de Apontamento se houve intersec√ß√£o da Linha ray com alguma
-     * das pe√ßas da figura.
+     * Retorna um objeto de Apontamento se houve intersecÁ√£o da Linha ray com alguma
+     * das peÁas da figura.
      * @param ray
      * @return
      */
@@ -132,7 +132,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Retorna dentre todos os pontos das pe√ßas da figura o mais pr√≥ximo da
+     * Retorna dentre todos os pontos das peÁas da figura o mais pr√≥ximo da
      * Linha ray
      * @param ray
      * @return
@@ -148,7 +148,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Desenha todas as pe√ßas que est√£o visiveis na tela.
+     * Desenha todas as peÁas que est√£o visiveis na tela.
      * @param gl
      */
     public void draw(GL gl){
@@ -159,7 +159,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Muda o tipo de desenho de todas as pe√ßas
+     * Muda o tipo de desenho de todas as peÁas
      * @param type
      */
     public void changeDrawType(int type){
@@ -170,14 +170,14 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
 
     /**
-     * Espelha os pontos de todas as pe√ßas da Figura no eixo X, apartir do centro da Figura.
+     * Espelha os pontos de todas as peÁas da Figura no eixo X, apartir do centro da Figura.
      */
     public void mirror() {
         mirror(getCenter());
     }
     
     /**
-     * Espelha os pontos de todas as pe√ßas da Figura no eixo X, apartir de um ponto determinado.
+     * Espelha os pontos de todas as peÁas da Figura no eixo X, apartir de um ponto determinado.
      * 
      * @param v Ponto para efetuar o espelhamento
      */
@@ -192,7 +192,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
      * Rotaciona toda a Figura em torno de uma origem especificada.
      * 
      * @param angulo Angulo, em graus, para rotacionar a Figura.
-     * @param origem Vetor3f que representa o ponto centro de rota√ß√£o
+     * @param origem Vetor3f que representa o ponto centro de rotaÁ√£o
      */
     public void Rotate(float angulo, Vetor3f origem) {
         for(Peca p : pecas){
@@ -211,9 +211,9 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Muda a cor de todas as pe√ßas da Figura.
+     * Muda a cor de todas as peÁas da Figura.
      * 
-     * @param color A nova cor das pe√ßas da Figura
+     * @param color A nova cor das peÁas da Figura
      */
     public void setColor(Color4f color) {
         for(Peca p : pecas){
@@ -223,7 +223,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
 
     /**
-     * Este m√©todo compara todas as cores das pe√ßas da figura.
+     * Este m√©todo compara todas as cores das peÁas da figura.
      * Se forem iguais ele retorna a cor. Caso alguma cor for diferente, retorna null.
      * 
      * @return A cor da modelo.
@@ -261,7 +261,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     
     /**
      * Retorna o centro da figura pegando os valores maximos e minimos de X e Y
-     * das pe√ßas da figura.
+     * das peÁas da figura.
      * @return
      */
     public Vetor3f getCenter(){
@@ -395,7 +395,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
 
     /**
-     * Retorna a lista das pe√ßas
+     * Retorna a lista das peÁas
      * @return
      */
     public Peca[] getPecas() {
@@ -403,7 +403,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
 
     /**
-     * Atribui a lista das pe√ßas
+     * Atribui a lista das peÁas
      * @param pecaList
      */
     public void setPecas(Peca[] pecaList) {
@@ -411,7 +411,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * retorna a pe√ßa pelo n√∫mero dela
+     * retorna a peÁa pelo n√∫mero dela
      * @param num
      * @return
      */
@@ -422,7 +422,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     } 
     
     /**
-     * Atribui uma pe√ßa pelo n√∫mero dela.
+     * Atribui uma peÁa pelo n√∫mero dela.
      * @param p
      * @param num
      * @return
@@ -457,7 +457,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Cria um novo objeto de Peca para cada uma pe√ßas da figura posicionadas no
+     * Cria um novo objeto de Peca para cada uma peÁas da figura posicionadas no
      * centro (ponto 0,0,0)
      */
     public void resetPecas(){
@@ -487,7 +487,7 @@ public class Figura implements RayTracing, MirrorModel, TranslateModel,
     }
     
     /**
-     * Retorna o ponto, dentro todas os pontos das pe√ßas da figura, que tenha o
+     * Retorna o ponto, dentro todas os pontos das peÁas da figura, que tenha o
      * nome passado por parametro.
      * @param name
      * @return

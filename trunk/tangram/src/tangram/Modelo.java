@@ -57,7 +57,7 @@ public class Modelo{
         // Modelos para serem desenhados na tela
         figuras = new ArrayList();
         figuras.add(new Figura(nomeDoModelo));
-        // camera e posiÃ§Ã£o inicial
+        // camera e posição inicial
         camera = new Camera(new Vetor3f(0f,0f,0f));
         
         // trata os eventos do mouse

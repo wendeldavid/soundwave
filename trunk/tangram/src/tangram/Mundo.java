@@ -134,7 +134,7 @@ public class Mundo {
     }
     
     public boolean carregaDoArquivo(File file){
-        // se o arquivo n√£o existir falha
+        // se o arquivo n„o existir falha
         if(!file.exists())
             return false;
         
@@ -207,11 +207,11 @@ public class Mundo {
     
     public boolean addModelo(String idDoModelo, File file, Vetor3f ponto){
         if(metodosDoModelo.containsKey(idDoModelo)){
-            Msg.aviso("Este nome j√° foi usado para outro modelo!");
+            Msg.aviso("Este nome j· foi usado para outro modelo!");
             return false;
         }
         if(!ModelMaker.isNomeAcaoValido(idDoModelo)){
-            Msg.aviso("Nome Inv√°lido!");
+            Msg.aviso("Nome Inv·lido!");
             return false;
         }
             
@@ -247,7 +247,7 @@ public class Mundo {
             // move a figura para o ponto selecionado
             novaFigura.translateTo(ponto);
         } else {
-            Msg.erro("O Arquivo " + file.getName() + " n√£o exite");
+            Msg.erro("O Arquivo " + file.getName() + " n„o exite");
             return false;
         }
         return true;
