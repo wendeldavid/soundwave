@@ -1,5 +1,9 @@
 package gals;
 
+import inf.furb.synthesis.ISynthesizer;
+import inf.furb.synthesis.mbrola.MBRolaSynthesizer;
+import inf.furb.xml.JSMLParser;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,32 +40,32 @@ public class Semantico implements Constants{
     
     Pilha pilha;
     
-    // Usado nas a√ß√µes 15,16. Representa se id do comando √© nomeDoModelo ou idDaPeca
+    // Usado nas aÁıes 15,16. Representa se id do comando È nomeDoModelo ou idDaPeca
     boolean modeloSelecionado;
     
     // Usado no 14 para saber qual comando jogar para pilha
     boolean compilandoMundo;
     
-    // Usado no 35 para controlar se o metodo √© em paralelo ou n√£o
+    // Usado no 35 para controlar se o metodo È em paralelo ou n„o
     boolean emParalelo;
         
-    // Contem os Comandos que ir√£o virar um La√ßo
+    // Contem os Comandos que ir„o virar um LaÁo
     ArrayList<Comando> comandosDoMetodo;
     ArrayList<Comando> comandosDoMundo;
     
-    // Cont√©m Nome do M√©todo e o la√ßo do m√©todo 
+    // ContÈm Nome do MÈtodo e o laÁo do mÈtodo 
     HashMap<String,Comando> metodosDoModelo;
     
-    // Metodos Usados no Modelo (pelo comando Fa√ßa)
+    // Metodos Usados no Modelo (pelo comando FaÁa)
     ArrayList<String> metodosUsados;
     
     boolean[] pecasCriadas;
     
     // Contem o Nome do Modelo + os Comandos dele dele
     HashMap<String,HashMap<String,Comando>> modelosCompilados;
-    // Cont√©m Id do Modelo + o Modelo Execut√°vel dele
+    // ContÈm Id do Modelo + o Modelo Execut·vel dele
     HashMap<String,ModeloExecutavel> modelosDoMundo;
-    // Cont√©m Id do Modelo + o Status, dele os quais s√£o
+    // ContÈm Id do Modelo + o Status, dele os quais s„o
     // 1 - criado em espera
     // 2 - em viva
     // 3 - apagado
@@ -69,14 +73,14 @@ public class Semantico implements Constants{
     
     public void executeAction(int action, Token token)	throws SemanticError
     {
-        //System.out.println("A√ß√£o #"+action+", Token: "+token);
+        //System.out.println("AÁ„o #"+action+", Token: "+token);
         switch(action){
             /* Cria novo MetodosDoModelo.
              * Zera nomeDoModelo.
              * Zera metodosUsados.
              * Zera pecasCriadas.
              * Cria pilha vazia.
-             * Inclui M√©todo Viva
+             * Inclui MÈtodo Viva
              * Marca que esta compilando um Modelo
              */
             case 0:
@@ -95,7 +99,7 @@ public class Semantico implements Constants{
              * Cria novo statusDosModelosDoMundo
              * Zera modelos Executavel
              * Zera comandos do mundo
-             * Cria pilha e coloca um la√ßo no topo
+             * Cria pilha e coloca um laÁo no topo
              * Marca que esta compilando um mundo
              * Inicial o mundo executavel
              */
@@ -111,7 +115,7 @@ public class Semantico implements Constants{
                 iniciaMundoExecutavel();
                 break;
             /*
-             * Retira o M√©todo da Pilha
+             * Retira o MÈtodo da Pilha
              * Cria um Modelo com apenas o Metodo CRIA
              */
             case 2:
@@ -120,7 +124,7 @@ public class Semantico implements Constants{
                 break;
             /* 
              * Seta o nomeDoModelo se ele for nulo
-             * se N√£o For compara com o token
+             * se N„o For compara com o token
              * se for diferente dispara um erro.
              */
             case 3:
@@ -134,27 +138,27 @@ public class Semantico implements Constants{
                     nomeModeloAux = token.getLexeme();
                 break;
             /* 
-             * Grava Token na vari√°vel nomeDoMetodo
+             * Grava Token na vari·vel nomeDoMetodo
              */
             case 4:
                 nomeDoMetodo = token.getLexeme();
                 break;
             /* 
-             * Grava Token na vari√°vel idDoModelo
-             * Zera vari√°vel nomeDoModelo
+             * Grava Token na vari·vel idDoModelo
+             * Zera vari·vel nomeDoModelo
              */
             case 5:
                 idDoModelo = token.getLexeme();
                 nomeDoModelo = null;
                 break;
             /* 
-             * Grava Token na vari√°vel nomeDoMundo
+             * Grava Token na vari·vel nomeDoMundo
              */
             case 6:
                 nomeDoMundo = token.getLexeme();
                 break;
             /*
-             * Grava Token na vari√°vel idDaPeca
+             * Grava Token na vari·vel idDaPeca
              */
             case 7:
                 idDaPeca = token.getLexeme();
@@ -172,49 +176,49 @@ public class Semantico implements Constants{
                 x = Float.parseFloat(token.getLexeme());
                 break;
             /*
-             * Grava valor do token na vari√°vel y
+             * Grava valor do token na vari·vel y
              */
             case 10:
                 y = Float.parseFloat(token.getLexeme());
                 break;
             /*
-             * Grava valor do token na vari√°vel z
+             * Grava valor do token na vari·vel z
              */
             case 11:
                 z = Float.parseFloat(token.getLexeme());
                 break;
             /* 
-             * Cria Comando La√ßo e Coloca ele to topo da Pilha
+             * Cria Comando LaÁo e Coloca ele to topo da Pilha
              */
             case 12:
                 comandosDoMetodo = new ArrayList<Comando>();
                 pilha.push(new ComandoLaco(comandosDoMetodo,1));
                 break;
             /* 
-             * Verifica se o Metodo atual √© Cria
-             * Verifica se Peca ainda n√£o foi criada
+             * Verifica se o Metodo atual È Cria
+             * Verifica se Peca ainda n„o foi criada
              * Cria Comando Cria Peca
              * Marca Peca como criada
-             * Marca vari√°vel modeloSeleciona como false
+             * Marca vari·vel modeloSeleciona como false
              */
             case 13:
                 if(!nomeDoMetodo.equals(ModelMaker.CRIA))
                     throw new SemanticError("Comando cria deve ser " +
-                            "escrito na A√ß√£o CRIA!",token.getPosition());
+                            "escrito na AÁ„o CRIA!",token.getPosition());
                 int tipoDaPeca = Integer.parseInt(idDaPeca.substring(1));
                 if(tipoDaPeca < 1 || tipoDaPeca > 7)
-                    throw new SemanticError("O Nome da Pe√ßa √© inv√°lido",
+                    throw new SemanticError("O Nome da PeÁa È inv·lido",
                             token.getPosition());
                 if(pecasCriadas[tipoDaPeca-1])
-                    throw new SemanticError("Pe√ßa j√° criada!",
+                    throw new SemanticError("PeÁa j· criada!",
                             token.getPosition());
                 comando = new ComandoCriaPeca(tipoDaPeca, new float[]{x,y,z});
                 pecasCriadas[tipoDaPeca-1] = true;
                 modeloSelecionado = false;
                 break;
             /*
-             * Adciona Comando no La√ßo do Topo da Fila
-             * Zera Vari√°veis X Y Z
+             * Adciona Comando no LaÁo do Topo da Fila
+             * Zera Vari·veis X Y Z
              */
             case 14:
                 if (compilandoMundo){
@@ -242,7 +246,7 @@ public class Semantico implements Constants{
                 break;
             /*
              * marca modeloSelecionado como false
-             * verifica se pe√ßa foi criada
+             * verifica se peÁa foi criada
              */
             case 16:
                 modeloSelecionado = false;
@@ -282,8 +286,8 @@ public class Semantico implements Constants{
                 comandoMundo = comando;
                 break;
             /*
-             * Cria Comando La√ßo
-             * Coloca Comando la√ßo no topo da pilha
+             * Cria Comando LaÁo
+             * Coloca Comando laÁo no topo da pilha
              */
             case 23:
                 if(compilandoMundo)
@@ -314,7 +318,7 @@ public class Semantico implements Constants{
                 break;
             /*
              * cria comando faca
-             * coloca comando faca no array de m√©todos usados
+             * coloca comando faca no array de mÈtodos usados
              */
             case 25:
                 comando = new ComandoCall(getSelectedModel(),
@@ -324,14 +328,14 @@ public class Semantico implements Constants{
                 metodosUsados.add(token.getLexeme());
                 break;
             /*
-             * Retira la√ßo do topo da pilha e adciona no hashmap de metodos do
+             * Retira laÁo do topo da pilha e adciona no hashmap de metodos do
              * modelo
              */
             case 26:
                 metodosDoModelo.put(nomeDoMetodo, pilha.pop());
                 break;
             /*
-             * Verifica se os m√©todos usados em comandos faca foram todos 
+             * Verifica se os mÈtodos usados em comandos faca foram todos 
              * declarados
              * Cria comando para o metodo VIVA do Modelo.
              * Finaliza Modelo Criando objeto da classe ModeloExecutavel e 
@@ -340,45 +344,45 @@ public class Semantico implements Constants{
             case 27:
                 for(String s : metodosUsados){
                     if(!metodosDoModelo.containsKey(s))
-                        throw new SemanticError("Metodo: " + s + " n√£o foi" +
+                        throw new SemanticError("Metodo: " + s + " n„o foi" +
                                 "criado no modelo e foi usado em um comando " +
-                                "Fa√ßa");
+                                "FaÁa");
                 }
                 metodosDoModelo.put(ModelMaker.VIVA, new ComandoViva());
                 compiler.setModelo(new ModeloExecutavel(metodosDoModelo,
                         nomeModeloAux));
                 break;
             /* 
-             * Verifica se id Dado ao modelo j√° foi usado.
-             * Verifica se o Modelo est√° na lista de modelos j√° usados,
-             * caso n√£o esteja, carrega, compila e guarda o modelo.
-             * Cria um ModeloExecut√°vel com uma nova Figura e os comandos do
+             * Verifica se id Dado ao modelo j· foi usado.
+             * Verifica se o Modelo est· na lista de modelos j· usados,
+             * caso n„o esteja, carrega, compila e guarda o modelo.
+             * Cria um ModeloExecut·vel com uma nova Figura e os comandos do
              * modelo e adiciona na lista de modelos do mundo.
              * coloca o status do modelo como criado em espera
-             * Cria comando que chama m√©todo cria do modelo.
+             * Cria comando que chama mÈtodo cria do modelo.
              */
             case 28:
-                // Verifica se id Dado ao modelo j√° foi usado
+                // Verifica se id Dado ao modelo j· foi usado
                 if(modelosDoMundo.containsKey(idDoModelo))
                     throw new SemanticError(idDoModelo +
-                            " j√° foi usado.");
-                // Verifica se o Modelo est√° na lista de modelos j√° usados
+                            " j· foi usado.");
+                // Verifica se o Modelo est· na lista de modelos j· usados
                 if(!modelosCompilados.containsKey(nomeDoModelo))
                     try{
                         compilaModelo();
                     } catch (AnalysisError ae){
                         throw new SemanticError("Modelo " + nomeDoModelo +
-                                " n√£o pode ser compilado!\n" +
+                                " n„o pode ser compilado!\n" +
                                 "O seguinte erro ocorreu:\n" +
                                 ae.getMessage());
                     }
-                // Cria um ModeloExecut√°vel
+                // Cria um ModeloExecut·vel
                 ModeloExecutavel modExe = new ModeloExecutavel(
                         modelosCompilados.get(nomeDoModelo),
                         nomeDoModelo);
                 // Cria figura para o modelo
                 Figura figuraDoModelo = new Figura(idDoModelo);
-                // reseta pe√ßas
+                // reseta peÁas
                 figuraDoModelo.resetPecas();
                 // Adiciona nova figura ao modelo
                 modExe.setFigura(figuraDoModelo);
@@ -386,13 +390,13 @@ public class Semantico implements Constants{
                 modelosDoMundo.put(idDoModelo, modExe);
                 // Adiciona status
                 statusDosModelosDoMundo.put(idDoModelo, new Integer(1));
-                // Cria comando que chama m√©todo cria do modelo
+                // Cria comando que chama mÈtodo cria do modelo
                 comandoMundo = new ComandoCallMundo(idDoModelo,
                         ModelMaker.CRIA,
                         false);
                 break;
             /* 
-             * Cria comando para mover a figura para posi√ß√£o inicial apartir de
+             * Cria comando para mover a figura para posiÁ„o inicial apartir de
              * x, y e z.
              */
             case 29:
@@ -404,15 +408,15 @@ public class Semantico implements Constants{
                 break;
             /* 
              * Verifica se id do modelo foi criado.
-             * verifica se ele est√° parado.
+             * verifica se ele est· parado.
              * Cria comando Viva.
              * marca o modelo em metodo viva
              */
             case 30:
                 verificaIdModelo();
                 if(statusDosModelosDoMundo.get(idDoModelo).equals(2))
-                    throw new SemanticError("O modelos j√° est√° executando " +
-                            "uma a√ß√£o VIVA");
+                    throw new SemanticError("O modelos j· est· executando " +
+                            "uma aÁ„o VIVA");
                 comandoMundo = new ComandoVivaMundo(idDoModelo, nomeDoMetodo);
                 statusDosModelosDoMundo.put(idDoModelo,new Integer(2));
                 break;
@@ -424,8 +428,8 @@ public class Semantico implements Constants{
             case 31:
                 verificaIdModelo();
                 if(!statusDosModelosDoMundo.get(idDoModelo).equals(2))
-                    throw new SemanticError("O modelos n√£o est√° executando " +
-                            "uma a√ß√£o VIVA");
+                    throw new SemanticError("O modelos n„o est· executando " +
+                            "uma aÁ„o VIVA");
                 comandoMundo = new ComandoCallMundo(idDoModelo, 
                         ModelMaker.TERMINA,
                         true);
@@ -443,7 +447,7 @@ public class Semantico implements Constants{
                 statusDosModelosDoMundo.put(idDoModelo,new Integer(3));
                 break;
             /* 
-             * Limpa vari√°veis x, y, z, idDoModelo e emParalelo
+             * Limpa vari·veis x, y, z, idDoModelo e emParalelo
              */
             case 33:
                 x = 0;
@@ -463,11 +467,31 @@ public class Semantico implements Constants{
                         emParalelo);
                 break;
             /* 
-             * marca que o comando √© em paralelo
+             * marca que o comando È em paralelo
              */
             case 35:
                 emParalelo = true;
                 break;
+                
+            case 37: 
+            	//FIXME est· falando quando executa outros comandos
+            	System.out.println("fala arquivo - " + token.getLexeme());
+            	//para retirar as aspas simples da string
+            	String filePath = token.getLexeme();
+            	int stringStart = 1;
+            	int stringEnd = filePath.length() - 1;
+            	filePath = filePath.substring(stringStart, stringEnd);
+            	
+            	File jsmlFile = new File(filePath);
+            	JSMLParser parser = new JSMLParser(jsmlFile);
+            	parser.parse();
+            	
+        		ISynthesizer synth = new MBRolaSynthesizer();
+        		synth.configure(parser.getSynthElements());
+        		
+        		Thread t = new Thread(synth);
+        		t.start();
+            	break;
         }
     }
     
@@ -476,8 +500,8 @@ public class Semantico implements Constants{
     public Semantico(Compiler compiler){
         this.compiler = compiler;
         /* 
-         * estes comandos abaixo foram inclu√≠dos aqui para que se po√ßa compilar
-         * um m√©todo sem alterar as a√ß√µes semanticas no GALS
+         * estes comandos abaixo foram incluÌdos aqui para que se poÁa compilar
+         * um mÈtodo sem alterar as aÁıes semanticas no GALS
          */
         pilha = new Pilha();
         pecasCriadas = new boolean[]
@@ -495,7 +519,7 @@ public class Semantico implements Constants{
     
     private void verificaPecaCriada(Token token) throws SemanticError{
         if(!pecasCriadas[Integer.parseInt(idDaPeca.substring(1))-1])
-            throw new SemanticError("Pe√ßa n√£o foi criada!",
+            throw new SemanticError("PeÁa n„o foi criada!",
                 token.getPosition());
     }
     
@@ -508,9 +532,9 @@ public class Semantico implements Constants{
     
     private void verificaIdModelo()throws SemanticError{
         if(!statusDosModelosDoMundo.containsKey(idDoModelo))
-            throw new SemanticError("Modelo n√£o criado.");
+            throw new SemanticError("Modelo n„o criado.");
         if(statusDosModelosDoMundo.get(idDoModelo).equals(3))
-            throw new SemanticError("O modelos j√° foi apagado");
+            throw new SemanticError("O modelos j· foi apagado");
     }
     
     private void iniciaMundoExecutavel(){
