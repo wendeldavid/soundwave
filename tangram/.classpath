@@ -10,5 +10,8 @@
 	<classpathentry kind="lib" path="lib/gluegen-rt.jar"/>
 	<classpathentry kind="lib" path="lib/jogl.jar"/>
 	<classpathentry kind="lib" path="lib/swing-layout-1.0.3.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/soundwave"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-mbrola"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-player"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
