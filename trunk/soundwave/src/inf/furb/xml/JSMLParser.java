@@ -30,7 +30,7 @@ public final class JSMLParser {
 		if (jsmlFile == null) {
 			throw new RuntimeException("The JSML file cannot be null");
 		}
-		if (!jsmlFile.exists() && !jsmlFile.isFile()) {
+		if (!jsmlFile.exists() || !jsmlFile.isFile()) {
 			throw new RuntimeException("The " + jsmlFile.getAbsolutePath()
 					+ " is not valid");
 		}
@@ -57,10 +57,17 @@ public final class JSMLParser {
 		return resolver;
 	}
 	
+	/**
+	 * Retorna a lista de {@link ISynthElement} lidos do documento JSML passado construtor e lidos no método parse();
+	 * @return lista de {@link ISynthElement}
+	 */
 	public List<ISynthElement> getSynthElements(){
 		return synthElements;
 	}
 
+	/**
+	 * Realiza o parse do documento JSML passado no construtor.
+	 */
 	public void parse() {
 		try {
 			Document document = reader.read(jsmlFile);
