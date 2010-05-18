@@ -16,9 +16,7 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 
 /**
- * Parser XML que suporta JSML.
- * 
- * @author wendel
+ * Parser XML do documento JSML.
  */
 public final class JSMLParser {
 
@@ -26,6 +24,10 @@ public final class JSMLParser {
 	private File jsmlFile = null;
 	private List<ISynthElement> synthElements;
 
+	/**
+	 * Construtor do parser do documento JSML que recebe um {@link File} que representa o local físico do documento.
+	 * @param jsmlFile arquivo do documento JSML
+	 */
 	public JSMLParser(File jsmlFile) {
 		if (jsmlFile == null) {
 			throw new RuntimeException("The JSML file cannot be null");
