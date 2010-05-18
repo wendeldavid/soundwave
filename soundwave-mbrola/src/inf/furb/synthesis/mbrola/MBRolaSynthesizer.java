@@ -25,6 +25,9 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 	private String input;
 	private String output;
 	
+	/**
+	 * Construtor padrão do sintetizador MBRola.
+	 */
 	public MBRolaSynthesizer() {
 		long uniqueID = System.nanoTime();
 		input = ResourcePool.TEMP_DIR + File.separator + uniqueID + "input.pho";
