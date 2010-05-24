@@ -91,8 +91,9 @@ public final class MBRolaSynthesizer implements ISynthesizer {
 		try {
 //			WavePlayer.playAudioFile(output);
 			WavePlayer player = new WavePlayer(output);
-			Thread threadPlayer = new Thread(player);
-			threadPlayer.start();
+			player.run();
+//			Thread threadPlayer = new Thread(player);
+//			threadPlayer.start();
 		} catch (UnsupportedAudioFileException e) {
 			e.printStackTrace();
 		}
