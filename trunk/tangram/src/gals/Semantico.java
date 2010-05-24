@@ -28,6 +28,7 @@ import tangram.comandos.ModeloExecutavel;
 import tangram.comandos.MundoExecutavel;
 import tangram.io.ReadWriteFile;
 import tangram.speech.SpeakingPool;
+import tangram.speech.SpeechDispather;
 import tangram.speech.SpeechThread;
 
 public class Semantico implements Constants {
@@ -79,7 +80,9 @@ public class Semantico implements Constants {
 
 	private boolean speakAsync;
 
-	private SpeakingPool speakingPool;
+	private static SpeakingPool speakingPool;
+
+	private static SpeechDispather speechDispather;
 
 	public Semantico(Compiler compiler) {
 		this.compiler = compiler;
@@ -90,6 +93,7 @@ public class Semantico implements Constants {
 		pecasCriadas = new boolean[] { false, false, false, false, false, false, false };
 		metodosDoModelo = new HashMap<String, Comando>();
 		speakingPool = new SpeakingPool();
+		speechDispather = new SpeechDispather(speakingPool);
 	}
 
 	public Semantico() {
@@ -455,10 +459,10 @@ public class Semantico implements Constants {
 		synth.configure(parser.getSynthElements());
 
 		SpeechThread t = new SpeechThread(synth, async);
-		speakingPool.addExecute(t);
+		speakingPool.addSpeech(t);
 		//verifica se o pool ja foi iniciado, senão não inicia de novo
-		if (!speakingPool.isAlive()) {
-			speakingPool.start();
+		if (!speechDispather.isAlive()) {
+			speechDispather.start();
 		}
 	}
 
