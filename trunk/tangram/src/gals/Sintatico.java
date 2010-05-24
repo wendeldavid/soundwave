@@ -272,9 +272,10 @@ public class Sintatico implements Constants
                 break;
             case 54: // fala
                 comando_fala();
+                semanticAnalyser.executeAction(14, previousToken);
                 break;
             case 55: // enquanto
-                comando_enquanto_fala();
+//                comando_enquanto_fala();
                 break;
             default:
                 throw new SyntaticError(PARSER_ERROR[69], currentToken.getPosition());
