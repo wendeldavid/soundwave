@@ -49,6 +49,7 @@ public final class ResourcePool {
 	 */
 	public static File copyFile(File file, boolean overwrite) {
 		Copy copy = new Copy();
+		copy.setFailOnError(false);
 		copy.setFile(file);
 		copy.setTodir(TEMP_DIR);
 		copy.setOverwrite(overwrite);
