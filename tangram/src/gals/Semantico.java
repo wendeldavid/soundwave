@@ -5,7 +5,6 @@ import inf.furb.synthesis.mbrola.MBRolaSynthesizer;
 import inf.furb.xml.JSMLParser;
 
 import java.io.File;
-import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,6 +17,7 @@ import tangram.comandos.ComandoCor;
 import tangram.comandos.ComandoCriaPeca;
 import tangram.comandos.ComandoEspelha;
 import tangram.comandos.ComandoEspera;
+import tangram.comandos.ComandoFala;
 import tangram.comandos.ComandoGira;
 import tangram.comandos.ComandoLaco;
 import tangram.comandos.ComandoMove;
@@ -80,9 +80,7 @@ public class Semantico implements Constants {
 
 	private boolean speakAsync;
 
-	private static SpeakingPool speakingPool;
-
-	private static SpeechDispather speechDispather;
+	private ComandoFala fala;
 
 	public Semantico(Compiler compiler) {
 		this.compiler = compiler;
@@ -92,8 +90,7 @@ public class Semantico implements Constants {
 		pilha = new Pilha();
 		pecasCriadas = new boolean[] { false, false, false, false, false, false, false };
 		metodosDoModelo = new HashMap<String, Comando>();
-		speakingPool = new SpeakingPool();
-		speechDispather = new SpeechDispather(speakingPool);
+		fala = ComandoFala.getInstance();
 	}
 
 	public Semantico() {
@@ -431,8 +428,9 @@ public class Semantico implements Constants {
 			speakAsync = true;
 			break;
 		case 39:
-			speak(jsmlPath, speakAsync);
+			fala.speech(jsmlPath, speakAsync);
 			speakAsync = false;
+			
 			break;
 		case 40:
 			// INICIA BLOCO DO ENQUANTO FALA
@@ -440,29 +438,6 @@ public class Semantico implements Constants {
 		case 41:
 			// ENCERRA BLOCO DO ENQUANTO FALA TODO verificar uma maneira de notificar quando terminou de falar
 			break;
-		}
-	}
-
-	private void speak(String filePath, boolean async) {
-		// FIXME está falando quando executa outros comandos
-		System.out.println("fala arquivo - " + filePath);
-		// para retirar as aspas simples da string
-		int stringStart = 1;
-		int stringEnd = filePath.length() - 1;
-		filePath = filePath.substring(stringStart, stringEnd);
-		// instancia o sintetizador
-		File jsmlFile = new File(filePath);
-		JSMLParser parser = new JSMLParser(jsmlFile);
-		parser.parse();
-
-		ISynthesizer synth = new MBRolaSynthesizer();
-		synth.configure(parser.getSynthElements());
-
-		SpeechThread t = new SpeechThread(synth, async);
-		speakingPool.addSpeech(t);
-		//verifica se o pool ja foi iniciado, senão não inicia de novo
-		if (!speechDispather.isAlive()) {
-			speechDispather.start();
 		}
 	}
 
