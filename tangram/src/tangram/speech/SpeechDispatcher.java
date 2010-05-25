@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * Se a thread de fala selecionada for síncrona e não existe nenhuma outra thread falando no momento, ela toma a vez de falar exclusivamente, se tiver outra thread falando, ela volta para o pool.<br>
  * Se a thread de fala selecionada for assíncrona ela entra para uma fila de falas concorrentes e começa a falar. Assim permite que outras falas assíncronas possam executar paralelamente.
  */
-public final class SpeechDispather extends Thread {
+public final class SpeechDispatcher extends Thread {
 
 	private SpeakingPool pool;
 
@@ -17,7 +17,7 @@ public final class SpeechDispather extends Thread {
 	 * Construtor do dispathcher de falas.
 	 * @param pool é o pool de threads pendentes de serem faladas.
 	 */
-	public SpeechDispather(SpeakingPool pool) {
+	public SpeechDispatcher(SpeakingPool pool) {
 		this.pool = pool;
 	}
 
