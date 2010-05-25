@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * Pool de falas.
  */
-public final class SpeakingPool extends Thread {
+public final class SpeakingPool {
 
 	private static ConcurrentLinkedQueue<SpeechThread> pool = new ConcurrentLinkedQueue<SpeechThread>();// falas que estão aguardando sua vez
 
