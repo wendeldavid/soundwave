@@ -28,7 +28,7 @@ import tangram.comandos.ModeloExecutavel;
 import tangram.comandos.MundoExecutavel;
 import tangram.io.ReadWriteFile;
 import tangram.speech.SpeakingPool;
-import tangram.speech.SpeechDispather;
+import tangram.speech.SpeechDispatcher;
 import tangram.speech.SpeechThread;
 
 public class Semantico implements Constants {
