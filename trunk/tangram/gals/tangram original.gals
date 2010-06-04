@@ -67,8 +67,6 @@ verdePiscina = identificador: "verdePiscina"
 verdeLima = identificador: "verdeLima"
 vermelho = identificador: "vermelho"
 violeta = identificador: "violeta"
-fala = identificador : "fala"
-enquanto = identificador : "enquanto"
 ";" : ;
 "(" : \(
 ")" : \)
@@ -119,8 +117,6 @@ enquanto = identificador : "enquanto"
 <metodo_do_id>
 <comando_viva>
 <em_paralelo>
-<comando_fala>
-<comando_enquanto_fala>
 #Grammar
 <codigo> ::= <modelo> | <mundo> | <metodo_cria> #2 ;
 <modelo> ::= modelo  #0 <figura> <Lista_de_metodos> fim "." #27 ;
@@ -130,7 +126,7 @@ enquanto = identificador : "enquanto"
 <metodo> ::= metodo <nome_Metodo> #12 <bloco> fim ";" #26 ;
 <bloco> ::= <comando> <bloco_2> ;
 <bloco_2> ::= <bloco> | î ;
-<comando> ::= <comando_cria> | <comandos_em_ids> |  <comando_piscar> #22 #14 | <comando_repete> | <comando_faca> |<comando_fala> | <comando_enquanto_fala> ;
+<comando> ::= <comando_cria> | <comandos_em_ids> |  <comando_piscar> #22 #14 | <comando_repete> | <comando_faca>;
 <comandos_em_ids> ::= <id> "." <comando_de_id> ;
 <comando_de_id> ::= <comando_move> #14 | <comando_gira> #14 | <comando_cor> #14 | <comando_espelha> #14 ;
 <comando_cria> ::= cria <peca> "(" <X> "," <Y> "," <Z>  ")" #13 #14 <cria_extra> ;
@@ -164,5 +160,3 @@ enquanto = identificador : "enquanto"
 <metodo_do_id> ::= <comando_viva> #30 | TERMINA #31 | APAGA #32 | <nome_Metodo> <em_paralelo> #34 ;
 <comando_viva> ::= VIVA "(" <nome_Metodo> ")" ;
 <em_paralelo> ::= em paralelo #35;
-<comando_fala> ::= fala "(" identificador ")" #36;
-<comando_enquanto_fala> ::= enquanto <comando_fala> #37 inicio <bloco> fim #38;
