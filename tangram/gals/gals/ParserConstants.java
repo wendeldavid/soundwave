@@ -9,6 +9,7 @@ public interface ParserConstants
         "Era esperado identificador",
         "Era esperado url",
         "Era esperado numero",
+        "Era esperado sobreposto",
         "Era esperado modelo",
         "Era esperado metodo",
         "Era esperado mundo",
@@ -107,6 +108,7 @@ public interface ParserConstants
         "<comando_viva> inválido",
         "<em_paralelo> inválido",
         "<comando_fala> inválido",
+        "<comando_fala_sobreposto> inválido",
         "<comando_enquanto_fala> inválido"
     };
 }

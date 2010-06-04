@@ -8,7 +8,7 @@ SemanticName = Semantico
 Package = gals
 ScannerCaseSensitive = true
 ScannerTable = Compact
-Input = Stream
+Input = String
 Parser = RD
 #RegularDefinitions
 id: [a-zA-Z]+[a-zA-Z0-9_ç]*
@@ -20,6 +20,7 @@ identificador:{id}+
 : {ws}+
 url: '(.+)'
 numero: [\+\-]?[0-9]+[\.0-9]*
+sobreposto = identificador: "sobreposto"
 modelo = identificador: "modelo"
 metodo = identificador: "metodo"
 mundo = identificador: "mundo"
@@ -121,6 +122,7 @@ enquanto = identificador : "enquanto"
 <comando_viva>
 <em_paralelo>
 <comando_fala>
+<comando_fala_sobreposto>
 <comando_enquanto_fala>
 #Grammar
 <codigo> ::= <modelo> | <mundo> | <metodo_cria> #2 ;
@@ -165,5 +167,6 @@ enquanto = identificador : "enquanto"
 <metodo_do_id> ::= <comando_viva> #30 | TERMINA #31 | APAGA #32 | <nome_Metodo> <em_paralelo> #34 ;
 <comando_viva> ::= VIVA "(" <nome_Metodo> ")" ;
 <em_paralelo> ::= em paralelo #35;
-<comando_fala> ::= fala "(" url ")" #36;
-<comando_enquanto_fala> ::= enquanto <comando_fala> #37 inicio <bloco> fim #38;
+<comando_fala> ::= fala "(" url #37 <comando_fala_sobreposto> ")" #39;
+<comando_fala_sobreposto> ::= sobreposto #38 | î;
+<comando_enquanto_fala> ::= enquanto <comando_fala> #40 inicio <bloco> #41 fim #14;

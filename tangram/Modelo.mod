@@ -9,7 +9,8 @@ cria p6(-271,-248,-7000) gira(45.0) cor(marrom)
 cria p7(-239,566,-7000) gira(90.0) cor(branco)
 fim;
 metodo tagarela
-fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_sayas.xml')
+fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_1.xml'  sobreposto)
+fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_2.xml'  sobreposto)
 fim;
 metodo vai
 repita 45 vezes inicio
@@ -17,5 +18,8 @@ repita 45 vezes inicio
     p2.gira(-1) no ponto(12)
     pisca(10)
 fim
+fim;
+metodo falante
+fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_1.xml' )
 fim;
 fim.
