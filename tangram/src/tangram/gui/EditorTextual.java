@@ -282,7 +282,7 @@ public class EditorTextual extends javax.swing.JFrame {
         });
 
         jbtPreExecutar.setText(">");
-        jbtPreExecutar.setToolTipText("PrÃ©-executar ações do Modelo");
+        jbtPreExecutar.setToolTipText("Pré-executar ações do Modelo");
         jbtPreExecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 preExecutar(evt);
