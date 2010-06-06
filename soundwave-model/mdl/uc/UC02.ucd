@@ -66,7 +66,7 @@
       <targetConnections>
         <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
           <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel">
-            <name>Tangran</name>
+            <name>Tangram</name>
             <constraint>
               <x>67</x>
               <y>28</y>
