@@ -15,11 +15,14 @@ import tangram.speech.SpeechThread;
  */
 public class ComandoFala implements Comando{
 
-	private static ComandoFala instance = new ComandoFala();
+	private static ComandoFala instance = null;
 	
-	private static SpeakingPool speakingPool;
+	private static SpeakingPool speakingPool = new SpeakingPool();;
 
-	private static SpeechDispatcher speechDispatcher;
+	private static SpeechDispatcher speechDispatcher = new SpeechDispatcher(speakingPool);;
+	
+	private String jsmlPath = null;
+	private boolean async = false;
 	
 	/**
 	 * Retorna um singleton do comendo fala.
@@ -29,25 +32,21 @@ public class ComandoFala implements Comando{
 		return instance;
 	}
 	
-	private ComandoFala() {
-		speakingPool = new SpeakingPool();
-		speechDispatcher = new SpeechDispatcher(speakingPool);
+	public ComandoFala(String jsmlFile, boolean async) {
+		this.jsmlPath = jsmlFile;
+		this.async = async;
 	}
 	
 	/**
 	 * Invoca o sintetizador para falar o texto passado no documento JSML. Informa também se esta síntese deve ser assíncrona.
-	 * @param filePath documento JSML.
-	 * @param async se a síntese deste documento deverá ser assíncrona
 	 */
-	public void speech(String filePath, boolean async) {
-		// FIXME está falando quando executa outros comandos
-		System.out.println("fala arquivo - " + filePath);
+	private void speech() {
 		// para retirar as aspas simples da string
 		int stringStart = 1;
-		int stringEnd = filePath.length() - 1;
-		filePath = filePath.substring(stringStart, stringEnd);
+		int stringEnd = jsmlPath.length() - 1;
+		jsmlPath = jsmlPath.substring(stringStart, stringEnd);
 		// instancia o sintetizador
-		File jsmlFile = new File(filePath);
+		File jsmlFile = new File(jsmlPath);
 		JSMLParser parser = new JSMLParser(jsmlFile);
 		parser.parse();
 
@@ -64,7 +63,7 @@ public class ComandoFala implements Comando{
 	
 	@Override
 	public void faca(Executor executor) throws ComandException {
-		//to nothing
+		speech();
 	}
 
 }
