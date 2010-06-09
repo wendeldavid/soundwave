@@ -1007,7 +1007,7 @@ public class Sintatico implements Constants
                 bloco();
                 semanticAnalyser.executeAction(42, previousToken);
                 match(25); // fim
-//                semanticAnalyser.executeAction(14, previousToken);
+                semanticAnalyser.executeAction(14, previousToken);
                 break;
             default:
                 throw new SyntaticError(PARSER_ERROR[105], currentToken.getPosition());

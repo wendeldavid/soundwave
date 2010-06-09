@@ -32,8 +32,8 @@ public class ComandoFala implements Comando{
 		return instance;
 	}
 	
-	public ComandoFala(String jsmlFile, boolean async) {
-		this.jsmlPath = jsmlFile;
+	public ComandoFala(String jsmlPath, boolean async) {
+		this.jsmlPath = jsmlPath;
 		this.async = async;
 	}
 	
