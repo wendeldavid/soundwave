@@ -272,10 +272,9 @@ public class Sintatico implements Constants
                 break;
             case 54: // fala
                 comando_fala();
-                semanticAnalyser.executeAction(14, previousToken);
                 break;
             case 55: // enquanto
-//                comando_enquanto_fala();
+                comando_enquanto_fala();
                 break;
             default:
                 throw new SyntaticError(PARSER_ERROR[69], currentToken.getPosition());
@@ -489,21 +488,21 @@ public class Sintatico implements Constants
     {
         switch (currentToken.getId())
         {
-            case 16: // repita
-            case 19: // faca
-            case 25: // fim
-            case 26: // cria
-            case 29: // piscar
+            case 14: // repita
+            case 17: // faca
+            case 23: // fim
+            case 24: // cria
+            case 27: // piscar
                 // EPSILON
                 break;
-            case 17: // em
-                match(17); // em
-                match(18); // paralelo
+            case 15: // em
+                match(15); // em
+                match(16); // paralelo
                 semanticAnalyser.executeAction(35, previousToken);
                 em_paralelo_extra();
                 break;
             default:
-                throw new SyntaticError(PARSER_ERROR[102], currentToken.getPosition());
+                throw new SyntaticError(PARSER_ERROR[80], currentToken.getPosition());
         }
     }
 
@@ -511,19 +510,18 @@ public class Sintatico implements Constants
     {
         switch (currentToken.getId())
         {
-        	case 15: // repita
-            case 18: // faca
-            case 24: // fim
-            case 25: // cria
-            case 28: // piscar
+            case 14: // repita
+            case 17: // faca
+            case 23: // fim
+            case 24: // cria
+            case 27: // piscar
                 // EPSILON
                 break;
-//            TODO verificar os tokens (depois, de) no gals
-//            case 18: // depois
-//                match(18); // depois
-//                match(19); // de
-//                comando_piscar();
-//                break;
+            case 18: // depois
+                match(18); // depois
+                match(19); // de
+                comando_piscar();
+                break;
             default:
                 throw new SyntaticError(PARSER_ERROR[81], currentToken.getPosition());
         }
@@ -965,11 +963,12 @@ public class Sintatico implements Constants
             case 54: // fala
                 match(54); // fala
                 match(57); // "("
-                match(3); // url
+                match(3); // jsml
                 semanticAnalyser.executeAction(37, previousToken);
                 comando_fala_sobreposto();
                 match(58); // ")"
                 semanticAnalyser.executeAction(39, previousToken);
+                semanticAnalyser.executeAction(14, previousToken);
                 break;
             default:
                 throw new SyntaticError(PARSER_ERROR[103], currentToken.getPosition());
@@ -998,13 +997,17 @@ public class Sintatico implements Constants
         {
             case 55: // enquanto
                 match(55); // enquanto
-                comando_fala();
-                semanticAnalyser.executeAction(39, previousToken);
+                match(54); // fala
+                match(57); // "("
+                match(3); // jsml
+                semanticAnalyser.executeAction(40, previousToken);
+                match(58); // ")"
+                semanticAnalyser.executeAction(41, previousToken);
                 match(24); // inicio
                 bloco();
-                semanticAnalyser.executeAction(40, previousToken);
+                semanticAnalyser.executeAction(42, previousToken);
                 match(25); // fim
-                semanticAnalyser.executeAction(14, previousToken);
+//                semanticAnalyser.executeAction(14, previousToken);
                 break;
             default:
                 throw new SyntaticError(PARSER_ERROR[105], currentToken.getPosition());
