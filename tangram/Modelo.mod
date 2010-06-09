@@ -22,4 +22,11 @@ fim;
 metodo falante
 fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_1.xml' )
 fim;
+metodo animaFala
+enquanto fala('asdf') inicio
+    p1.gira(-1) no ponto(9)
+    p2.gira(-1) no ponto(12)
+    pisca(10)
+fim
+fim;
 fim.
