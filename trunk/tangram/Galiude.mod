@@ -28,9 +28,6 @@ repita 5 vezes inicio
   Galiude.move(90, 0, 0)
 fim
 fim;
-metodo falante
-fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_1.xml')
-fim;
 metodo LevantaBico
 p6.move(-340, 355, 0)
 p7.gira(45)
