@@ -6,7 +6,7 @@ public interface Constants extends ScannerConstants, ParserConstants
     int DOLLAR   = 1;
 
     int t_identificador = 2;
-    int t_url = 3;
+    int t_jsml = 3;
     int t_numero = 4;
     int t_sobreposto = 5;
     int t_modelo = 6;
