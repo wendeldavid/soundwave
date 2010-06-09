@@ -7,7 +7,7 @@ public interface ParserConstants
         "",
         "Era esperado fim de programa",
         "Era esperado identificador",
-        "Era esperado url",
+        "Era esperado jsml",
         "Era esperado numero",
         "Era esperado sobreposto",
         "Era esperado modelo",
