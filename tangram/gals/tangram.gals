@@ -169,4 +169,4 @@ enquanto = identificador : "enquanto"
 <em_paralelo> ::= em paralelo #35;
 <comando_fala> ::= fala "(" jsml #37 <comando_fala_sobreposto> ")" #39 #14;
 <comando_fala_sobreposto> ::= sobreposto #38 | î;
-<comando_enquanto_fala> ::= enquanto  fala "(" jsml #40 ")" #41 inicio <bloco> fim #42 #14;
+<comando_enquanto_fala> ::= enquanto fala #40 inicio <bloco> fim #41 #14;
