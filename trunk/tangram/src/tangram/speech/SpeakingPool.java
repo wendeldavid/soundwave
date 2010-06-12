@@ -20,19 +20,20 @@ public final class SpeakingPool {
 		pool.offer(t);
 		notify();
 	}
-	
+
 	/**
-	 * Retorna uma {@link SpeechThread} do pool removendo-a. Caso o pool esteja vazio, aguarda o método addSpeech(SpeechThread) 
-	 * ser chamado para então devolver a fala solicidata.
-	 * @return retorna a primeira fala da fila. 
+	 * Retorna uma {@link SpeechThread} do pool removendo-a. Caso o pool esteja vazio, aguarda o método addSpeech(SpeechThread) ser chamado para então devolver a fala solicidata.
+	 * 
+	 * @return retorna a primeira fala da fila.
 	 * @throws InterruptedException
 	 */
 	public synchronized SpeechThread retrieveSpeech() throws InterruptedException {
 		notify();
-		if(pool.isEmpty()) {
-			//aguarda o pool não estar mais vazio
+		if (pool.isEmpty()) {
+			// aguarda o pool não estar mais vazio
 			wait();
 		}
 		return pool.poll();
 	}
+
 }

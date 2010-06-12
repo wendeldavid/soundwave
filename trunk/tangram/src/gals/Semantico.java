@@ -37,7 +37,6 @@ public class Semantico implements Constants{
     Comando comandoMundo;
     
     private Pilha pilha;
-    private PilhaEnquanto pilhaEnquanto;
     
     // Usado nas ações 15,16. Representa se id do comando é nomeDoModelo ou idDaPeca
     boolean modeloSelecionado;
@@ -488,16 +487,13 @@ public class Semantico implements Constants{
             	comando = new ComandoFala(jsmlURL, sobreposto);
             	break;
             case 40:
-            	jsmlURL = token.getLexeme();
+            	pilha.push(new ComandoEnquantoFala(new ArrayList<Comando>()));
             	break;
             case 41:
-            	 pilhaEnquanto.push(new ComandoEnquantoFala(jsmlURL, new ArrayList<Comando>()));
-            	break;
-            case 42:
-            	comando = pilhaEnquanto.pop();
+            	comando = pilha.pop();
             	//TODO verificar pq o bloco interno de animação só é chamado 1 vez
-//            	ComandoEnquantoFala cmdEnquanto = pilhaEnquanto.pop();
-//            	pilhaEnquanto.add(cmdEnquanto);
+//            	ComandoEnquantoFala cmdEnquanto = (ComandoEnquantoFala) pilha.pop();
+//            	pilha.add(cmdEnquanto);
 //            	 if(compilandoMundo){
 //                     comandoMundo = null;
 //                 }else{
@@ -517,7 +513,6 @@ public class Semantico implements Constants{
          * um método sem alterar as ações semanticas no GALS
          */
         pilha = new Pilha();
-        pilhaEnquanto = new PilhaEnquanto();
         pecasCriadas = new boolean[]
                         {false,false,false,false,false,false,false};
         metodosDoModelo = new HashMap<String, Comando>();
@@ -603,48 +598,5 @@ public class Semantico implements Constants{
         }
     }
     
-    private class PilhaEnquanto {
-        
-        private Nodo topo;
-
-        public PilhaEnquanto() {
-            topo = null;
-        }
-        
-        public void push(ComandoEnquantoFala enquanto){
-            topo = new Nodo(enquanto,topo);
-        }
-        
-        public ComandoEnquantoFala pop(){
-            Nodo aux = topo;
-            topo = topo.getAnterior();
-            return aux.getEnquanto();
-        }
-        
-        public void add(Comando c){
-            topo.add(c);
-        }
-                
-        private class Nodo{
-            private ComandoEnquantoFala enquanto;
-            private Nodo anterior;
-            
-            public Nodo(ComandoEnquantoFala enquanto, Nodo anterior){
-                this.enquanto = enquanto;
-                this.anterior = anterior;
-            }
-
-            public Semantico.PilhaEnquanto.Nodo getAnterior() {
-                return anterior;
-            }
-
-            public ComandoEnquantoFala getEnquanto() {
-                return enquanto;
-            }
-            
-            public void add(Comando c){
-                enquanto.add(c);
-            }
-        }
-    }
+    
 }

@@ -68,7 +68,7 @@ public final class SpeechDispatcher extends Thread {
 	 * @return
 	 */
 	private static boolean isSpeaking(SpeechThread speech) {
-		return speech != null && (speech.getState() == State.RUNNABLE && speech.getState() == State.TIMED_WAITING);
+		return speech != null && (speech.getState() == State.RUNNABLE || speech.getState() == State.TIMED_WAITING);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class SpeechDispatcher extends Thread {
 	 * 
 	 * @return
 	 */
-	private synchronized boolean isSpeaking() {
+	public static synchronized boolean isSpeaking() {
 		// retorna se alguem da lista de falas está executando
 		for (SpeechThread t : queue) {
 			if (isSpeaking(t)) {
@@ -85,5 +85,5 @@ public final class SpeechDispatcher extends Thread {
 		}
 		return false;
 	}
-
+	
 }
