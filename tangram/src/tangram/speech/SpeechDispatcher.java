@@ -25,11 +25,12 @@ public final class SpeechDispatcher extends Thread {
 	public void run() {
 		while (true) {
 			try {
+				//retiva a fala do pool e adiciona na fila de falas
 				SpeechThread t = pool.retrieveSpeech();
+				queue.offer(t);
 
 				// é assincrona (sobreposta)
 				if (t.isAsync()) {
-					queue.offer(t);
 					t.start();
 				} else {// é sincrona (não sobreposta)
 					// tem alguem falando?
@@ -37,8 +38,8 @@ public final class SpeechDispatcher extends Thread {
 						t.start();
 						t.join();
 					} else {
-						// tem alguem falando, então devolve a fala pro pool
-						pool.addSpeech(t);
+						// tem alguem falando, então retira a fala da fila e devolve pro pool
+						pool.addSpeech(queue.poll());
 					}
 				}
 
