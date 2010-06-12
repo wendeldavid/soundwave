@@ -1777,6 +1777,7 @@ public interface ScannerConstants
         "Erro na escrita. Caractere não esperado",
         "Erro na escrita. Caractere não esperado",
         "Erro na escrita. Caractere não esperado",
+        "Erro na escrita. Caractere não esperado",
         "Erro identificando jsml",
         "Erro na escrita. Caractere não esperado",
         "Erro identificando <ignorar>",

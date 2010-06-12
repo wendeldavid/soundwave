@@ -998,15 +998,11 @@ public class Sintatico implements Constants
             case 55: // enquanto
                 match(55); // enquanto
                 match(54); // fala
-                match(57); // "("
-                match(3); // jsml
                 semanticAnalyser.executeAction(40, previousToken);
-                match(58); // ")"
-                semanticAnalyser.executeAction(41, previousToken);
                 match(24); // inicio
                 bloco();
-                semanticAnalyser.executeAction(42, previousToken);
                 match(25); // fim
+                semanticAnalyser.executeAction(41, previousToken);
                 semanticAnalyser.executeAction(14, previousToken);
                 break;
             default:

@@ -21,6 +21,10 @@ public class ComandoLaco implements Comando{
     // Lista de Comandos
     ArrayList<Comando> comandos;
 
+    public ComandoLaco(ArrayList<Comando> al) {
+    	this(al,0);
+    }
+    
     public ComandoLaco(ArrayList<Comando> al, int parm) {
         comandos = al;
         numeroDeRepeticoes = parm;
@@ -30,6 +34,7 @@ public class ComandoLaco implements Comando{
         comandos.add(c);
     }
     
+    @Override
     public void faca(Executor executor)throws ComandException {
         // para cada repeticao
         for(int i = 0; i < numeroDeRepeticoes; i++){
