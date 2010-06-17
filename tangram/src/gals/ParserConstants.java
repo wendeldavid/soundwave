@@ -60,6 +60,7 @@ public interface ParserConstants
         "Era esperado violeta",
         "Era esperado fala",
         "Era esperado enquanto",
+        "Era esperado espera",
         "Era esperado \";\"",
         "Era esperado \"(\"",
         "Era esperado \")\"",
@@ -109,6 +110,7 @@ public interface ParserConstants
         "<em_paralelo> inválido",
         "<comando_fala> inválido",
         "<comando_fala_sobreposto> inválido",
-        "<comando_enquanto_fala> inválido"
+        "<comando_enquanto_fala> inválido",
+        "<comando_espera_fala> inválido"
     };
 }

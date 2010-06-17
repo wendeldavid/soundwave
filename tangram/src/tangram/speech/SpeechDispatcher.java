@@ -1,6 +1,10 @@
 package tangram.speech;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
+import tangram.comandos.Observer;
 
 /**
  * Enfilera as falas obedecendo o critério de falas síncronas e assíncronas.<br>
@@ -10,12 +14,15 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public final class SpeechDispatcher extends Thread {
 
 	private SpeakingPool pool;
+	private static List<Observer> observerList;
 
 	private static ConcurrentLinkedQueue<SpeechThread> queue = new ConcurrentLinkedQueue<SpeechThread>();// falas que estão aguardando sua vez
 
 	/**
 	 * Construtor do dispathcher de falas.
-	 * @param pool é o pool de threads pendentes de serem faladas.
+	 * 
+	 * @param pool
+	 *            é o pool de threads pendentes de serem faladas.
 	 */
 	public SpeechDispatcher(SpeakingPool pool) {
 		this.pool = pool;
@@ -25,7 +32,7 @@ public final class SpeechDispatcher extends Thread {
 	public void run() {
 		while (true) {
 			try {
-				//retiva a fala do pool e adiciona na fila de falas
+				// retiva a fala do pool e adiciona na fila de falas
 				SpeechThread t = pool.retrieveSpeech();
 				queue.offer(t);
 
@@ -60,6 +67,10 @@ public final class SpeechDispatcher extends Thread {
 				queue.remove(t);
 			}
 		}
+		
+		if(queue.isEmpty()) {
+			notifyObservers();
+		}
 	}
 
 	/**
@@ -86,5 +97,33 @@ public final class SpeechDispatcher extends Thread {
 		}
 		return false;
 	}
+
+	/* lisetners */
+	/**
+	 * Dipsara as notificações dos observadores.
+	 */
+	private static void notifyObservers() {
+		for (Observer observer : observerList) {
+			observer.notifyObserver();
+		}
+	}
 	
+	/**
+	 * Registra um observer no dispatcher.
+	 * @param observer
+	 */
+	public static void registerObserver(Observer observer) {
+		if(observerList == null) {
+			observerList = new ArrayList<Observer>();
+		}
+		observerList.add(observer);
+	}
+	
+	/**
+	 * Remove o observer do dispatcher.
+	 * @param observer
+	 */
+	public static void unregisterObserver(Observer observer) {
+		observerList.remove(observer);
+	}
 }

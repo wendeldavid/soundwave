@@ -20,14 +20,6 @@ fim;
 metodo Vira
 Galiude.espelha
 fim;
-metodo teste
-repita 5 vezes inicio
-  repita 5 vezes inicio
-    Galiude.move(-100, 0, 0)
-  fim
-  Galiude.move(90, 0, 0)
-fim
-fim;
 metodo LevantaBico
 p6.move(-340, 355, 0)
 p7.gira(45)
@@ -40,6 +32,14 @@ p3.gira(45)
 p3.gira(45)
 p3.gira(45)
 p3.move(140, 1200, 0)
+fim;
+metodo teste
+repita 5 vezes inicio
+  repita 5 vezes inicio
+    Galiude.move(-100, 0, 0)
+  fim
+  Galiude.move(90, 0, 0)
+fim
 fim;
 metodo Direita
 repita 2 vezes inicio
@@ -68,11 +68,11 @@ fim;
 metodo MexePe11
 p4.gira(45) no ponto (19)
 fim;
-metodo MexePe12
-p4.gira(-45) no ponto (19)
-fim;
 metodo MexePe21
 p5.gira(-45) no ponto (22)
+fim;
+metodo MexePe12
+p4.gira(-45) no ponto (19)
 fim;
 metodo MexePe22
 p5.gira(45) no ponto (22)
@@ -102,7 +102,8 @@ repita 2 vezes inicio
 fim
 fim;
 metodo VaiEVolta
-repita 10 vezes inicio
+fala('C:/Documents and Settings/wendel/workspace/soundwave-mbrola-test/resources/jsml_parallel_1.xml')
+enquanto fala inicio
     faça Direita
     faça Vira
     pisca(25)

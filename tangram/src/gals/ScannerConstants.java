@@ -1751,21 +1751,20 @@ public interface ScannerConstants
         {255, 21}
     };
 
-    int[] TOKEN_STATE = {-1,  0,  0, 60, 60, 57, 58, 60, 59, 60,  4, 56,  2, -1,  4, -1, -1,  4,  2,  3, -1,  0,  0 };
+    int[] TOKEN_STATE = {-1,  0,  0, 61, 61, 58, 59, 61, 60, 61,  4, 57,  2, -1,  4, -1, -1,  4,  2,  3, -1,  0,  0 };
 
     int[] SPECIAL_CASES_INDEXES =
-        { 0, 0, 0, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51 };
+        { 0, 0, 0, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52 };
 
     String[] SPECIAL_CASES_KEYS =
-        {  "APAGA", "CRIA", "TERMINA", "VIVA", "amarelo", "azul", "azulMarinho", "azulPiscina", "branco", "cinza", "como", "cor", "cria", "de", "depois", "em", "enquanto", "espelha", "fala", "faça", "fim", "gira", "inicio", "marrom", "metodo", "modelo", "move", "mundo", "no", "oliva", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "paralelo", "pisca", "ponto", "prata", "preto", "repita", "rosa", "sobreposto", "verde", "verdeLima", "verdePiscina", "vermelho", "vezes", "violeta" };
+        {  "APAGA", "CRIA", "TERMINA", "VIVA", "amarelo", "azul", "azulMarinho", "azulPiscina", "branco", "cinza", "como", "cor", "cria", "de", "depois", "em", "enquanto", "espelha", "espera", "fala", "faça", "fim", "gira", "inicio", "marrom", "metodo", "modelo", "move", "mundo", "no", "oliva", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "paralelo", "pisca", "ponto", "prata", "preto", "repita", "rosa", "sobreposto", "verde", "verdeLima", "verdePiscina", "vermelho", "vezes", "violeta" };
 
     int[] SPECIAL_CASES_VALUES =
-        {  11, 9, 12, 10, 38, 39, 40, 41, 42, 43, 27, 14, 26, 21, 20, 17, 55, 15, 54, 19, 25, 13, 24, 44, 7, 6, 28, 8, 22, 45, 31, 32, 33, 34, 35, 36, 37, 18, 29, 23, 46, 47, 16, 48, 5, 49, 51, 50, 52, 30, 53 };
+        {  11, 9, 12, 10, 38, 39, 40, 41, 42, 43, 27, 14, 26, 21, 20, 17, 55, 15, 56, 54, 19, 25, 13, 24, 44, 7, 6, 28, 8, 22, 45, 31, 32, 33, 34, 35, 36, 37, 18, 29, 23, 46, 47, 16, 48, 5, 49, 51, 50, 52, 30, 53 };
 
     String[] SCANNER_ERROR =
     {
         "Caractere não esperado",
-        "Erro na escrita. Caractere não esperado",
         "Erro na escrita. Caractere não esperado",
         "Erro na escrita. Caractere não esperado",
         "Erro na escrita. Caractere não esperado",
