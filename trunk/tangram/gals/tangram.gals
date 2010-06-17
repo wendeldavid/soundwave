@@ -8,7 +8,7 @@ SemanticName = Semantico
 Package = gals
 ScannerCaseSensitive = true
 ScannerTable = Compact
-Input = Stream
+Input = String
 Parser = RD
 #RegularDefinitions
 id: [a-zA-Z]+[a-zA-Z0-9_ç]*
@@ -71,6 +71,7 @@ vermelho = identificador: "vermelho"
 violeta = identificador: "violeta"
 fala = identificador : "fala"
 enquanto = identificador : "enquanto"
+espera = identificador : "espera"
 ";" : ;
 "(" : \(
 ")" : \)
@@ -124,6 +125,7 @@ enquanto = identificador : "enquanto"
 <comando_fala>
 <comando_fala_sobreposto>
 <comando_enquanto_fala>
+<comando_espera_fala>
 #Grammar
 <codigo> ::= <modelo> | <mundo> | <metodo_cria> #2 ;
 <modelo> ::= modelo  #0 <figura> <Lista_de_metodos> fim "." #27 ;
@@ -133,7 +135,7 @@ enquanto = identificador : "enquanto"
 <metodo> ::= metodo <nome_Metodo> #12 <bloco> fim ";" #26 ;
 <bloco> ::= <comando> <bloco_2> ;
 <bloco_2> ::= <bloco> | î ;
-<comando> ::= <comando_cria> | <comandos_em_ids> |  <comando_piscar> #22 #14 | <comando_repete> | <comando_faca> |<comando_fala> | <comando_enquanto_fala> ;
+<comando> ::= <comando_cria> | <comandos_em_ids> |  <comando_piscar> #22 #14 | <comando_repete> | <comando_faca> |<comando_fala> | <comando_enquanto_fala> | <comando_espera_fala> ;
 <comandos_em_ids> ::= <id> "." <comando_de_id> ;
 <comando_de_id> ::= <comando_move> #14 | <comando_gira> #14 | <comando_cor> #14 | <comando_espelha> #14 ;
 <comando_cria> ::= cria <peca> "(" <X> "," <Y> "," <Z>  ")" #13 #14 <cria_extra> ;
@@ -170,3 +172,4 @@ enquanto = identificador : "enquanto"
 <comando_fala> ::= fala "(" jsml #37 <comando_fala_sobreposto> ")" #39 #14;
 <comando_fala_sobreposto> ::= sobreposto #38 | î;
 <comando_enquanto_fala> ::= enquanto fala #40 inicio <bloco> fim #41 #14;
+<comando_espera_fala> ::= espera fala #42 #14;

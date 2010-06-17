@@ -59,10 +59,11 @@ public interface Constants extends ScannerConstants, ParserConstants
     int t_violeta = 53;
     int t_fala = 54;
     int t_enquanto = 55;
-    int t_TOKEN_56 = 56; //";"
-    int t_TOKEN_57 = 57; //"("
-    int t_TOKEN_58 = 58; //")"
-    int t_TOKEN_59 = 59; //","
-    int t_TOKEN_60 = 60; //"."
+    int t_espera = 56;
+    int t_TOKEN_57 = 57; //";"
+    int t_TOKEN_58 = 58; //"("
+    int t_TOKEN_59 = 59; //")"
+    int t_TOKEN_60 = 60; //","
+    int t_TOKEN_61 = 61; //"."
 
 }

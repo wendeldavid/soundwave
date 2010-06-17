@@ -14,6 +14,7 @@ import tangram.comandos.ComandoCriaPeca;
 import tangram.comandos.ComandoEnquantoFala;
 import tangram.comandos.ComandoEspelha;
 import tangram.comandos.ComandoEspera;
+import tangram.comandos.ComandoEsperaFala;
 import tangram.comandos.ComandoFala;
 import tangram.comandos.ComandoGira;
 import tangram.comandos.ComandoLaco;
@@ -499,6 +500,9 @@ public class Semantico implements Constants{
 //                 }else{
 //                     comando = null;
 //                 }
+            	break;
+            case 42:
+            	comando = new ComandoEsperaFala();
             	break;
         }
         	
