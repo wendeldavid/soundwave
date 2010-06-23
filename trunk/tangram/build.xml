@@ -1,0 +1,21 @@
+<project name="tangram" default="all">
+	<import file="../soundwave-builder/build-utils.xml" />
+
+	<property name="tangram.classpath" value="tangram.jar soundwave.jar soundwave-player.jar sounwave-mbrola.jar lib/ant-apache-regexp.jar lib/ant.jmf.jar lib/ant-nodeps.jar lib/ant.jar lib/beansbidings-1.2.1.jar lib/dom4j-1.6.1.jar lib/gluegen-rt.jar lib/junit.jar lib/log4j-1.2.12.jar lib/swing-layout-1.0.3.jar lib/xml-apis.jar"/>
+	
+	<target name="generate-lib">
+		<manifest file="MANIFEST.MF">
+			<attribute name="Main-Class" value="tangram.gui.Launcher" />
+			<attribute name="Class-Path" value="${tangram.classpath}"/>
+		</manifest>
+
+		<jar destfile="${workspace}/soundwave-builder/binary/${ant.project.name}.jar" manifest="MANIFEST.MF">
+			<fileset dir="${workspace}/${ant.project.name}/bin">
+				<include name="**/*.*" />
+			</fileset>
+		</jar>
+
+		<delete file="MANIFEST.MF" failonerror="false" />
+	</target>
+
+</project>
