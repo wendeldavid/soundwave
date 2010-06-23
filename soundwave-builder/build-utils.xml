@@ -1,0 +1,51 @@
+<project name="">
+
+	<property name="workspace" location="${basedir}/.." />
+
+	<path id="compile-classpath">
+		<fileset dir="${workspace}/3rd-party">
+			<include name="*/*.*" />
+		</fileset>
+		<pathelement path="${workspace}/soundwave/bin" />
+		<pathelement path="${workspace}/soundwave-test/bin" />
+		<pathelement path="${workspace}/soundwave-mbrola/bin" />
+		<pathelement path="${workspace}/soundwave-mbrola-test/bin" />
+		<pathelement path="${workspace}/soundwave-player/bin" />
+		<pathelement path="${workspace}/tangram/bin" />
+	</path>
+
+	<target name="all">
+		<ant target="for-project">
+			<property name="target" value="clear-bin" />
+		</ant>
+		<ant target="for-project">
+			<property name="target" value="compile-project" />
+		</ant>
+		<ant target="for-project">
+			<property name="target" value="generate-lib" />
+		</ant>
+	</target>
+
+	<target name="for-project">
+		<ant target="${target}" />
+	</target>
+
+	<target name="clear-bin">
+		<property name="bin.dir" location="${workspace}/${ant.project.name}/bin" />
+		<delete dir="${bin.dir}" failonerror="false" />
+		<mkdir dir="${bin.dir}" />
+	</target>
+
+	<target name="compile-project">
+		<javac fork="on" srcdir="${workspace}/${ant.project.name}/src" classpathref="compile-classpath" destdir="${workspace}/${ant.project.name}/bin" failonerror="true" target="1.6" source="1.6" />
+	</target>
+
+	<target name="generate-lib">
+		<jar destfile="${workspace}/soundwave-builder/binary/${ant.project.name}.jar">
+			<fileset dir="${workspace}/${ant.project.name}/bin">
+				<include name="**/*.*" />
+			</fileset>
+		</jar>
+	</target>
+
+</project>

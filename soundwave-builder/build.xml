@@ -1,0 +1,69 @@
+<project name="soundwave-builder" default="main">
+
+	<target name="main">
+		<ant target="execute-build">
+			<property name="project" value="soundwave" />
+		</ant>
+		<ant target="execute-build">
+			<property name="project" value="soundwave-test" />
+		</ant>
+		<ant target="execute-build">
+			<property name="project" value="soundwave-player" />
+		</ant>
+		<ant target="execute-build">
+			<property name="project" value="soundwave-mbrola" />
+		</ant>
+		<ant target="execute-build">
+			<property name="project" value="soundwave-mbrola-test" />
+		</ant>
+		<ant target="execute-build">
+			<property name="project" value="tangram" />
+		</ant>
+		
+		<ant target="generate-external-libs" />
+		
+		<ant target="generate-executable" />
+		
+		<eclipse.refreshLocal resource="${basedir}" depth="infinite" />
+	</target>
+	
+	<target name="execute-build">
+		<ant antfile="${basedir}/../${project}/build.xml" inheritall="false" inheritrefs="false" />
+	</target>
+
+	<target name="generate-external-libs">
+		<property name="lib.dir" location="${basedir}/binary/lib"/>
+
+		<delete dir="${lib.dir}" failonerror="false" />
+		<mkdir dir="${lib.dir}"/>
+		
+		<copy todir="${lib.dir}">
+			<fileset dir="${basedir}/../3rd-party/ant">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="${basedir}/../3rd-party/dom4j">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="${basedir}/../3rd-party/jogl">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="${basedir}/../3rd-party/junit">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="${basedir}/../3rd-party/log4j">
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${basedir}/binary">
+			<fileset dir="${basedir}/../3rd-party/jogl">
+				<include name="**/*.so"/>
+				<include name="**/*.dll"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="generate-executable">
+		<echo file="${basedir}/binary/runTangram.bat">java -cp "tangram.jar;soundwave.jar;soundwave-player.jar;sounwave-mbrola.jar;lib/ant-apache-regexp.jar;lib/ant.jmf.jar;lib/ant-nodeps.jar;lib/ant.jar;lib/beansbidings-1.2.1.jar;lib/dom4j-1.6.1.jar;lib/gluegen-rt.jar;lib/junit.jar;lib/log4j-1.2.12.jar;lib/swing-layout-1.0.3.jar;lib/xml-apis.jar" tangram.gui.Launcher</echo>
+	</target>
+	
+</project>
