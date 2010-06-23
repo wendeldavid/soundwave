@@ -41,7 +41,8 @@ public class SoundwaveManager {
 			for (int i = 0; i < clazz.getInterfaces().length; i++) {
 				if (ISynthesizer.class.getName().equals(clazz.getInterfaces()[i].getName())) {
 					Constructor<?> constructor = clazz.getDeclaredConstructor();
-					this.synthesizer = (ISynthesizer) constructor.newInstance(null);
+					Object[] params = null;//para evitar warning do compilador
+					this.synthesizer = (ISynthesizer) constructor.newInstance(params);
 					return;
 				}
 			}
