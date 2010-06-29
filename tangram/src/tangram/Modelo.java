@@ -46,7 +46,7 @@ public class Modelo{
         this.file = file;
         nomeDoModelo = file.getName().replaceAll(".mod", "");
         carregaDoArquivo(file);
-        // se carregou sem erro n√£o √© nulo.
+        // se carregou sem erro n„o È nulo.
         if(acoes != null)
             init();
     }
@@ -81,7 +81,7 @@ public class Modelo{
         // novo edito de texto
         editorTexto = new EditorTextual(this);
         
-        // Gerador de C√≥digo
+        // Gerador de CÛdigo
         codeMaker = new CodeMaker(editorTexto);
         handler.setCodeMaker(codeMaker);
         
@@ -164,7 +164,7 @@ public class Modelo{
                 posFim = code.indexOf("metodo");
                 subCode = code.substring(posIni,posFim);
 
-                // pega a parte de c√≥digo dos modelos
+                // pega a parte de cÛdigo dos modelos
                 posIni = posFim;
                 posFim = code.indexOf("fim.");
                 String codigoAcoes = code.substring(posIni, posFim);
@@ -178,7 +178,7 @@ public class Modelo{
                     posFim = codigoAcoes.indexOf("\n", posIni);
                     String nomeDoMetodo = codigoAcoes.substring(posIni,posFim);
 
-                    // Pega C√≥digo do Metodo
+                    // Pega CÛdigo do Metodo
                     posIni = posFim;
                     posFim = codigoAcoes.indexOf("fim;", posIni);
                     subCode = codigoAcoes.substring(posIni,posFim);
@@ -191,11 +191,11 @@ public class Modelo{
                 }
                 return acoesDoCodigo;
             } else
-                Msg.erro("C√≥digo Desconhecido!\n" +
-                        "N√£o √© um Modelo!");
+                Msg.erro("CÛdigo Desconhecido!\n" +
+                        "N„o È um Modelo!");
         } catch (Exception ex){
-            Msg.erro("C√≥digo Desconhecido!\n" +
-                        "N√£o √© um Modelo!");
+            Msg.erro("CÛdigo Desconhecido!\n" +
+                        "N„o È um Modelo!");
             ex.printStackTrace();
         }
         return null;
