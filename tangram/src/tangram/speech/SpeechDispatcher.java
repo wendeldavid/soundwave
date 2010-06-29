@@ -14,7 +14,7 @@ import tangram.comandos.Observer;
 public final class SpeechDispatcher extends Thread {
 
 	private SpeakingPool pool;
-	private static List<Observer> observerList;
+	private static List<Observer> observerList = new ArrayList<Observer>();
 
 	private static ConcurrentLinkedQueue<SpeechThread> queue = new ConcurrentLinkedQueue<SpeechThread>();// falas que estão aguardando sua vez
 
@@ -113,9 +113,6 @@ public final class SpeechDispatcher extends Thread {
 	 * @param observer
 	 */
 	public static void registerObserver(Observer observer) {
-		if(observerList == null) {
-			observerList = new ArrayList<Observer>();
-		}
 		observerList.add(observer);
 	}
 	
