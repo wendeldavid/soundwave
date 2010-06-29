@@ -135,7 +135,7 @@ public final class Syllable implements IComponent{
 				}
 
 				case 'ç': {
-					sound = "x";
+					sound = "s";
 					break;
 				}
 
