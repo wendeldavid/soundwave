@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml>
+	<voice gender="male" age="adult" variant="6" name="br1"></voice>
+	<sayas>Primeiro, deves abrir o Tangram. 
+Então contar até três, não mais, não menos.
+Três deverá ser o número que será contado, e o número a ser contado deve ser três. 
+Não irás contar quatro, nem dois, a não ser que depois deste proceda o três. 
+Cinco está fora.
+Uma vez que o número três, sendo o terceiro número, seja alcançado, então é permitido dar continuação à apresentação.
+</sayas>
+</jsml>

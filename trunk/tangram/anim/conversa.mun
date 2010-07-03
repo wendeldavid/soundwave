@@ -1,0 +1,10 @@
+mundo conversa
+cria pessoaH como pessoaH(-2868.0,2031.0,-9099.0)
+cria pessoaM como pessoaM(2342.0,2856.0,-9099.0)
+
+faça pessoaH.fala1
+faça pessoaM.piscadela
+faça pessoaM.fala2
+faça pessoaH.fala3
+faça pessoaM.piscadela
+fim.
