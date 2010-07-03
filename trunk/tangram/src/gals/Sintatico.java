@@ -493,21 +493,21 @@ public class Sintatico implements Constants
     {
         switch (currentToken.getId())
         {
-            case 14: // repita
-            case 17: // faca
-            case 23: // fim
-            case 24: // cria
-            case 27: // piscar
+            case 16: // repita
+            case 19: // faca
+            case 25: // fim
+            case 26: // cria
+            case 29: // piscar
                 // EPSILON
                 break;
-            case 15: // em
-                match(15); // em
-                match(16); // paralelo
+            case 17: // em
+                match(17); // em
+                match(18); // paralelo
                 semanticAnalyser.executeAction(35, previousToken);
                 em_paralelo_extra();
                 break;
             default:
-                throw new SyntaticError(PARSER_ERROR[80], currentToken.getPosition());
+                throw new SyntaticError(PARSER_ERROR[85], currentToken.getPosition());
         }
     }
 
@@ -515,20 +515,20 @@ public class Sintatico implements Constants
     {
         switch (currentToken.getId())
         {
-            case 14: // repita
-            case 17: // faca
-            case 23: // fim
-            case 24: // cria
-            case 27: // piscar
+            case 16: // repita
+            case 19: // faca
+            case 25: // fim
+            case 26: // cria
+            case 29: // piscar
                 // EPSILON
                 break;
-            case 18: // depois
-                match(18); // depois
-                match(19); // de
+            case 20: // depois
+                match(20); // depois
+                match(21); // de
                 comando_piscar();
                 break;
             default:
-                throw new SyntaticError(PARSER_ERROR[81], currentToken.getPosition());
+                throw new SyntaticError(PARSER_ERROR[86], currentToken.getPosition());
         }
     }
 
