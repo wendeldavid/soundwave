@@ -48,7 +48,7 @@ public class InsereComandoGira extends javax.swing.JPanel {
         // se confirmou
         if(gerarCodigo){
             // cria nova string
-            codigo = new String();
+            codigo = "";
             codigo += painelSelecionaPeca1.getSelected() + ".gira(" + 
                     String.valueOf((int)angulo) + ")";
             if(ponto > 0)

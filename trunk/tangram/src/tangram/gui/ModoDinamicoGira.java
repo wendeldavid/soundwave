@@ -76,7 +76,7 @@ public class ModoDinamicoGira extends javax.swing.JPanel {
         // se confirmou
         if(gerarCodigo){
             // cria nova string
-            codigo = new String();
+            codigo = "";
             
             // concatena o comando repita
             codigo += "repita " +

@@ -45,7 +45,7 @@ public class InsereComandoPisca extends javax.swing.JPanel {
         // se confirmou
         if(gerarCodigo){
             // cria nova string
-            codigo = new String();
+            codigo = "";
             codigo += "pisca(" + String.valueOf(tempo) + ")";
         }
         return codigo;
