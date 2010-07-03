@@ -13,5 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/soundwave"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-mbrola"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/soundwave-player"/>
+	<classpathentry kind="lib" path="/3rd-party/ant/ant.jar" sourcepath="/3rd-party/ant/src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
