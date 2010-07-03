@@ -44,7 +44,7 @@ public class InsereComandoRepete extends javax.swing.JPanel {
         // se confirmou
         if(gerarCodigo){
             // cria nova string
-            codigo = new String();
+            codigo = "";
             codigo += "repita " + 
                     String.valueOf(repeticoes) + 
                     " vezes inicio\n    \nfim";

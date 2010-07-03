@@ -48,7 +48,7 @@ public class InsereComandoCor extends javax.swing.JPanel {
         // se confirmou
         if(gerarCodigo){
             // cria nova string
-            codigo = new String();
+            codigo = "";
             codigo += painelSelecionaPeca1.getSelected() + ".cor(" +
                     cor.toLowerCase() + ")";
         }
