@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml>
+	<voice gender="male" age="adult" variant="6" name="br3"></voice>
+	<sayas>Enquanto eu falo, o moinho está girando, girando, girando.</sayas>
+</jsml>

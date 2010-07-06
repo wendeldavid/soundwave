@@ -8,20 +8,26 @@ cria p5(-1343,1430,-7000) cor(azul)
 cria p6(-921,1075,-7000)
 cria p7(0,0,0)
 fim;
+metodo vendedor
+fala('C:/temp/anim/fala_completa.jsml')
+enquanto fala inicio
+faça tagarela
+fim
+fim;
 metodo fechaBoca
 p1.move(-19, 95, 0)
 pisca(40)
 p1.move(-19, 95, 0)
 pisca(40)
 fim;
-metodo fala3
-fala('c:/temp/anim/pessoa1_fala3.jsml')
+metodo fala2
+fala('c:/temp/anim/pessoaH_fala2.jsml')
 enquanto fala inicio
 faça tagarela
 fim
 fim;
 metodo fala1
-fala('c:/temp/anim/pessoa1_fala1.jsml')
+fala('c:/temp/anim/pessoaH_fala1.jsml')
 enquanto fala inicio
 faça tagarela
 fim
