@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <jsml>
 	<voice gender="male" age="adult" variant="6" name="br3"></voice>
-	<sayas>jabulâni</sayas>
-	<break time="2000"/>
-	<sayas>jabulâni?</sayas>
+	<sayas>Enquanto eu falo o moinho está esperando, mas ele vai girar logo.</sayas>
 </jsml>

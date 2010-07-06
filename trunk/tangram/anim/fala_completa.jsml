@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsml lang="pt-br">
+	<voice gender="male" age="adult" variant="6" name="br1"></voice>
+ 
+	<sayas>Atenção Proprietário do veículo placa</sayas>
+	<break time="500" />
+	<sayas class="literal">MDK1234</sayas>
+	<break time="500" />
+	<sayas>favor comparecer ao seu veículo.</sayas>
+	
+	<break time="1000" />
+	<sayas>O carro novo</sayas>
+	<sayas class="measure">0Km</sayas>
+	<sayas>custa</sayas>
+	<sayas class="currency">R$3560,00</sayas>
+	<sayas>em até</sayas>
+	<sayas class="number">15</sayas>
+	<sayas>vezes.</sayas>
+	<break time="500" />
+	<sayas>Mas isto até</sayas>
+	<sayas class="date">09/07/2010</sayas>
+	<sayas>no endeço</sayas>
+	<sayas class="address">R. Antônio da Veiga nº140</sayas>
+	<sayas>telefone</sayas>
+	<sayas class="phone">3323-6544</sayas>
+	<sayas>ou no endereço eletrônico</sayas>
+	<sayas class="net">http://www.inf.furb.br</sayas>.
+
+</jsml>

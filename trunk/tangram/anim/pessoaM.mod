@@ -32,7 +32,13 @@ p5.move(0, 95, 0)
 pisca(40)
 fim;
 metodo fala2
-fala('c:/temp/anim/pessoa1_fala2.jsml')
+fala('c:/temp/anim/pessoaM_fala2.jsml')
+enquanto fala inicio
+faça tagarela
+fim
+fim;
+metodo fala1
+fala('c:/temp/anim/pessoaM_fala1.jsml')
 enquanto fala inicio
 faça tagarela
 fim
